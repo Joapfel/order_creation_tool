@@ -1,0 +1,29 @@
+image: kmindi/openjdk-ant-docker
+
+stages:
+  - build
+  - test
+  - integrate
+
+build:
+  stage: build
+  script: ant compile
+  artifacts:
+    paths:
+     - bin/*
+
+test:
+  stage: test
+  script:
+    - ant test
+  artifacts:
+    paths:
+      - doc/testReport/*
+
+integrate:
+  stage: integrate
+  script: 
+    - ant jar
+  artifacts:
+    paths:
+      - bin/jar/*

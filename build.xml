@@ -1,0 +1,49 @@
+<project name="EST App" basedir="." default="compile">
+	
+	<property name="src.dir"     value="src"/>
+	<property name="test.dir"    value="test"/>
+    <property name="build.dir"   value="bin"/>
+    <property name="classes.dir" value="${build.dir}/classes"/>
+    <property name="jar.dir"     value="${build.dir}/jar"/>
+    <property name="main-class"  value="de.uni_stuttgart.est.project.Main"/>
+	
+	<path id="lib.path.ref">
+	  <fileset dir="lib" includes="*.jar"/>
+	</path>
+		
+	<target name="clean">
+        <delete dir="${build.dir}"/>
+    </target>
+	
+	<target name="compile">
+		<mkdir dir="${classes.dir}"/>
+        <javac includeantruntime="false" srcdir="${src.dir}" destdir="${classes.dir}"/>
+    </target>
+	
+	<target name="jar" depends="compile">
+        <mkdir dir="${jar.dir}"/>
+        <jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${classes.dir}">
+            <manifest>
+                <attribute name="Main-Class" value="${main-class}"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run" depends="jar">
+        <java jar="${jar.dir}/${ant.project.name}.jar" fork="true"/>
+    </target>
+	
+	<target name="compileTests">
+        <mkdir dir="${classes.dir}"/>
+        <javac includeantruntime="false" srcdir="${test.dir}" destdir="${classes.dir}">
+        	<classpath refid="lib.path.ref"/>
+        </javac>
+    </target>
+	
+	<target name="test" depends="compileTests" description="runs tests">
+	     <exec executable="java" failonerror="true">
+	       <arg line="-ea -jar lib/junit-platform-console-standalone-1.1.1.jar --class-path ${build.dir} --scan-class-path --reports-dir doc/testReport"/>
+	     </exec>
+	</target>
+</project>
+
