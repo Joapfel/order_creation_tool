@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+
+        body{
+            background-color: #d9d9d9;
+        }
+
+        .unit{
+            margin: 10px 0 100px 0;
+        }
+
+        .unit-heading{
+            background-color: grey;
+            height: 50px;
+            text-align: center;
+        }
+
+        .material,
+        .units-count,
+        .price-per-unit,
+        .machine,
+        .machine-hours,
+        .machine-per-hour,
+        .human-hours,
+        .human-hour-price{
+            margin: 0 0 0 170px;
+        }
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!-- Navbar content -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="kundenerfassung.html" id="customer-registration">Kundenerfassung<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Auftragserstellung<span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid">
+
+    </br>
+    <div class="unit-heading">
+        <h2>Auftrag 1</h2>
+    </div>
+
+    <div class="row">
+        <div class="col-sm">
+            <form>
+                <div class="form-group">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="28" placeholder="Hier kommt der ausformulierte Kundenwunsch..."></textarea>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm">
+            <div class="card text-center">
+                <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Auftragserstellung</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="auftragerstellung_vorschau.html">Angebot ausformuliert</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-body">
+
+                </div>
+            </div>
+
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Materialien</span>
+                </div>
+                <input type="text" aria-label="First name" class="form-control" placeholder="Material">
+                <input type="text" aria-label="First name" class="form-control" placeholder="Stückzahl">
+                <input type="text" aria-label="Last name" class="form-control" placeholder="€ / Stück">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button" id="button-addon-material">Hinzufügen</button>
+                </div>
+            </div>
+            <div class="card">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item item-used">
+                        <span class="material">Material X</span>
+                        <span class="units-count">3</span>
+                        <span class="price-per-unit">100 Euro</span>
+                        <button class="btn btn-outline-danger my-2 my-sm-0 float-right" type="submit">Löschen</button>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="material">Material Y</span>
+                        <span class="units-count">20</span>
+                        <span class="price-per-unit">5 Euro</span>
+                        <button class="btn btn-outline-danger my-2 my-sm-0 float-right" type="submit">Löschen</button>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="material">Material Z</span>
+                        <span class="units-count">1</span>
+                        <span class="price-per-unit">150 Euro</span>
+                        <button class="btn btn-outline-danger my-2 my-sm-0 float-right" type="submit">Löschen</button>
+                    </li>
+                </ul>
+            </div>
+
+            </br>
+
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Maschineneinsatz</span>
+                </div>
+                <input type="text" aria-label="First name" class="form-control" placeholder="Maschine">
+                <input type="text" aria-label="First name" class="form-control" placeholder="Einsatzstunden">
+                <input type="text" aria-label="Last name" class="form-control" value="150" placeholder="€ / Stunde">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button" id="button-addon-machine">Hinzufügen</button>
+                </div>
+            </div>
+            <div class="card">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <span class="machine">Maschine X</span>
+                        <span class="machine-hours">4</span>
+                        <span class="machine-per-hour">150 Euro</span>
+                        <button class="btn btn-outline-danger my-2 my-sm-0 float-right" type="submit">Löschen</button>
+                    </li>
+                </ul>
+            </div>
+
+            </br>
+
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Arbeitszeit</span>
+                </div>
+                <input type="text" aria-label="First name" class="form-control" placeholder="Stunden">
+                <input type="text" aria-label="Last name" class="form-control" value="80" placeholder="€ / Stunde">
+
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button" id="button-addon-hours">Hinzufügen</button>
+                </div>
+            </div>
+            <div class="card">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <span class="human-hours">35 Stunden</span>
+                        <span class="human-hour-price">80 Euro</span>
+                        <button class="btn btn-outline-danger my-2 my-sm-0 float-right" type="submit">Löschen</button>
+                    </li>
+                </ul>
+            </div>
+
+            </br>
+
+            <div class="float-left">
+                <button type="button" class="btn btn-success btn-lg">Speichern</button>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="open-iconic-master/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+
+    <style>
+
+        body{
+            background-color: #d9d9d9;
+        }
+
+        .unit{
+            margin: 10px 0 100px 0;
+        }
+
+        .unit-heading{
+            background-color: grey;
+            height: 50px;
+        }
+
+        .status{
+            margin: 0 70px 0 0;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!-- Navbar content -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" id="kundenerfassung" href="#">Kundenerfassung<span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid">
+
+    <br>
+
+    <div class="unit-heading">
+        <h2>Kundenerfassung und Suche</h2>
+    </div>
+
+    <div class="unit" id="customer-registration">
+        <div class="row">
+            <!-- Firma -->
+            <div class="col-sm">
+                <div class="input-group input-group-lg">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="company-name-label">Firma</span>
+                    </div>
+                    <input type="text" class="form-control" id="company-name" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                </div>
+            </div>
+
+            <!-- Adresse -->
+            <div class="col-sm">
+                <div class="input-group input-group-lg">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Adresse</span>
+                    </div>
+                    <input type="text" aria-label="First name" class="form-control">
+                    <input type="text" aria-label="Last name" class="form-control">
+                </div>
+
+                <div class="input-group input-group-lg">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Postleitzahl</span>
+                    </div>
+                    <input type="text" aria-label="First name" class="form-control">
+                </div>
+
+                <div class="input-group input-group-lg">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Stadt</span>
+                    </div>
+                    <input type="text" aria-label="First name" class="form-control">
+                </div>
+
+                <div class="input-group input-group-lg">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Land</span>
+                    </div>
+                    <input type="text" aria-label="First name" class="form-control">
+                </div>
+            </div>
+
+            <!-- Stichworte, Suche, Speichern -->
+            <div class="col-sm">
+                <div class="input-group input-group-lg">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Stichwortsuche</span>
+                    </div>
+                    <input type="text" aria-label="First name" class="form-control">
+                </div>
+                <button type="button" class="btn btn-success btn-lg" id="save-customer">Speichern</button>
+                <button type="button" class="btn btn-primary btn-lg">Suchen</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- seperator -->
+    <div class="unit-heading">
+        <h2>Gefundene Firmen und Aufträge</h2>
+    </div>
+
+
+    <div class="unit" id="customer-found-page">
+        <!-- Gefundene Ergebnisse -->
+        <div class="row" id="result-view">
+            <div class="col-sm">
+                <div class="accordion" id="accordionExample">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <span class="oi oi-caret-bottom"></span>
+                                </button>
+                                Schreinerei Schrab GmbH
+                                <button class="btn btn-primary my-2 my-sm-0 float-right new-order" type="submit">Neuer Auftrag</button>
+                            </h2>
+                        </div>
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <span>Auftrag 1</span>
+                                        <div class="float-right">
+                                            <span class="status accepted">Status: Angenommen</span>
+                                            <button class="btn btn-outline-primary my-2 my-sm-0 float-right" type="submit">Bearbeiten</button>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span>Auftrag 2</span>
+                                        <div class="float-right">
+                                            <span class="status inprogress">Status: In Bearbeitung</span>
+                                            <button class="btn btn-outline-primary my-2 my-sm-0 float-right" type="submit">Bearbeiten</button>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span>Auftrag 3</span>
+                                        <div class="float-right">
+                                            <span class="status refused">Status:  Abgelehnt</span>
+                                            <button class="btn btn-outline-primary my-2 my-sm-0 float-right" type="submit">Bearbeiten</button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <span class="oi oi-caret-bottom"></span>
+                                </button>
+                                Stahl AG
+                                <button class="btn btn-primary my-2 my-sm-0 float-right new-order" type="submit">Neuer Auftrag</button>
+                            </h2>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                            <div class="card">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <span>Auftrag 1</span>
+                                        <div class="float-right">
+                                            <span class="status inprogress">Status: In Bearbeitung</span>
+                                            <button class="btn btn-outline-primary my-2 my-sm-0 float-right" type="submit">Bearbeiten</button>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span>Auftrag 2</span>
+                                        <div class="float-right">
+                                            <span class="status inprogress">Status: In Bearbeitung</span>
+                                            <button class="btn btn-outline-primary my-2 my-sm-0 float-right" type="submit">Bearbeiten</button>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span>Auftrag 3</span>
+                                        <div class="float-right">
+                                            <span class="status inprogress">Status: In Bearbeitung</span>
+                                            <button class="btn btn-outline-primary my-2 my-sm-0 float-right" type="submit">Bearbeiten</button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <span class="oi oi-caret-bottom"></span>
+                                </button>
+                                Vermessungsbüro Meier
+                                <button class="btn btn-primary my-2 my-sm-0 float-right new-order" type="submit">Neuer Auftrag</button>
+                            </h2>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <div class="card" >
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <span>Auftrag 1</span>
+                                        <div class="float-right">
+                                            <span class="status inprogress">Status: In Bearbeitung</span>
+                                            <button class="btn btn-outline-primary my-2 my-sm-0 float-right" type="submit">Bearbeiten</button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
