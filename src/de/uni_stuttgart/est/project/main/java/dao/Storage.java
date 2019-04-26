@@ -18,6 +18,6 @@ public interface Storage {
     after uncommenting make sure the correct user class is used (not from another java package).
      */
 
-    //User findUserByUsername(String username);
-    //void saveUser(User user);
+    User findUserByUsername(String username);
+    void saveUser(User user);
 }
