@@ -38,7 +38,8 @@ public class User implements Serializable {
 	 * @return
 	 */
 	public boolean equals(User user_1, User user_2) {
-		if(user_1.username.equals(user_2.username)&&(user_1.password.equals(user_2.password))) {
+		if(user_1.username.equals(user_2.username)&&(user_1.password.equals(user_2.password))) 
+		{
 			return true;
 		}
 		else {
