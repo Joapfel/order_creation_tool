@@ -1,8 +1,7 @@
 package BrowserActions;
 
 import Utils.PathUtils;
-import com.teamdev.jxbrowser.chromium.Browser;
-import com.teamdev.jxbrowser.chromium.Callback;
+import com.teamdev.jxbrowser.chromium.*;
 
 public class PageLoader {
 
