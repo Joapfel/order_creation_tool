@@ -11,7 +11,7 @@ import java.util.*;
  * @author Philipp
  *
  */
-public class User_Serializer implements Serializable, Storage {
+public class User_Serializer implements Serializable, User_Storage {
 
 	/**
 	 * 

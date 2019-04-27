@@ -11,7 +11,7 @@ package dao;
  * as long as it works. This way the concrete storage method stays exchangeable at any time
  * without the need for refactoring.
  */
-public interface Storage {
+public interface User_Storage {
 
     /*
     uncomment this only after the user dao class was created.
