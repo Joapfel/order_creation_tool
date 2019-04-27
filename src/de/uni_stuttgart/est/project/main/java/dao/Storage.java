@@ -11,7 +11,7 @@ package dao;
  * as long as it works. This way the concrete storage method stays exchangeable at any time
  * without the need for refactoring.
  */
-public interface User_Storage {
+public interface Storage {
 
     /*
     uncomment this only after the user dao class was created.
@@ -20,4 +20,7 @@ public interface User_Storage {
 
     User findUserByUsername(String username);
     void saveUser(User user);
+	void saveCustomer(Customer customer);
+	Customer findCustomersByCompanyName(String companyName);
+	Customer findCustomerById(int companyID);	
 }

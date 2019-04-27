@@ -5,6 +5,11 @@ import java.util.LinkedList;
 
 public class Customer implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8904797428130831720L;
+	
 	private int customerID;
 	private String companyName;
 	private Address address;
@@ -31,7 +36,7 @@ public class Customer implements Serializable {
 	/**
 	 * @param customerID the customerID to set
 	 */
-	public void setCustomerID(int customerID) {
+	private void setCustomerID(int customerID) {
 		this.customerID = customerID;
 	}
 
