@@ -1,15 +1,14 @@
 package dao;
 
-public class Machine extends OrderComponent{
+public class Machine extends OrderComponentDecorator{
 
-	private OrderComponent orderComponent;
 	private String description;
 	private int hours;
 	private double pricePerHour;
 	private String outcome;
 	
 	public Machine(OrderComponent orderComponent, String description, int hours, double pricePerHour) {
-		this.orderComponent = orderComponent;
+		super(orderComponent);
 		this.description = description;
 		this.hours = hours;
 		this.pricePerHour = pricePerHour;

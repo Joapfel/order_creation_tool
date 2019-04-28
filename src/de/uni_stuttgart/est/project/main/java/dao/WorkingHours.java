@@ -1,15 +1,14 @@
 package dao;
 
-public class WorkingHours extends OrderComponent{
+public class WorkingHours extends OrderComponentDecorator{
 
-	private OrderComponent orderComponent;
 	private String description;
 	private int hours;
 	private double ratePerHour;
 	private String outcome;
 	
 	public WorkingHours(OrderComponent orderComponent, String description, int hours, double ratePerHour) {
-		this.orderComponent = orderComponent;
+		super(orderComponent);
 		this.description = description;
 		this.hours = hours;
 		this.ratePerHour = ratePerHour;

@@ -1,15 +1,14 @@
 package dao;
 
-public class Material extends OrderComponent{
+public class Material extends OrderComponentDecorator{
 	
-	private OrderComponent orderComponent;
 	private String description;
 	private int quantity;
 	private double pricePerUnit;
 	private String outcome;
 
 	public Material (OrderComponent orderComponent, String description, int quantity, double pricePerUnit) {
-		this.orderComponent = orderComponent;
+		super(orderComponent);
 		this.description = description;
 		this.quantity = quantity;
 		this.pricePerUnit = pricePerUnit;	

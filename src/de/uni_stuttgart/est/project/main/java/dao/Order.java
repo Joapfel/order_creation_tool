@@ -11,11 +11,11 @@ public class Order implements Serializable{
 	
 	private int orderID;
 	private String ordername;
-	private OrderComponent orderComponent;
+	private OrderComponentDecorator orderComponent;
 	private String orderAsText;
 	private IDHelper seq;
 	
-	public Order(String name, OrderComponent component, String text) {
+	public Order(String name, OrderComponentDecorator component, String text) {
 		this.orderID = seq.getNextOrder();
 		this.ordername = name;
 		this.orderComponent = component;
@@ -37,13 +37,13 @@ public class Order implements Serializable{
 	/**
 	 * @return the orderComponent
 	 */
-	public OrderComponent getOrderComponent() {
+	public OrderComponentDecorator getOrderComponent() {
 		return orderComponent;
 	}
 	/**
 	 * @param orderComponent the orderComponent to set
 	 */
-	public void setOrderComponent(OrderComponent orderComponent) {
+	public void setOrderComponent(OrderComponentDecorator orderComponent) {
 		this.orderComponent = orderComponent;
 	}
 	/**
