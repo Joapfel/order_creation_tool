@@ -9,13 +9,13 @@ package dao;
 public abstract class OrderComponent {
 	
 	private double sum;
-	private String text;
+	private String summary;
 	
 	public double price() {
 		return sum;
 	}
 	
 	public String summary() {
-		return text;
+		return summary;
 	}
 }

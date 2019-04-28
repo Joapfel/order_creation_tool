@@ -15,19 +15,30 @@ public class Machine extends OrderComponent{
 		this.pricePerHour = pricePerHour;
 	}
 		
+	private double adding(double x, double y) {
+		return x*y;
+	}
+	
 	public String toString() {
 		return outcome
 				.concat(this.description.toString()+": ")
 				.concat(String.valueOf(hours)+" Stunde(n), ")
 				.concat(String.valueOf(pricePerHour)+" Euro/Stunde, ")
-				.concat("Gesamt: "+String.valueOf(hours*pricePerHour)+" Euro");
+				.concat("Gesamt: "+String.valueOf(adding(hours,pricePerHour))+" Euro");
 	}
+		
 
 	@Override
 	public double price() {
-		super.price();
-		double sum = hours*pricePerHour;
-		return sum;
+		double sum = super.price();
+		return adding(sum,adding(hours,pricePerHour));
+	}
+	
+	@Override
+	public String summary() {
+		String summary = super.summary();
+		String ownSummary = toString();
+		return summary.concat(System.lineSeparator()+ownSummary);
 	}
 	
 }

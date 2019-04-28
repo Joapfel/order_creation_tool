@@ -12,19 +12,31 @@ public class Material extends OrderComponent{
 		this.orderComponent = orderComponent;
 		this.description = description;
 		this.quantity = quantity;
-		this.pricePerUnit = pricePerUnit;
-		
+		this.pricePerUnit = pricePerUnit;	
 	}
 	
+	private double adding(double x, double y) {
+		return x*y;
+	}
 	
 	public String toString() {
-		outcome
-			.concat(this.description.toString()+": ")
-			.concat(String.valueOf(quantity)+" Stück, ")
-			.concat(String.valueOf(pricePerUnit)+" Euro/Stück, ")
-			.concat("Gesamt: "+String.valueOf(quantity*pricePerUnit)+" Euro");
-			
-		
-		return null;
+		return outcome
+				.concat(this.description.toString()+": ")
+				.concat(String.valueOf(quantity)+" Stück, ")
+				.concat(String.valueOf(pricePerUnit)+" Euro/Stück, ")
+				.concat("Gesamt: "+String.valueOf(adding(quantity,pricePerUnit))+" Euro");
+	}
+	
+	@Override
+	public double price() {
+		double sum = super.price();
+		return adding(sum,adding(quantity,pricePerUnit));
+	}
+	
+	@Override
+	public String summary() {
+		String summary = super.summary();
+		String ownSummary = toString();
+		return summary.concat(System.lineSeparator()+ownSummary);
 	}
 }
