@@ -47,6 +47,11 @@ public class User implements Serializable {
 		}
 	}
 	
+	/**
+	 * Is needed for Serializer.
+	 * 
+	 * @return username of this user
+	 */
 	public String getUsername() {
 		return username;
 	}

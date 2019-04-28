@@ -4,9 +4,7 @@ import java.io.*;
 import java.util.*;
 
 /**
- * Speichern von User-Elementen
- * Jeder User wird mit seinem username gemapped.
- * Der username darf aus diesem Grund nur einmalig im System vorkommen!
+ * This class handles the data-saving operations for the program.
  * 
  * @author Philipp
  *
