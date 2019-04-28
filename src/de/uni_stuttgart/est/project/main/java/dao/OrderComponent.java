@@ -1,5 +1,21 @@
 package dao;
 
-public class OrderComponent {
-
+/**
+ * Using the decorator pattern for price calculations and so forth.
+ * 
+ * @author Philipp
+ *
+ */
+public abstract class OrderComponent {
+	
+	private double sum;
+	private String text;
+	
+	public double price() {
+		return sum;
+	}
+	
+	public String summary() {
+		return text;
+	}
 }
