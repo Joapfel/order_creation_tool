@@ -24,5 +24,5 @@ public interface Storage {
 	Customer findCustomersByCompanyName(String companyName);
 	Customer findCustomerById(int companyID);	
 	void saveOrder(Order order);
-	Order findOrderByDescription(String description);
+	Order findOrderByID(int orderID);
 }

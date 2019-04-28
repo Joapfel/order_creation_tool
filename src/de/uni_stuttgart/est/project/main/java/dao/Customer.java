@@ -18,7 +18,7 @@ public class Customer implements Serializable {
 	
 	
 	public Customer(String companyName, Address address, Order order) {
-		setCustomerID(seq.getNext());
+		setCustomerID(seq.getNextCustomer());
 		this.setCompanyName(companyName);
 		this.setAddress(address);
 		this.order.add(order);

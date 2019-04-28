@@ -10,15 +10,16 @@ import java.util.*;
  *
  */
 public class Serializer implements Serializable, Storage {
-
 	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 4750776875572132999L;
+	private static final long serialVersionUID = 1983614746413443136L;
+	
 	private HashMap<String, User> userMap = new HashMap<String, User>();
 	private HashMap<String, Customer> customerNameMap = new HashMap<String, Customer>();
 	private HashMap<Integer, Customer> customerIDMap = new HashMap<Integer, Customer>();
+	private HashMap<Integer, Order> orderIDMap = new HashMap<Integer, Order>();
 	
 	
 	@Override
@@ -60,6 +61,23 @@ public class Serializer implements Serializable, Storage {
 	public Customer findCustomerById(int companyID) {
 		if(customerIDMap.containsKey(companyID)) {
 			return customerIDMap.get(companyID);
+		} 
+		else {
+			return null;
+		}
+	}
+
+
+	@Override
+	public void saveOrder(Order order) {
+		orderIDMap.put(order.getOrderID(), order);
+	}
+
+
+	@Override
+	public Order findOrderByID(int orderID) {
+		if(orderIDMap.containsKey(orderID)) {
+			return orderIDMap.get(orderID);
 		} 
 		else {
 			return null;
