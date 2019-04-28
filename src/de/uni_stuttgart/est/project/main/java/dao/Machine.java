@@ -14,7 +14,7 @@ public class Machine extends OrderComponent{
 		this.hours = hours;
 		this.pricePerHour = pricePerHour;
 	}
-	
+		
 	public String toString() {
 		return outcome
 				.concat(this.description.toString()+": ")
@@ -22,4 +22,12 @@ public class Machine extends OrderComponent{
 				.concat(String.valueOf(pricePerHour)+" Euro/Stunde, ")
 				.concat("Gesamt: "+String.valueOf(hours*pricePerHour)+" Euro");
 	}
+
+	@Override
+	public double price() {
+		super.price();
+		double sum = hours*pricePerHour;
+		return sum;
+	}
+	
 }
