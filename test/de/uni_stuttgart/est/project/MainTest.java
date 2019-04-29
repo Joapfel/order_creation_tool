@@ -4,20 +4,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import dao.Address;
-import dao.Customer;
-import dao.FixRate;
-import dao.Machine;
-import dao.Material;
-import dao.Order;
-import dao.Serializer;
-import dao.WorkingHours;
+import dao.*;
 
 class MainTest {
 
 	@Test
 	void testPriceCalculation() {
-		FixRate fixRate = new FixRate();
+		BasicOrderComponent orderComp = new BasicOrderComponent();
+		FixRate fixRate = new FixRate(orderComp);
 		Material eisenstange = new Material(fixRate, "Eisenstangen", 5, 15);
 		Machine lastenkran = new Machine(eisenstange, "Lastenkran", 2, 150);
 		WorkingHours theOuter = new WorkingHours(lastenkran, "Junior", 8, 80);
@@ -29,7 +23,8 @@ class MainTest {
 
 	@Test
 	void testOrderStorage() {
-		FixRate fixRate = new FixRate();
+		BasicOrderComponent orderComp = new BasicOrderComponent();
+		FixRate fixRate = new FixRate(orderComp);
 		Material eisenstange = new Material(fixRate, "Eisenstangen", 5, 15);
 		Machine lastenkran = new Machine(eisenstange, "Lastenkran", 2, 150);
 		WorkingHours theOuter = new WorkingHours(lastenkran, "Junior", 8, 80);
@@ -44,7 +39,8 @@ class MainTest {
 	
 	@Test
 	void testOrderStorageWrongID() {
-		FixRate fixRate = new FixRate();
+		BasicOrderComponent orderComp = new BasicOrderComponent();
+		FixRate fixRate = new FixRate(orderComp);
 		Material eisenstange = new Material(fixRate, "Eisenstangen", 5, 15);
 		Machine lastenkran = new Machine(eisenstange, "Lastenkran", 2, 150);
 		WorkingHours theOuter = new WorkingHours(lastenkran, "Junior", 8, 80);
@@ -60,7 +56,8 @@ class MainTest {
 
 	@Test
 	void testCustomerStorage() {
-		FixRate fixRate = new FixRate();
+		BasicOrderComponent orderComp = new BasicOrderComponent();
+		FixRate fixRate = new FixRate(orderComp);
 		Material eisenstange = new Material(fixRate, "Eisenstangen", 3, 20);
 		Machine lastenkran = new Machine(eisenstange, "Lastenkran", 1, 150);
 		WorkingHours theOuter = new WorkingHours(lastenkran, "Junior", 4, 80);
