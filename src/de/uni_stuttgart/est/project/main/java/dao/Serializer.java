@@ -83,9 +83,4 @@ public class Serializer implements Serializable, Storage {
 			return null;
 		}
 	}
-	
-	
-	
-	
-
 }
