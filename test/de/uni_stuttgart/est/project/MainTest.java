@@ -6,10 +6,10 @@ import org.junit.jupiter.api.Test;
 
 import dao.*;
 
-class MainTest {
+public class MainTest {
 
 	@Test
-	void testPriceCalculation() {
+	public void testPriceCalculation() {
 		BasicOrderComponent orderComp = new BasicOrderComponent();
 		FixRate fixRate = new FixRate(orderComp);
 		Material eisenstange = new Material(fixRate, "Eisenstangen", 5, 15);
@@ -22,7 +22,7 @@ class MainTest {
 	}
 
 	@Test
-	void testOrderStorage() {
+	public void testOrderStorage() {
 		BasicOrderComponent orderComp = new BasicOrderComponent();
 		FixRate fixRate = new FixRate(orderComp);
 		Material eisenstange = new Material(fixRate, "Eisenstangen", 5, 15);
@@ -38,7 +38,7 @@ class MainTest {
 	}
 	
 	@Test
-	void testOrderStorageWrongID() {
+	public void testOrderStorageWrongID() {
 		BasicOrderComponent orderComp = new BasicOrderComponent();
 		FixRate fixRate = new FixRate(orderComp);
 		Material eisenstange = new Material(fixRate, "Eisenstangen", 5, 15);
@@ -55,7 +55,7 @@ class MainTest {
 	}
 
 	@Test
-	void testCustomerStorage() {
+	public void testCustomerStorage() {
 		BasicOrderComponent orderComp = new BasicOrderComponent();
 		FixRate fixRate = new FixRate(orderComp);
 		Material eisenstange = new Material(fixRate, "Eisenstangen", 3, 20);
