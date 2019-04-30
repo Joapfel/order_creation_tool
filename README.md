@@ -18,6 +18,8 @@
 ### Manual Dependencies
 
 The following Projects/Libraries are included in this project:
+- JxBrowser for Java based HTML Frontend handling:
+    https://www.teamdev.com/jxbrowser
 - Console Launcher for JUnit tests:
 	https://junit.org/junit5/docs/current/user-guide/#running-tests-console-launcher 
 	https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.1.1/
