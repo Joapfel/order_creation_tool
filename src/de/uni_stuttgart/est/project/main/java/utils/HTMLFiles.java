@@ -1,9 +1,10 @@
-package Utils;
+package utils;
 
 public enum HTMLFiles {
     KUNDENERFASSUNG("kundenerfassung.html"),
     AUFTRAGSERSTELLUNG("auftragserstellung.html"),
-    AUFTRAGSERSTELLUNG_VORSCHAU("auftragserstellung_vorschau.html");
+    AUFTRAGSERSTELLUNG_VORSCHAU("auftragserstellung_vorschau.html"),
+    ANMELDUNG_FORM("anmeldung.html");
 
     private String htmlFile;
 

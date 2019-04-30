@@ -1,4 +1,4 @@
-package Main;
+package main;
 
 import dao.Serializer;
 import dao.User;

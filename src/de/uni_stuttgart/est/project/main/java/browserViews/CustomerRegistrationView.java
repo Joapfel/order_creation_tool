@@ -1,29 +1,31 @@
-package Main;
+package browserViews;
 
-import BrowserActions.ButtonInitializer;
-import BrowserActions.PageLoader;
-import Utils.HTMLFiles;
-import com.teamdev.jxbrowser.chromium.*;
-import com.teamdev.jxbrowser.chromium.dom.*;
-import com.teamdev.jxbrowser.chromium.dom.events.*;
-import com.teamdev.jxbrowser.chromium.swing.*;
+import com.teamdev.jxbrowser.chromium.Browser;
 
-import javax.swing.*;
-import java.awt.*;
+import browserActions.*;
+import utils.*;
 
-public class Main {
-    public static void main(String[] args) {
+import com.teamdev.jxbrowser.chromium.dom.DOMElement;
+import com.teamdev.jxbrowser.chromium.dom.events.DOMEventType;
+import com.teamdev.jxbrowser.chromium.dom.By;
+import com.teamdev.jxbrowser.chromium.dom.events.DOMEvent;
+import com.teamdev.jxbrowser.chromium.dom.DOMDocument;
+import com.teamdev.jxbrowser.chromium.dom.events.DOMEventListener;
+import com.teamdev.jxbrowser.chromium.dom.DOMInputElement;
 
-        final Browser browser = new Browser();
-        BrowserView browserView = new BrowserView(browser);
-        JFrame frame = new JFrame("JxBrowser");
-        frame.add(browserView, BorderLayout.CENTER);
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setVisible(true);
+public class CustomerRegistrationView implements View{
 
-        PageLoader.loadHTMLFileComplete(browser, HTMLFiles.KUNDENERFASSUNG.getHtmlFile());
-        ButtonInitializer.initNewOrderButtons(browser);
+    private Browser browser;
+
+    public CustomerRegistrationView(Browser browser){
+        this.browser = browser;
+    }
+
+    @Override
+    public void loadView() {
+
+        PageLoader.loadHTMLFileComplete(this.browser, HTMLFiles.KUNDENERFASSUNG.getHtmlFile());
+        ButtonInitializer.initNewOrderButtons(this.browser);
         DOMElement saveButton = browser.getDocument().findElement(By.id("save-customer"));
         saveButton.addEventListener(DOMEventType.OnClick, new DOMEventListener() {
             @Override
@@ -50,7 +52,5 @@ public class Main {
 
                 ButtonInitializer.initNewOrderButtons(browser);
             }
-        }, false);
-
-    }
+        }, false); }
 }
