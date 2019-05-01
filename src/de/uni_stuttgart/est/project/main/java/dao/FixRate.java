@@ -7,6 +7,6 @@ public class FixRate extends OrderComponentDecorator{
 	}
 
 	public double price() {
-		return 0;
+		return super.price()+0;
 	}
 }
