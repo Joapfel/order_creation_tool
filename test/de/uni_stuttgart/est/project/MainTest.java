@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import dao.*;
 
-public class MainTest {
+class MainTest {
 
 	@Test
 	public void testPriceCalculation() {
@@ -36,7 +36,7 @@ public class MainTest {
 		assertTrue(order.equals(storageObject.findOrderByID(order.getOrderID())));
 
 	}
-	
+
 	@Test
 	public void testOrderStorageWrongID() {
 		OrderComponent orderComp = new BasicOrderComponent();
@@ -48,9 +48,9 @@ public class MainTest {
 		Serializer storageObject = new Serializer();
 
 		storageObject.saveOrder(order);
-		
+
 		Order order1 = storageObject.findOrderByID(0);
-		//should fail
+		// should fail
 		assertTrue(order.equals(order1));
 	}
 
@@ -70,5 +70,4 @@ public class MainTest {
 
 		assertTrue(kunde.equals(storageObject.findCustomersByCompanyName("Kunstfirma")));
 	}
-
 }
