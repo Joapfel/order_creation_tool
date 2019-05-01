@@ -92,32 +92,32 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">Materialien</span>
                 </div>
-                <input type="text" aria-label="First name" class="form-control" placeholder="Material">
-                <input type="text" aria-label="First name" class="form-control" placeholder="Stückzahl">
-                <input type="text" aria-label="Last name" class="form-control" placeholder="€ / Stück">
+                <input id="material-input" type="text" aria-label="First name" class="form-control" placeholder="Material">
+                <input id="material-units-count" type="text" aria-label="First name" class="form-control" placeholder="Stückzahl">
+                <input id="material-price-per-unit" type="text" aria-label="Last name" class="form-control" placeholder="€ / Stück">
                 <div class="input-group-append">
-                    <button class="btn btn-primary" type="button" id="button-addon-material">Hinzufügen</button>
+                    <button class="addButton btn btn-primary" type="button" id="button-addon-material">Hinzufügen</button>
                 </div>
             </div>
             <div class="card">
-                <ul class="list-group list-group-flush">
+                <ul id="materials-list" class="list-group list-group-flush">
                     <li class="list-group-item item-used">
                         <span class="material">Material X</span>
                         <span class="units-count">3</span>
                         <span class="price-per-unit">100 Euro</span>
-                        <button class="btn btn-outline-danger my-2 my-sm-0 float-right" type="submit">Löschen</button>
+                        <button class="deleteButton btn btn-outline-danger my-2 my-sm-0 float-right" type="button">Löschen</button>
                     </li>
                     <li class="list-group-item">
                         <span class="material">Material Y</span>
                         <span class="units-count">20</span>
                         <span class="price-per-unit">5 Euro</span>
-                        <button class="btn btn-outline-danger my-2 my-sm-0 float-right" type="submit">Löschen</button>
+                        <button class="deleteButton btn btn-outline-danger my-2 my-sm-0 float-right" type="button">Löschen</button>
                     </li>
                     <li class="list-group-item">
                         <span class="material">Material Z</span>
                         <span class="units-count">1</span>
                         <span class="price-per-unit">150 Euro</span>
-                        <button class="btn btn-outline-danger my-2 my-sm-0 float-right" type="submit">Löschen</button>
+                        <button class="deleteButton btn btn-outline-danger my-2 my-sm-0 float-right" type="button">Löschen</button>
                     </li>
                 </ul>
             </div>
@@ -128,20 +128,20 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">Maschineneinsatz</span>
                 </div>
-                <input type="text" aria-label="First name" class="form-control" placeholder="Maschine">
-                <input type="text" aria-label="First name" class="form-control" placeholder="Einsatzstunden">
-                <input type="text" aria-label="Last name" class="form-control" value="150" placeholder="€ / Stunde">
+                <input id="machine-input" type="text" aria-label="First name" class="form-control" placeholder="Maschine">
+                <input id="machine-hours" type="text" aria-label="First name" class="form-control" placeholder="Einsatzstunden">
+                <input id="machine-price-per-hour" type="text" aria-label="Last name" class="form-control" value="150" placeholder="€ / Stunde">
                 <div class="input-group-append">
-                    <button class="btn btn-primary" type="button" id="button-addon-machine">Hinzufügen</button>
+                    <button class="addButton btn btn-primary" type="button" id="button-addon-machine">Hinzufügen</button>
                 </div>
             </div>
             <div class="card">
-                <ul class="list-group list-group-flush">
+                <ul id="machines-list" class="list-group list-group-flush">
                     <li class="list-group-item">
                         <span class="machine">Maschine X</span>
                         <span class="machine-hours">4</span>
                         <span class="machine-per-hour">150 Euro</span>
-                        <button class="btn btn-outline-danger my-2 my-sm-0 float-right" type="submit">Löschen</button>
+                        <button class="deleteButton btn btn-outline-danger my-2 my-sm-0 float-right" type="button">Löschen</button>
                     </li>
                 </ul>
             </div>
@@ -152,19 +152,19 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">Arbeitszeit</span>
                 </div>
-                <input type="text" aria-label="First name" class="form-control" placeholder="Stunden">
-                <input type="text" aria-label="Last name" class="form-control" value="80" placeholder="€ / Stunde">
+                <input id="hours-count" type="text" aria-label="First name" class="form-control" placeholder="Stunden">
+                <input id="hours-price-per-hour" type="text" aria-label="Last name" class="form-control" value="80" placeholder="€ / Stunde">
 
                 <div class="input-group-append">
-                    <button class="btn btn-primary" type="button" id="button-addon-hours">Hinzufügen</button>
+                    <button class="addButton btn btn-primary" type="button" id="button-addon-hours">Hinzufügen</button>
                 </div>
             </div>
             <div class="card">
-                <ul class="list-group list-group-flush">
+                <ul id="hours-list" class="list-group list-group-flush">
                     <li class="list-group-item">
                         <span class="human-hours">35 Stunden</span>
                         <span class="human-hour-price">80 Euro</span>
-                        <button class="btn btn-outline-danger my-2 my-sm-0 float-right" type="submit">Löschen</button>
+                        <button class="deleteButton btn btn-outline-danger my-2 my-sm-0 float-right" type="button">Löschen</button>
                     </li>
                 </ul>
             </div>
@@ -172,7 +172,7 @@
             </br>
 
             <div class="float-left">
-                <button type="button" class="btn btn-success btn-lg">Speichern</button>
+                <button id="buttonSaveOrder" type="button" class="btn btn-success btn-lg">Speichern</button>
             </div>
 
 

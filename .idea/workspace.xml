@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a56e2466-f512-4bc7-9aae-0ef0feb07469" name="Default Changelist" comment="" />
+    <list default="true" id="a56e2466-f512-4bc7-9aae-0ef0feb07469" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/resources/web/auftragserstellung.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/resources/web/auftragserstellung.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,7 +14,17 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/resources/web/auftragserstellung.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="860">
+              <caret line="174" column="39" selection-start-line="174" selection-start-column="39" selection-end-line="174" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -61,14 +73,7 @@
         <option value="$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/resources/web/anmeldung.html" />
         <option value="$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/java/BrowserActions/ButtonInitializer.java" />
         <option value="$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/java/dao/BasicOrderComponent.java" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/resources/web/auftragserstellung.html" />
       </list>
     </option>
   </component>
@@ -93,25 +98,25 @@
             <path>
               <item name="est-team-2" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="~/projects/java/est-team-2" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="est-team-2" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="~/projects/java/est-team-2" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="de" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="est-team-2" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="~/projects/java/est-team-2" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="de" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="uni_stuttgart" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="est-team-2" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="~/projects/java/est-team-2" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="de" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="uni_stuttgart" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="est" type="9f88c78c:ScopeViewTreeModel$FileNode" />
@@ -119,11 +124,44 @@
             <path>
               <item name="est-team-2" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="~/projects/java/est-team-2" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="de" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="uni_stuttgart" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="est" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="project" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="est-team-2" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/projects/java/est-team-2" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="de" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="uni_stuttgart" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="est" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="project" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="est-team-2" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/projects/java/est-team-2" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="de" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="uni_stuttgart" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="est" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="project" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="est-team-2" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/projects/java/est-team-2" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="de" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="uni_stuttgart" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="est" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="project" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="web" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -296,7 +334,7 @@
     <frame x="67" y="27" width="1853" height="1053" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2086331" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.2086331" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -509,9 +547,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/resources/web/auftragserstellung.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/java/dao/BasicOrderComponent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
@@ -543,6 +578,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.project">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/resources/web/auftragserstellung.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="860">
+          <caret line="174" column="39" selection-start-line="174" selection-start-column="39" selection-end-line="174" selection-end-column="39" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">

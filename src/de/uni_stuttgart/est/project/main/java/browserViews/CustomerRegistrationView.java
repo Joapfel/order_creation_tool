@@ -26,14 +26,40 @@ public class CustomerRegistrationView implements View{
 
         PageLoader.loadHTMLFileComplete(this.browser, HTMLFiles.KUNDENERFASSUNG.getHtmlFile());
         ButtonInitializer.initNewOrderButtons(this.browser);
+        
+        // save the customer
         DOMElement saveButton = browser.getDocument().findElement(By.id("save-customer"));
         saveButton.addEventListener(DOMEventType.OnClick, new DOMEventListener() {
             @Override
             public void handleEvent(DOMEvent domEvent) {
                 DOMDocument document = browser.getDocument();
 
-                DOMInputElement in = (DOMInputElement) document.findElement(By.id("company-name"));
-                String companyName = in.getValue();
+                // get the input boxes
+                DOMInputElement companyNameIn = (DOMInputElement) document.findElement(By.id("company-name"));
+                DOMInputElement streetnameIn = (DOMInputElement) document.findElement(By.id("streetname"));
+                DOMInputElement houseNumberIn = (DOMInputElement) document.findElement(By.id("housenumber"));
+                DOMInputElement zipcodeIn = (DOMInputElement) document.findElement(By.id("zipcode"));
+                DOMInputElement cityIn = (DOMInputElement) document.findElement(By.id("city"));
+                DOMInputElement countryIn = (DOMInputElement) document.findElement(By.id("country"));
+                
+                // get the values
+                // TODO: handle missing values
+                String companyName = companyNameIn.getValue();
+                String streetname = streetnameIn.getValue();
+                int houseNumber = Integer.parseInt(houseNumberIn.getValue());
+                int zipcode = Integer.parseInt(zipcodeIn.getValue());
+                String city = cityIn.getValue();
+                String country = countryIn.getValue();
+                
+                // reset the input boxes
+                companyNameIn.setValue("");
+                streetnameIn.setValue("");
+                houseNumberIn.setValue("");
+                zipcodeIn.setValue("");
+                cityIn.setValue("");
+                countryIn.setValue("");
+                
+                System.out.println(companyName + " " + streetname + " " + houseNumber + " " + zipcode + " " + city + " " + country);
 
                 String html =
                         "<div class='card'>\n" +

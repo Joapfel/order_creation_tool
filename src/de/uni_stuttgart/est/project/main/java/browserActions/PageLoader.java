@@ -25,7 +25,8 @@ public class PageLoader {
         Browser.invokeAndWaitFinishLoadingMainFrame(browser, new Callback<Browser>() {
             @Override
             public void invoke(Browser value) {
-                value.loadURL("http://www.google.com");
+            	value.loadURL("http://www.google.com");
+            	
             }
         });
     }
