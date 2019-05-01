@@ -22,6 +22,7 @@ public class OrderCreationView implements View {
 		ButtonInitializer.initAddOrderComponentButton(browser);
 		ButtonInitializer.initSaveOrderButton(browser);
 		ButtonInitializer.initNavbar(browser);
+		ButtonInitializer.initDeleteOrderButton(browser);
 	}
 
 }

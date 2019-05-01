@@ -91,16 +91,23 @@ public class ButtonInitializer {
 	                fieldEmpty.setAttribute("class", "alert alert-danger");
 
 				} else {
+					
+					materialInput.setValue("");
+					materialUnitsCount.setValue("");
+					materialPricePerUnit.setValue("");
 				
 					String html = 
 						"<li class=\"list-group-item item-used\">\n" + 
 						" <span class=\"material\">" + material + "</span>\n" + 
 						" <span class=\"units-count\">" + unitsCount + "</span>\n" + 
 						" <span class=\"price-per-unit\">" + pricePerUnit + " Euro</span>\n" + 
-						//" <button class=\"deleteButton btn btn-outline-danger my-2 my-sm-0 float-right\" type=\"button\">Löschen</button>\n" + 
+						" <button class=\"deleteButton btn btn-outline-danger my-2 my-sm-0 float-right\" type=\"button\">Löschen</button>\n" + 
 						"</li>";
 					String inner = doc.findElement(By.id("materials-list")).getInnerHTML();
 					doc.findElement(By.id("materials-list")).setInnerHTML(inner + html);
+					
+					// activate the delete function for the added row
+					ButtonInitializer.initDeleteOrderButton(browser);
 					
 					// in case the warning was shown remove it again
 	                fieldEmpty.setAttribute("class", "alert alert-danger invisible");
@@ -128,12 +135,17 @@ public class ButtonInitializer {
 	                fieldEmpty.setAttribute("class", "alert alert-danger");
 
 				} else {
+					
+					machineInput.setValue("");
+					machineHours.setValue("");
+					machinePricePerHour.setValue("150");
+					
 					String html = 
 						"<li class=\"list-group-item\">\n" + 
 						" <span class=\"machine\">" + machine + "</span>\n" + 
 						" <span class=\"machine-hours\">" + hoursCount + "</span>\n" + 
 						" <span class=\"machine-per-hour\">" + pricePerHour + " Euro</span>\n" + 
-						//" <button class=\"deleteButton btn btn-outline-danger my-2 my-sm-0 float-right\" type=\"button\">Löschen</button>\n" + 
+						" <button class=\"deleteButton btn btn-outline-danger my-2 my-sm-0 float-right\" type=\"button\">Löschen</button>\n" + 
 						"</li>";
 					String inner = doc.findElement(By.id("machines-list")).getInnerHTML();
 					doc.findElement(By.id("machines-list")).setInnerHTML(inner + html);
@@ -160,11 +172,15 @@ public class ButtonInitializer {
 	                fieldEmpty.setAttribute("class", "alert alert-danger");
 
 				} else {
+					
+					hoursInput.setValue("");
+					hoursPricePerHour.setValue("80");
+					
 					String html = 
 						"<li class=\"list-group-item\">\n" + 
 						" <span class=\"human-hours\">" + hours + " Stunden</span>\n" + 
 						" <span class=\"human-hour-price\">" + pricePerHour + " Euro</span>\n" + 
-						//" <button class=\"deleteButton btn btn-outline-danger my-2 my-sm-0 float-right\" type=\"button\">Löschen</button>\n" + 
+						" <button class=\"deleteButton btn btn-outline-danger my-2 my-sm-0 float-right\" type=\"button\">Löschen</button>\n" + 
 						"</li>";
 					String inner = doc.findElement(By.id("hours-list")).getInnerHTML();
 					doc.findElement(By.id("hours-list")).setInnerHTML(inner + html);
@@ -262,6 +278,23 @@ public class ButtonInitializer {
 			}
 		}, false);
     	
+    }
+    
+    public static void initDeleteOrderButton(Browser browser) {
+    	DOMDocument doc = browser.getDocument();
+    	List<DOMElement> deleteButtons = doc.findElements(By.xpath("//li/button[contains(@class, 'deleteButton')]"));
+    	for (DOMElement deleteButton : deleteButtons) {
+    		deleteButton.addEventListener(DOMEventType.OnClick, new DOMEventListener() {
+				
+				@Override
+				public void handleEvent(DOMEvent arg0) {
+					// TODO Auto-generated method stub
+					DOMNode li = deleteButton.getParent();
+					li.getParent().removeChild(li);
+					
+				}
+			}, false);
+    	}
     }
 
     public static void initNavbar(Browser browser) {
