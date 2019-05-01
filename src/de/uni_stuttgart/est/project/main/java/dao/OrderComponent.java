@@ -1,6 +1,6 @@
 package dao;
 
 public interface OrderComponent {
-	double price();
-	String summary();
+	public double price();
+	public String summary();
 }

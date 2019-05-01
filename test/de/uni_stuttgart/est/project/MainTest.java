@@ -10,25 +10,25 @@ public class MainTest {
 
 	@Test
 	public void testPriceCalculation() {
-		BasicOrderComponent orderComp = new BasicOrderComponent();
-		FixRate fixRate = new FixRate(orderComp);
-		Material eisenstange = new Material(fixRate, "Eisenstangen", 5, 15);
-		Machine lastenkran = new Machine(eisenstange, "Lastenkran", 2, 150);
-		WorkingHours theOuter = new WorkingHours(lastenkran, "Junior", 8, 80);
+		OrderComponent orderComp = new BasicOrderComponent();
+		orderComp = new FixRate(orderComp);
+		orderComp = new Material(orderComp, "Eisenstangen", 5, 15);
+		orderComp = new Machine(orderComp, "Lastenkran", 2, 150);
+		orderComp = new WorkingHours(orderComp, "Junior", 8, 80);
 
-		double price = theOuter.price();
+		double price = orderComp.price();
 		assertEquals(1015, price);
 
 	}
 
 	@Test
 	public void testOrderStorage() {
-		BasicOrderComponent orderComp = new BasicOrderComponent();
-		FixRate fixRate = new FixRate(orderComp);
-		Material eisenstange = new Material(fixRate, "Eisenstangen", 5, 15);
-		Machine lastenkran = new Machine(eisenstange, "Lastenkran", 2, 150);
-		WorkingHours theOuter = new WorkingHours(lastenkran, "Junior", 8, 80);
-		Order order = new Order("Herstellung von Eisenkunst", theOuter, "text");
+		OrderComponent orderComp = new BasicOrderComponent();
+		orderComp = new FixRate(orderComp);
+		orderComp = new Material(orderComp, "Eisenstangen", 5, 15);
+		orderComp = new Machine(orderComp, "Lastenkran", 2, 150);
+		orderComp = new WorkingHours(orderComp, "Junior", 8, 80);
+		Order order = new Order("Herstellung von Eisenkunst", orderComp, "text");
 		Serializer storageObject = new Serializer();
 
 		storageObject.saveOrder(order);
@@ -39,12 +39,12 @@ public class MainTest {
 	
 	@Test
 	public void testOrderStorageWrongID() {
-		BasicOrderComponent orderComp = new BasicOrderComponent();
-		FixRate fixRate = new FixRate(orderComp);
-		Material eisenstange = new Material(fixRate, "Eisenstangen", 5, 15);
-		Machine lastenkran = new Machine(eisenstange, "Lastenkran", 2, 150);
-		WorkingHours theOuter = new WorkingHours(lastenkran, "Junior", 8, 80);
-		Order order = new Order("Herstellung von Eisenkunst", theOuter, "text");
+		OrderComponent orderComp = new BasicOrderComponent();
+		orderComp = new FixRate(orderComp);
+		orderComp = new Material(orderComp, "Eisenstangen", 5, 15);
+		orderComp = new Machine(orderComp, "Lastenkran", 2, 150);
+		orderComp = new WorkingHours(orderComp, "Junior", 8, 80);
+		Order order = new Order("Herstellung von Eisenkunst", orderComp, "text");
 		Serializer storageObject = new Serializer();
 
 		storageObject.saveOrder(order);
@@ -56,12 +56,12 @@ public class MainTest {
 
 	@Test
 	public void testCustomerStorage() {
-		BasicOrderComponent orderComp = new BasicOrderComponent();
-		FixRate fixRate = new FixRate(orderComp);
-		Material eisenstange = new Material(fixRate, "Eisenstangen", 3, 20);
-		Machine lastenkran = new Machine(eisenstange, "Lastenkran", 1, 150);
-		WorkingHours theOuter = new WorkingHours(lastenkran, "Junior", 4, 80);
-		Order order = new Order("Herstellung von Eisenkunst", theOuter, "text");
+		OrderComponent orderComp = new BasicOrderComponent();
+		orderComp = new FixRate(orderComp);
+		orderComp = new Material(orderComp, "Eisenstangen", 3, 20);
+		orderComp = new Machine(orderComp, "Lastenkran", 1, 150);
+		orderComp = new WorkingHours(orderComp, "Junior", 4, 80);
+		Order order = new Order("Herstellung von Eisenkunst", orderComp, "text");
 		Address address = new Address("Kunstweg", 1, 12345, "Kunststadt", "Deutschland");
 		Customer kunde = new Customer("Kunstfirma", address, order);
 		Serializer storageObject = new Serializer();
