@@ -43,25 +43,37 @@ public class CustomerRegistrationView implements View{
                 DOMInputElement countryIn = (DOMInputElement) document.findElement(By.id("country"));
                 
                 // get the values
-                // TODO: handle missing values
                 String companyName = companyNameIn.getValue();
                 String streetname = streetnameIn.getValue();
-                int houseNumber = Integer.parseInt(houseNumberIn.getValue());
-                int zipcode = Integer.parseInt(zipcodeIn.getValue());
+                String houseNumberStr = houseNumberIn.getValue();
+                String zipcodeStr = zipcodeIn.getValue();
                 String city = cityIn.getValue();
                 String country = countryIn.getValue();
                 
-                // reset the input boxes
-                companyNameIn.setValue("");
-                streetnameIn.setValue("");
-                houseNumberIn.setValue("");
-                zipcodeIn.setValue("");
-                cityIn.setValue("");
-                countryIn.setValue("");
-                
-                System.out.println(companyName + " " + streetname + " " + houseNumber + " " + zipcode + " " + city + " " + country);
+				// check that all fields in a row are filled
+	            DOMElement fieldEmpty = document.findElement(By.id("fieldEmpty"));
+				if (companyName.trim().isEmpty() | streetname.trim().isEmpty() | houseNumberStr.trim().isEmpty() |
+						zipcodeStr.trim().isEmpty() | city.trim().isEmpty() | country.trim().isEmpty()) {
 
-                String html =
+	                //prompt an failed message
+	                fieldEmpty.setAttribute("class", "alert alert-danger");
+
+				} else { 
+
+					int houseNumber = Integer.parseInt(houseNumberStr);
+					int zipcode = Integer.parseInt(zipcodeStr);
+                
+					// reset the input boxes
+					companyNameIn.setValue("");
+					streetnameIn.setValue("");
+					houseNumberIn.setValue("");
+					zipcodeIn.setValue("");
+					cityIn.setValue("");
+					countryIn.setValue("");
+                
+					System.out.println(companyName + " " + streetname + " " + houseNumber + " " + zipcode + " " + city + " " + country);
+
+					String html =
                         "<div class='card'>\n" +
                         "  <div class='card-header' id='headingFour'>\n" +
                         "    <h2 class='mb-0'>\n" +
@@ -73,10 +85,12 @@ public class CustomerRegistrationView implements View{
                         "    </h2>\n" +
                         "  </div>\n" +
                         "</div>\n";
-                String inner = document.findElement(By.id("accordionExample")).getInnerHTML();
-                document.findElement(By.id("accordionExample")).setInnerHTML(inner + html);
+					String inner = document.findElement(By.id("accordionExample")).getInnerHTML();
+					document.findElement(By.id("accordionExample")).setInnerHTML(inner + html);
 
-                ButtonInitializer.initNewOrderButtons(browser);
+					ButtonInitializer.initNewOrderButtons(browser);
+	                fieldEmpty.setAttribute("class", "alert alert-danger invisible");
+				}
             }
         }, false); }
 }

@@ -35,6 +35,10 @@
             margin: 0 0 0 170px;
         }
 
+        .invisible{
+            display: none;
+        }
+
     </style>
 </head>
 <body>
@@ -47,7 +51,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="kundenerfassung.html" id="customer-registration">Kundenerfassung<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#" id="customer-registration">Kundenerfassung<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link active" href="#">Auftragserstellung<span class="sr-only">(current)</span></a>
@@ -57,6 +61,10 @@
 </nav>
 
 <div class="container-fluid">
+
+    <div class="alert alert-danger invisible" id="fieldEmpty" role="alert">
+        Um eine Zeile mit Materialien, Maschinen oder Arbeitsstunden hinzuzufügen müssen alle Felder dieser Zeile ausgefüllt sein.
+    </div>
 
     </br>
     <div class="unit-heading">
@@ -93,8 +101,8 @@
                     <span class="input-group-text">Materialien</span>
                 </div>
                 <input id="material-input" type="text" aria-label="First name" class="form-control" placeholder="Material">
-                <input id="material-units-count" type="text" aria-label="First name" class="form-control" placeholder="Stückzahl">
-                <input id="material-price-per-unit" type="text" aria-label="Last name" class="form-control" placeholder="€ / Stück">
+                <input id="material-units-count" type="number" aria-label="First name" class="form-control" placeholder="Stückzahl">
+                <input id="material-price-per-unit" type="number" aria-label="Last name" class="form-control" placeholder="€ / Stück">
                 <div class="input-group-append">
                     <button class="addButton btn btn-primary" type="button" id="button-addon-material">Hinzufügen</button>
                 </div>
@@ -129,8 +137,8 @@
                     <span class="input-group-text">Maschineneinsatz</span>
                 </div>
                 <input id="machine-input" type="text" aria-label="First name" class="form-control" placeholder="Maschine">
-                <input id="machine-hours" type="text" aria-label="First name" class="form-control" placeholder="Einsatzstunden">
-                <input id="machine-price-per-hour" type="text" aria-label="Last name" class="form-control" value="150" placeholder="€ / Stunde">
+                <input id="machine-hours" type="number" aria-label="First name" class="form-control" placeholder="Einsatzstunden">
+                <input id="machine-price-per-hour" type="number" aria-label="Last name" class="form-control" value="150" placeholder="€ / Stunde">
                 <div class="input-group-append">
                     <button class="addButton btn btn-primary" type="button" id="button-addon-machine">Hinzufügen</button>
                 </div>
@@ -152,8 +160,8 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">Arbeitszeit</span>
                 </div>
-                <input id="hours-count" type="text" aria-label="First name" class="form-control" placeholder="Stunden">
-                <input id="hours-price-per-hour" type="text" aria-label="Last name" class="form-control" value="80" placeholder="€ / Stunde">
+                <input id="hours-count" type="number" aria-label="First name" class="form-control" placeholder="Stunden">
+                <input id="hours-price-per-hour" type="number" aria-label="Last name" class="form-control" value="80" placeholder="€ / Stunde">
 
                 <div class="input-group-append">
                     <button class="addButton btn btn-primary" type="button" id="button-addon-hours">Hinzufügen</button>

@@ -28,6 +28,10 @@
             margin: 0 70px 0 0;
         }
 
+        .invisible{
+            display: none;
+        }
+
     </style>
 
 </head>
@@ -49,6 +53,10 @@
 
 <div class="container-fluid">
 
+    <div class="alert alert-danger invisible" id="fieldEmpty" role="alert">
+        Um einen Kunden anzulegen, müssen der Firmenname und alle Felder der Adresse ausgefüllt sein.
+    </div>
+
     <br>
 
     <div class="unit-heading">
@@ -63,7 +71,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="company-name-label">Firma</span>
                     </div>
-                    <input type="text" class="form-control" id="company-name" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                    <input type="text" class="form-control" id="company-name" placeholder="Firmenname" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
                 </div>
             </div>
 
@@ -73,29 +81,29 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">Adresse</span>
                     </div>
-                    <input id="streetname" type="text" aria-label="First name" class="form-control">
-                    <input id="housenumber" type="text" aria-label="Last name" class="form-control">
+                    <input id="streetname" placeholder="Straßenname" type="text" aria-label="First name" class="form-control">
+                    <input id="housenumber" placeholder="Hausnummer" type="number" aria-label="Last name" class="form-control">
                 </div>
 
                 <div class="input-group input-group-lg">
                     <div class="input-group-prepend">
                         <span class="input-group-text">Postleitzahl</span>
                     </div>
-                    <input id="zipcode" type="text" aria-label="First name" class="form-control">
+                    <input id="zipcode" placeholder="Postleitzahl" type="number" aria-label="First name" class="form-control">
                 </div>
 
                 <div class="input-group input-group-lg">
                     <div class="input-group-prepend">
                         <span class="input-group-text">Stadt</span>
                     </div>
-                    <input id="city" type="text" aria-label="First name" class="form-control">
+                    <input id="city" placeholder="Stadt" type="text" aria-label="First name" class="form-control">
                 </div>
 
                 <div class="input-group input-group-lg">
                     <div class="input-group-prepend">
                         <span class="input-group-text">Land</span>
                     </div>
-                    <input id="country" type="text" aria-label="First name" class="form-control">
+                    <input id="country" placeholder="Land" type="text" aria-label="First name" class="form-control">
                 </div>
             </div>
 

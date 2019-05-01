@@ -21,6 +21,7 @@ public class OrderCreationView implements View {
 		PageLoader.loadHTMLFileComplete(browser, HTMLFiles.AUFTRAGSERSTELLUNG.getHtmlFile());
 		ButtonInitializer.initAddOrderComponentButton(browser);
 		ButtonInitializer.initSaveOrderButton(browser);
+		ButtonInitializer.initNavbar(browser);
 	}
 
 }

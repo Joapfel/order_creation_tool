@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a56e2466-f512-4bc7-9aae-0ef0feb07469" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/resources/web/anmeldung.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/resources/web/anmeldung.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/resources/web/auftragerstellung_vorschau.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/resources/web/auftragerstellung_vorschau.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/resources/web/auftragserstellung.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/resources/web/auftragserstellung.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/resources/web/kundenerfassung.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/resources/web/kundenerfassung.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,11 +18,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/resources/web/auftragserstellung.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="860">
-              <caret line="174" column="39" selection-start-line="174" selection-start-column="39" selection-end-line="174" selection-end-column="39" />
+            <state relative-caret-position="24">
+              <caret line="38" column="12" lean-forward="true" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/resources/web/kundenerfassung.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="736">
+              <caret line="55" column="59" selection-start-line="55" selection-start-column="59" selection-end-line="55" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/resources/web/auftragerstellung_vorschau.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="53" column="17" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/resources/web/anmeldung.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="504">
+              <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -70,14 +100,16 @@
         <option value="$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/java/Utils/HTMLFiles.java" />
         <option value="$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/java/BrowserViews/CustomerRegistrationView.java" />
         <option value="$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/java/BrowserViews/LoginView.java" />
-        <option value="$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/resources/web/anmeldung.html" />
         <option value="$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/java/BrowserActions/ButtonInitializer.java" />
         <option value="$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/java/dao/BasicOrderComponent.java" />
+        <option value="$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/resources/web/anmeldung.html" />
         <option value="$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/resources/web/auftragserstellung.html" />
+        <option value="$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/resources/web/auftragerstellung_vorschau.html" />
+        <option value="$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/resources/web/kundenerfassung.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="67" />
     <option name="y" value="27" />
     <option name="width" value="1853" />
@@ -331,10 +363,10 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="27" width="1853" height="1053" extended-state="7" />
+    <frame x="67" y="27" width="1853" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.2086331" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2086331" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -484,9 +516,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/java/BrowserActions/CustomerRegistration.java" />
-    <entry file="file://$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/resources/web/kundenerfassung.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/resources/web/BenjaminWei_EST_Anmeldung.html" />
     <entry file="jar://$PROJECT_DIR$/lib/jxbrowser-6.23.1.jar!/com/teamdev/jxbrowser/chromium/Callback.class">
       <provider selected="true" editor-type-id="text-editor">
@@ -539,7 +568,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/java/BrowserViews/LoginView.java" />
     <entry file="file://$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/java/BrowserViews/CustomerRegistrationView.java" />
-    <entry file="file://$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/resources/web/anmeldung.html" />
     <entry file="file://$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/java/dao/Machine.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
@@ -579,10 +607,31 @@
     <entry file="file://$PROJECT_DIR$/.project">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/resources/web/auftragerstellung_vorschau.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="53" column="17" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/resources/web/anmeldung.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/resources/web/auftragserstellung.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="860">
-          <caret line="174" column="39" selection-start-line="174" selection-start-column="39" selection-end-line="174" selection-end-column="39" />
+        <state relative-caret-position="24">
+          <caret line="38" column="12" lean-forward="true" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/uni_stuttgart/est/project/main/resources/web/kundenerfassung.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="736">
+          <caret line="55" column="59" selection-start-line="55" selection-start-column="59" selection-end-line="55" selection-end-column="59" />
         </state>
       </provider>
     </entry>
