@@ -2,9 +2,6 @@ package browserActions;
 
 import browserViews.*;
 import dao.*;
-import sun.net.www.MeteredStream;
-import utils.HTMLFiles;
-
 import com.teamdev.jxbrowser.chromium.*;
 import com.teamdev.jxbrowser.chromium.dom.*;
 import com.teamdev.jxbrowser.chromium.dom.events.*;

@@ -25,6 +25,7 @@ public class Serializer implements Serializable, Storage {
 	@Override
 	public void saveUser(User user) {
 		userMap.put(user.getUsername(), user);
+		StorageController.saveDB(this);
 	}
 	
 	
@@ -38,11 +39,22 @@ public class Serializer implements Serializable, Storage {
 		}
 	}
 	
+	public boolean userExists(User user) {
+		if(userMap.containsKey(user.getUsername())) {
+			return true;
+		} 
+		else {
+			return false;	
+		}
+		
+	}
+	
 
 	@Override
 	public void saveCustomer(Customer customer) {
 		customerNameMap.put(customer.getCompanyName(), customer);
 		customerIDMap.put(customer.getCustomerID(), customer);
+		StorageController.saveDB(this);
 	}
 
 
@@ -71,6 +83,7 @@ public class Serializer implements Serializable, Storage {
 	@Override
 	public void saveOrder(Order order) {
 		orderIDMap.put(order.getOrderID(), order);
+		StorageController.saveDB(this);
 	}
 
 
