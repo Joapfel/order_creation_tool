@@ -246,6 +246,19 @@ public class ButtonInitializer {
 				for (int i = 0; i < hoursCounts.size(); i++) {
 					System.out.println(hoursCounts.get(i) + " " + hoursPricesPerHour.get(i));
 				}
+				
+				// save the order
+				// add the materials to the order
+				OrderComponent order = new BasicOrderComponent();
+				for (int i = 0; i < materials.size(); i++) {
+					order = new Material(order, materials.get(i), materialUnitsCounts.get(i), materialPricesPerUnit.get(i));
+				}
+				// TODO: toString causes exception
+				// System.out.println(order.toString());
+				System.out.println(order.price());
+				// TODO: summary causes exception
+				//System.out.println(order.summary());
+				
 			}
 		}, false);
     	
