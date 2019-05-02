@@ -15,7 +15,7 @@ public class Machine extends OrderComponentDecorator{
 	}
 		
 	private double adding(double x, double y) {
-		return x*y;
+		return x+y;
 	}
 	
 	public String toString() {
