@@ -46,10 +46,14 @@ public class BasicAuthentication implements Authentication{
 		
 		User storedUser = sto.findUserByUsername(username);
 		
+		
 		/*
 		 * compare the returned and self created User objects using the equals method (return true/false respectively)
 		 */
 		
-		return storedUser.equals(storedUser, thisUser);
+		if (storedUser == null) {
+			return false;
+		}
+		else return storedUser.equals(storedUser, thisUser);
 	}
 }
