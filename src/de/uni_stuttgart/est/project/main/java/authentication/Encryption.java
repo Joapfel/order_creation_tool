@@ -2,6 +2,7 @@ package authentication;
 
 /**
  * This class is ought to be composed with the advanced Authentication implementation
+ * @author johannes
  */
 public interface Encryption {
 

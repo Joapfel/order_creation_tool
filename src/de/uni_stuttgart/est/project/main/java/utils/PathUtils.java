@@ -2,6 +2,11 @@ package utils;
 
 import java.io.IOException;
 
+/**
+ * 
+ * @author johannes
+ *
+ */
 public class PathUtils {
 
     public static String getCurrentDir(){

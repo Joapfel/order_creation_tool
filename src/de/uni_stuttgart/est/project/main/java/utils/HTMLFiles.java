@@ -1,5 +1,10 @@
 package utils;
 
+/**
+ * 
+ * @author johannes
+ *
+ */
 public enum HTMLFiles {
     KUNDENERFASSUNG("kundenerfassung.html"),
     AUFTRAGSERSTELLUNG("auftragserstellung.html"),

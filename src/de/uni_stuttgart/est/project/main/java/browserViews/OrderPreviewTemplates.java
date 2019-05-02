@@ -2,6 +2,11 @@ package browserViews;
 
 import dao.Order;
 
+/**
+ * 
+ * @author johannes
+ *
+ */
 public class OrderPreviewTemplates {
 
 	public static String getGermanTemplate(Order order) {

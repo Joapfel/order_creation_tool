@@ -10,6 +10,11 @@ import com.teamdev.jxbrowser.chromium.dom.events.DOMEventType;
 
 import browserViews.CustomerRegistrationView;
 
+/**
+ * 
+ * @author johannes
+ *
+ */
 public class NavbarInitializer {
 
     public static void initNavbar(Browser browser) {

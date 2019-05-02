@@ -14,6 +14,11 @@ import browserActions.PageLoader;
 import dao.Order;
 import utils.HTMLFiles;
 
+/**
+ * 
+ * @author johannes
+ *
+ */
 public class OrderCreationViewPreview implements View{
 	
 	private Browser browser;

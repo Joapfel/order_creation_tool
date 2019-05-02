@@ -14,6 +14,11 @@ import main.Main;
 import storage.Serializer;
 import utils.*;
 
+/**
+ * 
+ * @author johannes
+ *
+ */
 public class LoginView implements View{
 
     private final Browser browser;

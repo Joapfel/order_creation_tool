@@ -23,6 +23,11 @@ import com.teamdev.jxbrowser.chromium.dom.DOMDocument;
 import com.teamdev.jxbrowser.chromium.dom.events.DOMEventListener;
 import com.teamdev.jxbrowser.chromium.dom.DOMInputElement;
 
+/**
+ * 
+ * @author johannes
+ *
+ */
 public class CustomerRegistrationView implements View{
 
     private Browser browser;

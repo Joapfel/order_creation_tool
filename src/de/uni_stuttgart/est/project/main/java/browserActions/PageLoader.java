@@ -4,6 +4,11 @@ import com.teamdev.jxbrowser.chromium.*;
 
 import utils.PathUtils;
 
+/**
+ * 
+ * @author johannes
+ *
+ */
 public class PageLoader {
 
     public static void loadHTMLFile(Browser browser, String filename){

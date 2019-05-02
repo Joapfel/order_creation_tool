@@ -1,5 +1,10 @@
 package authentication;
 
+/**
+ * 
+ * @author johannes
+ *
+ */
 public interface Authentication {
 
     /**

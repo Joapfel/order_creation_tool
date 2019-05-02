@@ -32,17 +32,10 @@ public class Main {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setVisible(true);
 
-        System.out.println(browser.toString());
-        
         mainSerializer = initialize();
 
-        //testFunction(); //for testing only
-        
         LoginView loginView = new LoginView(browser);
         loginView.loadView();
-
-        //CustomerRegistrationView customerRegistrationView = new CustomerRegistrationView(browser);
-        //customerRegistrationView.loadView();
 
     }
     

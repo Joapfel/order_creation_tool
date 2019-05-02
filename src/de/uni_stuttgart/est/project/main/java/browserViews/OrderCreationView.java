@@ -25,6 +25,11 @@ import main.Main;
 import storage.Storage;
 import utils.HTMLFiles;
 
+/**
+ * 
+ * @author johannes
+ *
+ */
 public class OrderCreationView implements View {
 	
 	private Browser browser;
