@@ -6,6 +6,12 @@ import org.junit.jupiter.api.Test;
 
 import dao.*;
 
+/**
+ * This class contains tests for the Order class.
+ * 
+ * @author Anne
+ *
+ */
 class TestOrder {
 
 	@Test
@@ -16,10 +22,10 @@ class TestOrder {
 		orderComp = new Machine(orderComp, "Lastenkran", 2, 150);
 		orderComp = new WorkingHours(orderComp, "Junior", 8, 80);
 		Order order = new Order("Bestellung", orderComp, "Order");
-		
+
 		assertEquals("Bestellung", order.getOrdername());
 	}
-	
+
 	@Test
 	void testOrderComponent() {
 		OrderComponent orderComp = new BasicOrderComponent();
@@ -28,10 +34,10 @@ class TestOrder {
 		orderComp = new Machine(orderComp, "Lastenkran", 2, 150);
 		orderComp = new WorkingHours(orderComp, "Junior", 8, 80);
 		Order order = new Order("Bestellung", orderComp, "Order");
-		
+
 		assertTrue(orderComp.equals(order.getOrderComponent()));
 	}
-	
+
 	@Test
 	void testOrderAsText() {
 		String text = "Text";
@@ -41,7 +47,7 @@ class TestOrder {
 		orderComp = new Machine(orderComp, "Lastenkran", 2, 150);
 		orderComp = new WorkingHours(orderComp, "Junior", 8, 80);
 		Order order = new Order("Bestellung", orderComp, text);
-		
+
 		assertTrue(text.equals(order.getOrderAsText()));
 	}
 

@@ -8,7 +8,12 @@ import authentication.BasicAuthentication;
 import dao.*;
 import main.Main;
 
-
+/**
+ * This class contains tests for the BasicAuthentication class.
+ * 
+ * @author Anne
+ *
+ */
 class TestBasicAuthentication {
 
 	@Test
@@ -17,7 +22,7 @@ class TestBasicAuthentication {
 		String name = anton.getUsername();
 		assertEquals("Anton", name);
 	}
-	
+
 	@Test
 	void testLogIn() {
 		Main.mainDummy();
@@ -34,4 +39,3 @@ class TestBasicAuthentication {
 		assertFalse(aut.login("Testuser", "passwort"));
 	}
 }
-

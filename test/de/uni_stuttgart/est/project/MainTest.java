@@ -8,8 +8,15 @@ import dao.*;
 import main.Main;
 import storage.Serializer;
 
+/**
+ * This class tests whether orders and customers are stored correctly and
+ * whether the cost of an order is calculated correctly.
+ * 
+ * @author Anne
+ *
+ */
 class MainTest {
-	
+
 	@Test
 	public void testPriceCalculation() {
 		OrderComponent orderComp = new BasicOrderComponent();
@@ -31,7 +38,6 @@ class MainTest {
 		orderComp = new Machine(orderComp, "Lastenkran", 2, 150);
 		orderComp = new WorkingHours(orderComp, "Junior", 8, 80);
 		Order order = new Order("Herstellung von Eisenkunst", orderComp, "text");
-		
 
 		storageObject.saveOrder(order);
 
@@ -68,7 +74,6 @@ class MainTest {
 		Order order = new Order("Herstellung von Eisenkunst", orderComp, "text");
 		Address address = new Address("Kunstweg", 1, 12345, "Kunststadt", "Deutschland");
 		Customer kunde = new Customer("Kunstfirma", address, order);
-		
 
 		storageObject.saveCustomer(kunde);
 
