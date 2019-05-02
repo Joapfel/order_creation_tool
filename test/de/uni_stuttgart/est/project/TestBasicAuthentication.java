@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import authentication.BasicAuthentication;
 import dao.*;
+import main.Main;
 
 
 class TestBasicAuthentication {
@@ -19,6 +20,7 @@ class TestBasicAuthentication {
 	
 	@Test
 	void testLogIn() {
+		Main.mainDummy();
 		User anton = new User("Testuser", "est");
 		BasicAuthentication aut = new BasicAuthentication();
 		assertTrue(aut.login("Testuser", "est"));
@@ -26,6 +28,7 @@ class TestBasicAuthentication {
 
 	@Test
 	void testFailLogIn() {
+		Main.mainDummy();
 		User anton = new User("Testuser", "est");
 		BasicAuthentication aut = new BasicAuthentication();
 		assertFalse(aut.login("Testuser", "passwort"));

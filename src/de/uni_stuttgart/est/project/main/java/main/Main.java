@@ -49,6 +49,10 @@ public class Main {
     public static Serializer getSerializer() {
     	return mainSerializer;
     }
+    
+    public static void mainDummy() {
+    	mainSerializer = initialize();
+    }
     	
     
     /**
