@@ -47,17 +47,19 @@ public class ButtonInitializer {
             String username = usernameEl.getValue();
             String pw = pwEl.getValue();
             Serializer storage = Main.getSerializer();
+            BasicAuthentication auth = new BasicAuthentication();
             
-            User userEntered = new User(username, pw);
-            System.out.println("Entered User:");
-            System.out.println(userEntered.getUsername());
+           // User userEntered = new User(username, pw);
+           // System.out.println("Entered User:");
+           // System.out.println(userEntered.getUsername());
             
             User foundUser = storage.findUserByUsername(username);
-            System.out.println("Found User:");
-            System.out.println(foundUser.getUsername());
+           // System.out.println("Found User:");
+           // System.out.println(foundUser.getUsername());
 
-            //if (userEntered.equals(foundUser)){
-            if (true){
+            if (auth.login(username, pw)){
+            //if (userEntered.equals(userEntered, foundUser)){
+            //if (true){
                 // little hack -> without this in-between-load the program times out
                 PageLoader.loadGoogle(browser);
                 // load the actual view
@@ -66,6 +68,12 @@ public class ButtonInitializer {
 
             } else {
                 //prompt an failed message
+            	System.out.println(username);
+            	System.out.println(pw);
+            	System.out.println(foundUser.getUsername());
+            	System.out.println(foundUser.getPassword());
+
+            	
                 DOMElement loginFail = doc.findElement(By.id("loginFail"));
                 loginFail.setAttribute("class", "alert alert-danger");
             }

@@ -36,7 +36,7 @@ public class Main {
         mainSerializer = initialize(); 	//loading the db; not sure how to implement this into the larger frame; we should use one instance of Serializer to keep everything consitent
         				// alternatively we could create a Serializer Constructor and load the Database there whenever a Serializer Object is created; Your call -PT
 
-        testFunction();
+        // testFunction(); //for testing only
         
         LoginView loginView = new LoginView(browser);
         loginView.loadView();
@@ -85,10 +85,14 @@ public class Main {
     	 * If the Testuser exists in the database he should not be recreated. 
     	 */
     	if(sers.userExists(user)) {
-    		User uuser = sers.findUserByUsername(name);
-    		String[] data = uuser.testGetUser(uuser);	// For Testing
-    		System.out.println("Username: "+data[0]);	// For Testing
-    		System.out.println("Password: "+data[1]);	// For Testing
+    		// do nothing; everything is fine
+    		
+    		/* For testing purposes
+    		*User uuser = sers.findUserByUsername(name);
+    		*String[] data = uuser.testGetUser(uuser);	// For Testing
+    		*System.out.println("Username: "+data[0]);	// For Testing
+    		*System.out.println("Password: "+data[1]);	// For Testing
+    		*/
     	}
     	else {
     		sers.saveUser(user);

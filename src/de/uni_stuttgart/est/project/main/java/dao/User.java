@@ -61,7 +61,7 @@ public class User implements Serializable {
 	 * For development only!
 	 * @return
 	 */
-	private String getPassword() {
+	public String getPassword() {
 		return this.password;
 	}
 	
