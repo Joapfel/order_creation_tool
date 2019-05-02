@@ -19,7 +19,7 @@ import dao.WorkingHours;
 import java.awt.*;
 
 public class Main {
-		private static Serializer mainSerializer;
+	private static Serializer mainSerializer;
 		
     public static void main(String[] args) {
 
@@ -115,7 +115,7 @@ public class Main {
 		
 		System.out.println(summary);
 		
-		Order order = new Order("Test", orderComp,"Order für Testzwecke" );
+		Order order = new Order("Test", orderComp,"Order fï¿½r Testzwecke" );
 		int pos = mainSerializer.saveOrder(order);
 		
 		Order norder= mainSerializer.findOrderByID(pos);

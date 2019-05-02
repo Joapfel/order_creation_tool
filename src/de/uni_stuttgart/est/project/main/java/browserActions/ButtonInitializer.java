@@ -281,11 +281,15 @@ public class ButtonInitializer {
 				for (int i = 0; i < materials.size(); i++) {
 					order = new Material(order, materials.get(i), materialUnitsCounts.get(i), materialPricesPerUnit.get(i));
 				}
-				// TODO: toString causes exception
-				// System.out.println(order.toString());
-				System.out.println(order.price());
-				// TODO: summary causes exception
-				//System.out.println(order.summary());
+				for (int i = 0; i < machines.size(); i++) {
+					order = new Machine(order, machines.get(i), machineHoursCount.get(i), machinePricesPerHour.get(i));
+				}
+				for (int i = 0; i < hoursCounts.size(); i++) {
+					order = new WorkingHours(order, "Arbeitszeit", hoursCounts.get(i), hoursPricesPerHour.get(i));
+				}
+				Storage storage = Main.getSerializer();
+				Order saveOrder = new Order("Test Order", order, order.summary());
+				int id = storage.saveOrder(saveOrder);
 				
 			}
 		}, false);
