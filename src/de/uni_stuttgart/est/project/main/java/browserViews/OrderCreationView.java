@@ -29,10 +29,24 @@ public class OrderCreationView implements View {
 	private Browser browser;
 	private Order savedOrder;
 	
+	/**
+	 * this constructor is used for creating a new order
+	 * @param browser
+	 */
 	public OrderCreationView(Browser browser) {
 		// TODO Auto-generated constructor stub
 		this.browser = browser;
 		this.savedOrder = null;
+	}
+	
+	/**
+	 * this constructor is used when loading an existing order into the view
+	 * @param browser
+	 */
+	public OrderCreationView(Browser browser, Order order) {
+		// TODO Auto-generated constructor stub
+		this.browser = browser;
+		this.savedOrder = order;
 	}
 
 	@Override
@@ -274,6 +288,9 @@ public class OrderCreationView implements View {
 				int id = storage.saveOrder(saveOrder);
 				savedOrder = saveOrder;
 				
+				DOMElement warningPanel = doc.findElement(By.id("orderNotSaved"));
+				warningPanel.setAttribute("class", "alert alert-danger invisible");
+				
 			}
 		}, false);
     	
@@ -309,7 +326,8 @@ public class OrderCreationView implements View {
 					OrderCreationViewPreview preview = new OrderCreationViewPreview(browser, savedOrder);
 					preview.loadView();
 				} else {
-					System.out.println("Warning that order was not safed.");
+					DOMElement warningPanel = doc.findElement(By.id("orderNotSaved"));
+					warningPanel.setAttribute("class", "alert alert-danger");
 				}
 			}
 		}, false);

@@ -44,13 +44,8 @@ public class LoginView implements View{
             DOMInputElement pwEl = (DOMInputElement) doc.findElement(By.id("exampleInputPassword1"));
             String username = usernameEl.getValue();
             String pw = pwEl.getValue();
-            Serializer storage = Main.getSerializer();
             BasicAuthentication auth = new BasicAuthentication();
             
-            User foundUser = storage.findUserByUsername(username);
-           // System.out.println("Found User:");
-           // System.out.println(foundUser.getUsername());
-
             if (auth.login(username, pw)){
                 // little hack -> without this in-between-load the program times out
                 PageLoader.loadGoogle(this.browser);

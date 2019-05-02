@@ -24,12 +24,13 @@ public class OrderCreationViewPreview implements View{
 	public void loadView() {
 		// TODO Auto-generated method stub
 		PageLoader.loadHTMLFileComplete(browser, HTMLFiles.AUFTRAGSERSTELLUNG_VORSCHAU.getHtmlFile());
-		fillInOrderAsText(order.getOrderAsText());
+		fillInOrderAsText(order);
 	}
 	
-	private void fillInOrderAsText(String orderAsText) {
+	private void fillInOrderAsText(Order order) {
 		DOMDocument doc = browser.getDocument();
 		DOMElement p = doc.findElement(By.id("order-as-text"));
+		String orderAsText = OrderPreviewTemplates.getGermanTemplate(order);
 		p.setInnerText(orderAsText);
 	}
 
