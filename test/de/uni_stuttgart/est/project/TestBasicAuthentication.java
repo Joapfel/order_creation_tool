@@ -19,17 +19,16 @@ class TestBasicAuthentication {
 	
 	@Test
 	void testLogIn() {
-		User anton = new User("Anton", "stfx2");
+		User anton = new User("Testuser", "est");
 		BasicAuthentication aut = new BasicAuthentication();
-		assertTrue(aut.login("Anton", "stfx2"));
+		assertTrue(aut.login("Testuser", "est"));
 	}
 
 	@Test
 	void testFailLogIn() {
-		User anton = new User("Anton", "stfx2");
+		User anton = new User("Testuser", "est");
 		BasicAuthentication aut = new BasicAuthentication();
-
-		assertTrue(aut.login("Anton", "passwort"));
+		assertFalse(aut.login("Testuser", "passwort"));
 	}
 }
 
