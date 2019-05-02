@@ -18,6 +18,8 @@ import dao.WorkingHours;
 import java.awt.*;
 
 public class Main {
+		private static Serializer mainSerializer;
+		
     public static void main(String[] args) {
 
         // general browser settings
@@ -31,7 +33,7 @@ public class Main {
 
         System.out.println(browser.toString());
         
-        initialize(); 	//loading the db; not sure how to implement this into the larger frame; we should use one instance of Serializer to keep everything consitent
+        mainSerializer = initialize(); 	//loading the db; not sure how to implement this into the larger frame; we should use one instance of Serializer to keep everything consitent
         				// alternatively we could create a Serializer Constructor and load the Database there whenever a Serializer Object is created; Your call -PT
 
         testFunction();
@@ -43,6 +45,11 @@ public class Main {
         //customerRegistrationView.loadView();
 
     }
+    
+    public static Serializer getSerializer() {
+    	return mainSerializer;
+    }
+    	
     
     /**
      * This method will create a user "Testuser" with the password "est" if the database doesn't contain this user already.

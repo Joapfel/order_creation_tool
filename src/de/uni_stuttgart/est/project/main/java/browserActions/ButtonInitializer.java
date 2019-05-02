@@ -2,6 +2,8 @@ package browserActions;
 
 import browserViews.*;
 import dao.*;
+import main.Main;
+
 import com.teamdev.jxbrowser.chromium.*;
 import com.teamdev.jxbrowser.chromium.dom.*;
 import com.teamdev.jxbrowser.chromium.dom.events.*;
@@ -44,14 +46,15 @@ public class ButtonInitializer {
             DOMInputElement pwEl = (DOMInputElement) doc.findElement(By.id("exampleInputPassword1"));
             String username = usernameEl.getValue();
             String pw = pwEl.getValue();
-
+            Serializer storage = Main.getSerializer();
+            
             User userEntered = new User(username, pw);
             System.out.println("Entered User:");
-            System.out.println(userEntered.toString());
-            Storage storage = new Serializer();
+            System.out.println(userEntered.getUsername());
+            
             User foundUser = storage.findUserByUsername(username);
             System.out.println("Found User:");
-            System.out.println(foundUser.toString());
+            System.out.println(foundUser.getUsername());
 
             //if (userEntered.equals(foundUser)){
             if (true){
