@@ -49,6 +49,8 @@ Usecases:
     + if you click on **Speichern** the Order will be saved in the background
     + if you click on **Angebot ausformuliert** the costs will be inserted into a template
         - if you go back from here the saved Oder will not be loaded back into the Order view (since this was not the task)
+- for your convenience a couple of Customers and Materials,Machines,Working Hours will be there by default.
+
 ## Notes
 
 At the moment a little workaround is used to load new HTML views. Before a new view is loaded, the google search page will be loaded for a second. This can be ignored.
