@@ -32,7 +32,11 @@ class TestWorkingHours {
 		orderComp = new Machine(orderComp, "Lastenkran", 2, 150);
 		orderComp = new WorkingHours(orderComp, "Junior", 8, 80);
 
-		assertEquals("Junior: 4 Stunde(n), 80 Euro/Stunde, Gesamt: 320 Euro", orderComp.summary());
+		assertEquals("Order setzt sich zusammen aus: \r\n" + 
+				"\r\n" + 
+				"Eisenstangen: 5 Stück, 15.0 Euro/Stück, Gesamt: 75.0 Euro\r\n" + 
+				"Lastenkran: 2 Stunde(n), 150.0 Euro/Stunde, Gesamt: 300.0 Euro\r\n" + 
+				"Junior: 8 Stunde(n), 80.0 Euro/Stunde, Gesamt: 640.0 Euro", orderComp.summary());
 	}
 
 }
