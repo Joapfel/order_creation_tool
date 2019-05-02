@@ -13,6 +13,7 @@ import com.teamdev.jxbrowser.chromium.dom.events.DOMEvent;
 import com.teamdev.jxbrowser.chromium.dom.events.DOMEventListener;
 import com.teamdev.jxbrowser.chromium.dom.events.DOMEventType;
 
+import browserActions.NavbarInitializer;
 import browserActions.PageLoader;
 import dao.BasicOrderComponent;
 import dao.Machine;
@@ -53,28 +54,12 @@ public class OrderCreationView implements View {
 	public void loadView() {
 		// TODO Auto-generated method stub
 		PageLoader.loadHTMLFileComplete(browser, HTMLFiles.AUFTRAGSERSTELLUNG.getHtmlFile());
-		initNavbar(browser);
+		NavbarInitializer.initNavbar(browser);
 		initAddOrderComponentButton(browser);
 		initSaveOrderButton(browser);
 		initDeleteOrderButton(browser);
 		initPreviewTabButton();
 	}
-	
-    private void initNavbar(Browser browser) {
-    	DOMDocument doc = browser.getDocument();
-    	DOMElement customerRegistrationNavbarButton = doc.findElement(By.id("customer-registration"));
-    	customerRegistrationNavbarButton.addEventListener(DOMEventType.OnClick, new DOMEventListener() {
-			
-			@Override
-			public void handleEvent(DOMEvent arg0) {
-				// TODO Auto-generated method stub
-				PageLoader.loadGoogle(browser);
-				CustomerRegistrationView customerRegistrationView = new CustomerRegistrationView(browser);
-				customerRegistrationView.loadView();
-				
-			}
-		}, false);
-    }
 	
     private void initAddOrderComponentButton(Browser browser) {
     	DOMDocument doc = browser.getDocument();
