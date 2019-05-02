@@ -32,6 +32,7 @@ Since the GitLab upload does not allow to upload files of bigger sizes (like the
 - to include these dependencies into the *lib* folder of the project
 - to add the dependencies to the classpath
 - the dependencies should be still available from the last submission (prototype)
+- just to be sure we will also upload the project as a zip as last time
  
 
 In order for the tests to work please to the following (description based on Eclipse):
