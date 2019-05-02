@@ -2,6 +2,13 @@ package dao;
 
 import java.io.Serializable;
 
+/**
+ * Decorator to connect Material-informations with the OderComponent.
+ * 
+ * 
+ * @author Philipp
+ *
+ */
 public class Material extends OrderComponentDecorator implements Serializable{
 	
 	/**
@@ -27,8 +34,8 @@ public class Material extends OrderComponentDecorator implements Serializable{
 	public String toString() {
 		return outcome
 				.concat(this.description.toString()+": ")
-				.concat(String.valueOf(quantity)+" Stück, ")
-				.concat(String.valueOf(pricePerUnit)+" Euro/Stück, ")
+				.concat(String.valueOf(quantity)+" St\\u00FCck, ")
+				.concat(String.valueOf(pricePerUnit)+" Euro/St\\u00FCck, ")
 				.concat("Gesamt: "+String.valueOf(quantity*pricePerUnit)+" Euro");
 	}
 	

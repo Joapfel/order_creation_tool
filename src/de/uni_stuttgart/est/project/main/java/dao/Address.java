@@ -2,6 +2,13 @@ package dao;
 
 import java.io.Serializable;
 
+/**
+ * 
+ * Class to store Address-Data.
+ *  
+ * @author Philipp
+ *
+ */
 public class Address implements Serializable{
 	
 	/**

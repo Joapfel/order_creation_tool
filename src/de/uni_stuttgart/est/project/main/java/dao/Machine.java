@@ -2,6 +2,13 @@ package dao;
 
 import java.io.Serializable;
 
+/**
+ * Decorator to connect Machine-informations with the OderComponent.
+ * 
+ * 
+ * @author Philipp
+ *
+ */
 public class Machine extends OrderComponentDecorator implements Serializable{
 
 	/**

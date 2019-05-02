@@ -5,6 +5,12 @@ import java.util.LinkedList;
 
 import main.Main;
 
+/**
+ * Class to store Customer-Data.
+ * 
+ * @author Philipp
+ *
+ */
 public class Customer implements Serializable {
 
 	/**
@@ -17,7 +23,13 @@ public class Customer implements Serializable {
 	private LinkedList<Order> order= new LinkedList<Order>();
 	private int customerID;
 	
-	
+	/**
+	 * Constructor for a new Customer. The customerID is given from the Serializer to make sure it is incremented and unique.
+	 * 
+	 * @param companyName
+	 * @param address
+	 * @param order
+	 */
 	public Customer(String companyName, Address address, Order order) {
 		this.setCompanyName(companyName);
 		this.setAddress(address);

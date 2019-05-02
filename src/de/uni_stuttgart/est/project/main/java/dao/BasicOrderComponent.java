@@ -2,6 +2,12 @@ package dao;
 
 import java.io.Serializable;
 
+/**
+ * Part of the decorator for OrderComponents.
+ * 
+ * @author Philipp
+ *
+ */
 public class BasicOrderComponent implements OrderComponent, Serializable{
 
 	/**

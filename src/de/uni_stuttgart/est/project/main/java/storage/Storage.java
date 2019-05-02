@@ -17,11 +17,6 @@ import dao.User;
  */
 public interface Storage {
 
-    /*
-    uncomment this only after the user dao class was created.
-    after uncommenting make sure the correct user class is used (not from another java package).
-     */
-
     User findUserByUsername(String username);
     void saveUser(User user);
 	void saveCustomer(Customer customer);

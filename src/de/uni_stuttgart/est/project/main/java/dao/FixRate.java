@@ -2,6 +2,13 @@ package dao;
 
 import java.io.Serializable;
 
+/**
+ * Decorator to connect FixRate with the OderComponent.
+ * So far nothing happens in this class; it is realized for future interactions.
+ * 
+ * @author Philipp
+ *
+ */
 public class FixRate extends OrderComponentDecorator implements Serializable{
 	
 	/**

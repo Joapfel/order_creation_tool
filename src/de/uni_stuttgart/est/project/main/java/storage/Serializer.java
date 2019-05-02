@@ -8,7 +8,9 @@ import dao.Order;
 import dao.User;
 
 /**
- * This class handles the data-saving operations for the program.
+ * Main-Active-Storage for nearly all used data.
+ * A instance is realized in the static getSerializer-method in the Main-class.
+ * Everytime a save...-function is used the Serializer-Object is stored in the external data-file.
  * 
  * @author Philipp
  *

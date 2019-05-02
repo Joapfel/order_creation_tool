@@ -2,6 +2,13 @@ package dao;
 
 import java.io.Serializable;
 
+/**
+ * Decorator to connect WorkingHours with the OderComponent.
+ * 
+ * 
+ * @author Philipp
+ *
+ */
 public class WorkingHours extends OrderComponentDecorator implements Serializable{
 
 	/**

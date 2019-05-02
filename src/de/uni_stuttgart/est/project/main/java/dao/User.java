@@ -5,7 +5,7 @@ import java.io.*;
 	/**
 	 * Class to store User-Data.
 	 * 
-	 * @
+	 * 
 	 * @author Philipp
 	 *
 	 */
@@ -61,7 +61,7 @@ public class User implements Serializable {
 	 * For development only!
 	 * @return
 	 */
-	public String getPassword() {
+	private String getPassword() {
 		return this.password;
 	}
 	

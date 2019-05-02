@@ -4,6 +4,13 @@ import java.io.Serializable;
 
 import main.Main;
 
+/**
+ * Class to store all informations regarding an Order.
+ * 
+ * 
+ * @author Philipp
+ *
+ */
 public class Order implements Serializable{
 	
 	/**
@@ -16,6 +23,14 @@ public class Order implements Serializable{
 	private String orderAsText;
 	private int orderID;
 	
+	/**
+	 * The Constructor for an Order.
+	 * The orderID is pulled from the database to give an incremented unique ID.
+	 * 
+	 * @param name
+	 * @param component
+	 * @param text
+	 */
 	public Order(String name, OrderComponent component, String text) {
 		this.ordername = name;
 		this.orderComponent = component;
