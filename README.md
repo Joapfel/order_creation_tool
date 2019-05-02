@@ -36,6 +36,18 @@ Since the GitLab upload does not allow to upload files of bigger sizes (like the
 In order for the tests to work please to the following (description based on Eclipse):
 - right click on the project -> Build Path -> Add Libraries... -> Auswahl JUnit -> JUnit5 (Current Location ...) -> Finish
 
+Usecases:
+
+- to login use the following credentials:
+    + username: Testuser
+    + password: est
+- in order to create a new Order, first a new Customer needs to be created
+    + the Customer will not be saved in the background (since this was not the task), but the customer will be added visually
+    + then click on *Neuer Auftrag* in the Customers row -> the Order view will be loaded
+    + here you can add new Materials, Machines, Working Hours and their respective costs.
+    + if you click on *Speichern* the Order will be saved in the background
+    + if you click on *Angebot ausformuliert* the costs will be inserted into a template
+        - if you go back from here the saved Oder will not be loaded back into the Order view (since this was not the task)
 ## Notes
 
 At the moment a little workaround is used to load new HTML views. Before a new view is loaded, the google search page will be loaded for a second. This can be ignored.
