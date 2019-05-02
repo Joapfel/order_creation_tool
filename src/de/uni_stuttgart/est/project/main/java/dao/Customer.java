@@ -3,6 +3,8 @@ package dao;
 import java.io.Serializable;
 import java.util.LinkedList;
 
+import main.Main;
+
 public class Customer implements Serializable {
 
 	/**
@@ -10,18 +12,17 @@ public class Customer implements Serializable {
 	 */
 	private static final long serialVersionUID = 8904797428130831720L;
 	
-	private int customerID;
 	private String companyName;
 	private Address address;
 	private LinkedList<Order> order= new LinkedList<Order>();
-	private IDHelper seq = new IDHelper();
+	private int customerID;
 	
 	
 	public Customer(String companyName, Address address, Order order) {
-		setCustomerID(seq.getNextCustomer());
 		this.setCompanyName(companyName);
 		this.setAddress(address);
 		this.order.add(order);
+		customerID = Main.getSerializer().getNextCustomer();
 	}
 
 
@@ -31,15 +32,6 @@ public class Customer implements Serializable {
 	public int getCustomerID() {
 		return customerID;
 	}
-
-
-	/**
-	 * @param customerID the customerID to set
-	 */
-	private void setCustomerID(int customerID) {
-		this.customerID = customerID;
-	}
-
 
 	/**
 	 * @return the companyName

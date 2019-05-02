@@ -2,6 +2,8 @@ package dao;
 
 import java.io.Serializable;
 
+import main.Main;
+
 public class Order implements Serializable{
 	
 	/**
@@ -9,17 +11,16 @@ public class Order implements Serializable{
 	 */
 	private static final long serialVersionUID = 6977392681746496112L;
 	
-	private int orderID;
 	private String ordername;
 	private OrderComponent orderComponent;
 	private String orderAsText;
-	private IDHelper seq = new IDHelper();
+	private int orderID;
 	
 	public Order(String name, OrderComponent component, String text) {
-		this.orderID = seq.getNextOrder();
 		this.ordername = name;
 		this.orderComponent = component;
 		this.orderAsText = text;
+		orderID = Main.getSerializer().getNextOrder();
 	}
 	
 	/**

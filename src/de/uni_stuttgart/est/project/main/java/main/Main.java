@@ -115,7 +115,7 @@ public class Main {
 		
 		System.out.println(summary);
 		
-		Order order = new Order("Test", orderComp,"Order für Testzwecke" );
+		Order order = new Order("Test_2", orderComp,"Order für Datenbanktest" );
 		int pos = mainSerializer.saveOrder(order);
 		
 		Order norder= mainSerializer.findOrderByID(pos);

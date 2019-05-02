@@ -20,7 +20,16 @@ public class Serializer implements Serializable, Storage {
 	private HashMap<String, Customer> customerNameMap = new HashMap<String, Customer>();
 	private HashMap<Integer, Customer> customerIDMap = new HashMap<Integer, Customer>();
 	private HashMap<Integer, Order> orderIDMap = new HashMap<Integer, Order>();
+	private int counterC;
+	private int counterO;
 	
+	public int getNextOrder() {
+		return counterO++;
+	}
+	
+	public int getNextCustomer() {
+		return counterC++;
+	}
 	
 	@Override
 	public void saveUser(User user) {
