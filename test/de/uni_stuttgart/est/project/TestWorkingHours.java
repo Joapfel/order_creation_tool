@@ -31,11 +31,13 @@ class TestWorkingHours {
 		orderComp = new Material(orderComp, "Eisenstangen", 5, 15);
 		orderComp = new Machine(orderComp, "Lastenkran", 2, 150);
 		orderComp = new WorkingHours(orderComp, "Junior", 8, 80);
+		
+		String sep = System.lineSeparator();
 
-		assertEquals("Order setzt sich zusammen aus: \r\n" + 
-				"\r\n" + 
-				"Eisenstangen: 5 Stück, 15.0 Euro/Stück, Gesamt: 75.0 Euro\r\n" + 
-				"Lastenkran: 2 Stunde(n), 150.0 Euro/Stunde, Gesamt: 300.0 Euro\r\n" + 
+		assertEquals("Order setzt sich zusammen aus: " + sep + 
+				sep + 
+				"Eisenstangen: 5 Stï¿½ck, 15.0 Euro/Stï¿½ck, Gesamt: 75.0 Euro" + sep +
+				"Lastenkran: 2 Stunde(n), 150.0 Euro/Stunde, Gesamt: 300.0 Euro" + sep +
 				"Junior: 8 Stunde(n), 80.0 Euro/Stunde, Gesamt: 640.0 Euro", orderComp.summary());
 	}
 
