@@ -36,7 +36,7 @@ public class Main {
         
         mainSerializer = initialize();
 
-        testFunction(); //for testing only
+        //testFunction(); //for testing only
         
         LoginView loginView = new LoginView(browser);
         loginView.loadView();
@@ -58,7 +58,7 @@ public class Main {
      * @author Philipp
      *
      */
-    private static Serializer initialize() {
+    public static Serializer initialize() {
     	/*
     	 * Testuser and his pw are meant to be implemented for first-time-login.
     	 * There should be a way to get rid of the password / to disable access with this account; that should be a future project and be done before shipping. 

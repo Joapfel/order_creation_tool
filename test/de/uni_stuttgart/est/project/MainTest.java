@@ -8,6 +8,7 @@ import dao.*;
 
 class MainTest {
 
+		
 	@Test
 	public void testPriceCalculation() {
 		OrderComponent orderComp = new BasicOrderComponent();
@@ -23,13 +24,14 @@ class MainTest {
 
 	@Test
 	public void testOrderStorage() {
+		Serializer storageObject = new Serializer();
 		OrderComponent orderComp = new BasicOrderComponent();
 		orderComp = new FixRate(orderComp);
 		orderComp = new Material(orderComp, "Eisenstangen", 5, 15);
 		orderComp = new Machine(orderComp, "Lastenkran", 2, 150);
 		orderComp = new WorkingHours(orderComp, "Junior", 8, 80);
 		Order order = new Order("Herstellung von Eisenkunst", orderComp, "text");
-		Serializer storageObject = new Serializer();
+		
 
 		storageObject.saveOrder(order);
 
@@ -39,13 +41,13 @@ class MainTest {
 
 	@Test
 	public void testOrderStorageWrongID() {
+		Serializer storageObject = new Serializer();
 		OrderComponent orderComp = new BasicOrderComponent();
 		orderComp = new FixRate(orderComp);
 		orderComp = new Material(orderComp, "Eisenstangen", 5, 15);
 		orderComp = new Machine(orderComp, "Lastenkran", 2, 150);
 		orderComp = new WorkingHours(orderComp, "Junior", 8, 80);
 		Order order = new Order("Herstellung von Eisenkunst", orderComp, "text");
-		Serializer storageObject = new Serializer();
 
 		storageObject.saveOrder(order);
 
@@ -56,6 +58,7 @@ class MainTest {
 
 	@Test
 	public void testCustomerStorage() {
+		Serializer storageObject = new Serializer();
 		OrderComponent orderComp = new BasicOrderComponent();
 		orderComp = new FixRate(orderComp);
 		orderComp = new Material(orderComp, "Eisenstangen", 3, 20);
@@ -64,7 +67,7 @@ class MainTest {
 		Order order = new Order("Herstellung von Eisenkunst", orderComp, "text");
 		Address address = new Address("Kunstweg", 1, 12345, "Kunststadt", "Deutschland");
 		Customer kunde = new Customer("Kunstfirma", address, order);
-		Serializer storageObject = new Serializer();
+		
 
 		storageObject.saveCustomer(kunde);
 
