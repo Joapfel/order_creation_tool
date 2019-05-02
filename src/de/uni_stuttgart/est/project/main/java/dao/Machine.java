@@ -30,7 +30,7 @@ public class Machine extends OrderComponentDecorator{
 	@Override
 	public double price() {
 		double sum = super.price();
-		return adding(sum,adding(hours,pricePerHour));
+		return adding(sum,hours*pricePerHour);
 	}
 	
 	@Override

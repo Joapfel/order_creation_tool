@@ -2,6 +2,8 @@ package dao;
 
 public class BasicOrderComponent implements OrderComponent{
 
+	String summary = "Order setzt sich zusammen aus: ";
+
 	@Override
 	public double price() {
 		return 0;
@@ -9,7 +11,7 @@ public class BasicOrderComponent implements OrderComponent{
 
 	@Override
 	public String summary() {
-		return "";
+		return summary.concat(System.lineSeparator());
 	}
 
 }

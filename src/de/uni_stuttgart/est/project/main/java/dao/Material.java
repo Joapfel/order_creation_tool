@@ -29,7 +29,7 @@ public class Material extends OrderComponentDecorator{
 	@Override
 	public double price() {
 		double sum = super.price();
-		return adding(sum,adding(quantity,pricePerUnit));
+		return adding(sum,quantity*pricePerUnit);
 	}
 	
 	@Override

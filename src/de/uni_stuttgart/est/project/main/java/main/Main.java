@@ -5,9 +5,15 @@ import com.teamdev.jxbrowser.chromium.swing.*;
 
 import javax.swing.*;
 import browserViews.*;
+import dao.BasicOrderComponent;
+import dao.FixRate;
+import dao.Machine;
+import dao.Material;
+import dao.OrderComponent;
 import dao.Serializer;
 import dao.StorageController;
 import dao.User;
+import dao.WorkingHours;
 
 import java.awt.*;
 
@@ -28,6 +34,8 @@ public class Main {
         initialize(); 	//loading the db; not sure how to implement this into the larger frame; we should use one instance of Serializer to keep everything consitent
         				// alternatively we could create a Serializer Constructor and load the Database there whenever a Serializer Object is created; Your call -PT
 
+        testFunction();
+        
         LoginView loginView = new LoginView(browser);
         loginView.loadView();
 
@@ -83,5 +91,22 @@ public class Main {
     	 * After initializing this method returns the loaded Serializer-Object.
     	 */
     	return sers;
+    }
+    
+    
+    public static void testFunction() {
+    	OrderComponent orderComp = new BasicOrderComponent();
+		orderComp = new FixRate(orderComp);
+		orderComp = new Material(orderComp, "Eisenstangen", 5, 15);
+		orderComp = new Machine(orderComp, "Lastenkran", 2, 150);
+		orderComp = new WorkingHours(orderComp, "Junior", 8, 80);
+
+		double price = orderComp.price();
+		//String summary = orderComp.summary();
+		
+		System.out.println(price);
+		
+		//System.out.println(summary);
+		
     }
 }
