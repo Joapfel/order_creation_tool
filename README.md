@@ -58,3 +58,6 @@ At the moment a little workaround is used to load new HTML views. Before a new v
 The reason is, that without this inbetween-load the application gets stuck. Since no support was found for this issue, a new StackOverflow post was created for that.
 For more details of this problem see here: https://stackoverflow.com/questions/55929434/jxbrowser-timeoutexception-when-waiting-for-main-frame-to-load-invokeandwaitfin
 
+## Tests
+- The PDF with the tests is included in the codebase as Abgabe_Übungsblatt3.pdf
+- additionally it is also uploaded on Ilias
