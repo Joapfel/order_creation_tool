@@ -46,8 +46,12 @@ public class ButtonInitializer {
             String pw = pwEl.getValue();
 
             User userEntered = new User(username, pw);
+            System.out.println("Entered User:");
+            System.out.println(userEntered.toString());
             Storage storage = new Serializer();
             User foundUser = storage.findUserByUsername(username);
+            System.out.println("Found User:");
+            System.out.println(foundUser.toString());
 
             //if (userEntered.equals(foundUser)){
             if (true){
