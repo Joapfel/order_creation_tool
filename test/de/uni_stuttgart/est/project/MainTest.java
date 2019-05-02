@@ -5,10 +5,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import dao.*;
+import main.Main;
 
 class MainTest {
-
-		
+	
 	@Test
 	public void testPriceCalculation() {
 		OrderComponent orderComp = new BasicOrderComponent();
@@ -16,7 +16,6 @@ class MainTest {
 		orderComp = new Material(orderComp, "Eisenstangen", 5, 15);
 		orderComp = new Machine(orderComp, "Lastenkran", 2, 150);
 		orderComp = new WorkingHours(orderComp, "Junior", 8, 80);
-
 		double price = orderComp.price();
 		assertEquals(1015, price);
 
@@ -24,13 +23,13 @@ class MainTest {
 
 	@Test
 	public void testOrderStorage() {
-		Serializer storageObject = new Serializer();
+		Serializer storageObject = Main.initialize();
 		OrderComponent orderComp = new BasicOrderComponent();
 		orderComp = new FixRate(orderComp);
 		orderComp = new Material(orderComp, "Eisenstangen", 5, 15);
 		orderComp = new Machine(orderComp, "Lastenkran", 2, 150);
 		orderComp = new WorkingHours(orderComp, "Junior", 8, 80);
-		Order order = new Order("Herstellung von Eisenkunst", orderComp, "text");
+		Order order = new Order("Herstellung von Eisenkunst", orderComp, "text", 1);
 		
 
 		storageObject.saveOrder(order);
@@ -47,7 +46,7 @@ class MainTest {
 		orderComp = new Material(orderComp, "Eisenstangen", 5, 15);
 		orderComp = new Machine(orderComp, "Lastenkran", 2, 150);
 		orderComp = new WorkingHours(orderComp, "Junior", 8, 80);
-		Order order = new Order("Herstellung von Eisenkunst", orderComp, "text");
+		Order order = new Order("Herstellung von Eisenkunst", orderComp, "text", 1);
 
 		storageObject.saveOrder(order);
 
@@ -64,9 +63,9 @@ class MainTest {
 		orderComp = new Material(orderComp, "Eisenstangen", 3, 20);
 		orderComp = new Machine(orderComp, "Lastenkran", 1, 150);
 		orderComp = new WorkingHours(orderComp, "Junior", 4, 80);
-		Order order = new Order("Herstellung von Eisenkunst", orderComp, "text");
+		Order order = new Order("Herstellung von Eisenkunst", orderComp, "text", 1);
 		Address address = new Address("Kunstweg", 1, 12345, "Kunststadt", "Deutschland");
-		Customer kunde = new Customer("Kunstfirma", address, order);
+		Customer kunde = new Customer("Kunstfirma", address, order, 1);
 		
 
 		storageObject.saveCustomer(kunde);

@@ -19,8 +19,8 @@ class TestCustomer {
 		orderComp = new Machine(orderComp, "Lastenkran", 1, 150);
 		orderComp = new WorkingHours(orderComp, "Junior", 4, 80);
 		
-		Order order = new Order("Muster", orderComp, "Bestellung");
-		Customer kunde = new Customer("Musterfirma", address, order);
+		Order order = new Order("Muster", orderComp, "Bestellung",1);
+		Customer kunde = new Customer("Musterfirma", address, order,1);
 		
 		assertTrue(address2.equals(kunde.getAddress()));
 	}
@@ -36,8 +36,8 @@ class TestCustomer {
 		orderComp = new Machine(orderComp, "Lastenkran", 1, 150);
 		orderComp = new WorkingHours(orderComp, "Junior", 4, 80);
 		
-		Order order = new Order("Muster", orderComp, "Bestellung");
-		Customer kunde = new Customer(name, address, order);
+		Order order = new Order("Muster", orderComp, "Bestellung",1);
+		Customer kunde = new Customer(name, address, order,1);
 		
 		assertTrue(name.equals(kunde.getCompanyName()));
 	}

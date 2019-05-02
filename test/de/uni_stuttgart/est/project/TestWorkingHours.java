@@ -36,7 +36,7 @@ class TestWorkingHours {
 
 		assertEquals("Order setzt sich zusammen aus: " + sep + 
 				sep + 
-				"Eisenstangen: 5 Stï¿½ck, 15.0 Euro/Stï¿½ck, Gesamt: 75.0 Euro" + sep +
+				"Eisenstangen: 5 Stück, 15.0 Euro/Stück, Gesamt: 75.0 Euro" + sep +
 				"Lastenkran: 2 Stunde(n), 150.0 Euro/Stunde, Gesamt: 300.0 Euro" + sep +
 				"Junior: 8 Stunde(n), 80.0 Euro/Stunde, Gesamt: 640.0 Euro", orderComp.summary());
 	}

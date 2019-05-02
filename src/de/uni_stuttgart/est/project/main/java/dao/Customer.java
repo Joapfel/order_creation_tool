@@ -25,6 +25,17 @@ public class Customer implements Serializable {
 		customerID = Main.getSerializer().getNextCustomer();
 	}
 
+	
+	/**
+	 * For Testing only!
+	 */
+	public Customer(String companyName, Address address, Order order, int ID) {
+		this.setCompanyName(companyName);
+		this.setAddress(address);
+		this.order.add(order);
+		customerID = ID;
+	}
+
 
 	/**
 	 * @return the customerID
