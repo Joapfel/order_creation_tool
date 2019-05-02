@@ -4,6 +4,7 @@ import com.teamdev.jxbrowser.chromium.Browser;
 import com.teamdev.jxbrowser.chromium.dom.By;
 import com.teamdev.jxbrowser.chromium.dom.DOMDocument;
 import com.teamdev.jxbrowser.chromium.dom.DOMElement;
+import com.teamdev.jxbrowser.chromium.dom.DOMInputElement;
 import com.teamdev.jxbrowser.chromium.dom.events.DOMEvent;
 import com.teamdev.jxbrowser.chromium.dom.events.DOMEventListener;
 import com.teamdev.jxbrowser.chromium.dom.events.DOMEventType;
@@ -35,6 +36,11 @@ public class OrderCreationViewPreview implements View{
 	
 	private void fillInOrderAsText(Order order) {
 		DOMDocument doc = browser.getDocument();
+		// fill in the order name
+		DOMInputElement orderNameInput = (DOMInputElement) doc.findElement(By.id("order-name"));
+		orderNameInput.setValue(order.getOrdername());
+		
+		// create the template
 		DOMElement p = doc.findElement(By.id("order-as-text"));
 		String orderAsText = OrderPreviewTemplates.getGermanTemplate(order);
 		p.setInnerText(orderAsText);

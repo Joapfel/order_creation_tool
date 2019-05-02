@@ -6,7 +6,12 @@ public class OrderPreviewTemplates {
 
 	public static String getGermanTemplate(Order order) {
 		String sep = System.lineSeparator();
-		return "Sehr geehrter Kunde," + sep
+		return  order.getOrdername()
+				+ sep
+				+ "-------------------------------------"
+				+ sep
+				+ sep
+				+ "Sehr geehrter Kunde," + sep
 				+ "vielen Dank für Ihre Anfrage." + sep
 				+ sep
 				+ "Sehr gerne würden wir mit Ihnen zusammenarbeiten." + sep

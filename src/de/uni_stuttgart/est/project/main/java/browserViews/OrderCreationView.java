@@ -192,7 +192,10 @@ public class OrderCreationView implements View {
 			
 			@Override
 			public void handleEvent(DOMEvent arg0) {
-				// TODO Auto-generated method stub
+				// get the order name
+				DOMInputElement orderNameInput = (DOMInputElement) doc.findElement(By.id("order-name"));
+				String orderName = orderNameInput.getValue();
+				
 		    	// get all the materials
 		    	List<String> materials = new ArrayList<String>();
 		    	List<Integer> materialUnitsCounts = new ArrayList<Integer>();
@@ -208,11 +211,6 @@ public class OrderCreationView implements View {
 				}
 				for (DOMElement pricePerUnitDOM : materialPricesPerUnitDOM) {
 					materialPricesPerUnit.add(Integer.parseInt(pricePerUnitDOM.getInnerText().split(" ")[0]));
-				}
-				
-				// TODO: remove me
-				for (int i = 0; i < materials.size(); i++) {
-					System.out.println(materials.get(i) + " " + materialUnitsCounts.get(i) + " " + materialPricesPerUnit.get(i));
 				}
 				
 				// get all the machines
@@ -233,11 +231,6 @@ public class OrderCreationView implements View {
 					machinePricesPerHour.add(Integer.parseInt(pricePerHourDOM.getInnerText().split(" ")[0]));
 				}
 				
-				// TODO: remove me
-				for (int i = 0; i < machines.size(); i++) {
-					System.out.println(machines.get(i) + " " + machineHoursCount.get(i) + " " + machinePricesPerHour.get(i));
-				}
-
 				// get the hours
 		    	List<Integer> hoursCounts = new ArrayList<Integer>();
 		    	List<Integer> hoursPricesPerHour = new ArrayList<Integer>();
@@ -249,11 +242,6 @@ public class OrderCreationView implements View {
 				}
 				for (DOMElement hoursPricePerHourDOM : hoursPricesPerHourDOM) {
 					hoursPricesPerHour.add(Integer.parseInt(hoursPricePerHourDOM.getInnerText().split(" ")[0]));
-				}
-				
-				// TODO: remove me
-				for (int i = 0; i < hoursCounts.size(); i++) {
-					System.out.println(hoursCounts.get(i) + " " + hoursPricesPerHour.get(i));
 				}
 				
 				// save the order
@@ -269,8 +257,8 @@ public class OrderCreationView implements View {
 					order = new WorkingHours(order, "Arbeitszeit", hoursCounts.get(i), hoursPricesPerHour.get(i));
 				}
 				Storage storage = Main.getSerializer();
-				Order saveOrder = new Order("Test Order", order, order.summary());
-				int id = storage.saveOrder(saveOrder);
+				Order saveOrder = new Order(orderName, order, order.summary());
+				storage.saveOrder(saveOrder);
 				savedOrder = saveOrder;
 				
 				DOMElement warningPanel = doc.findElement(By.id("orderNotSaved"));
