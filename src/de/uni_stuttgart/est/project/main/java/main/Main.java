@@ -9,6 +9,7 @@ import dao.BasicOrderComponent;
 import dao.FixRate;
 import dao.Machine;
 import dao.Material;
+import dao.Order;
 import dao.OrderComponent;
 import dao.Serializer;
 import dao.StorageController;
@@ -35,7 +36,7 @@ public class Main {
         
         mainSerializer = initialize();
 
-        // testFunction(); //for testing only
+        testFunction(); //for testing only
         
         LoginView loginView = new LoginView(browser);
         loginView.loadView();
@@ -100,7 +101,7 @@ public class Main {
     }
     
     
-    public static void testFunction() {
+    public static void testFunction() {  	
     	OrderComponent orderComp = new BasicOrderComponent();
 		orderComp = new FixRate(orderComp);
 		orderComp = new Material(orderComp, "Eisenstangen", 5, 15);
@@ -113,6 +114,10 @@ public class Main {
 		System.out.println(price);
 		
 		System.out.println(summary);
+		
+		Order order = new Order("Test", orderComp,"Order für Testzwecke" );
+		mainSerializer.saveOrder(order);
+		
 		
     }
 }

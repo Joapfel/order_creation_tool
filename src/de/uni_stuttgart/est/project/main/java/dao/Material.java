@@ -1,7 +1,13 @@
 package dao;
 
-public class Material extends OrderComponentDecorator{
+import java.io.Serializable;
+
+public class Material extends OrderComponentDecorator implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7481772131090627776L;
 	private String description;
 	private int quantity;
 	private double pricePerUnit;

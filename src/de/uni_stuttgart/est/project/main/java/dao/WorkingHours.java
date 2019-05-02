@@ -1,7 +1,13 @@
 package dao;
 
-public class WorkingHours extends OrderComponentDecorator{
+import java.io.Serializable;
 
+public class WorkingHours extends OrderComponentDecorator implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4596351784859359095L;
 	private String description;
 	private int hours;
 	private double ratePerHour;

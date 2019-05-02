@@ -1,12 +1,18 @@
 package dao;
 
+import java.io.Serializable;
+
 /**
  * Using the decorator pattern for price calculations and so forth.
  * 
  * @author Philipp
  *
  */
-public abstract class OrderComponentDecorator implements OrderComponent {
+public abstract class OrderComponentDecorator implements OrderComponent, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4935174802470465775L;
 	private OrderComponent orderComp;
 	
 	public OrderComponentDecorator(OrderComponent orderComp) {

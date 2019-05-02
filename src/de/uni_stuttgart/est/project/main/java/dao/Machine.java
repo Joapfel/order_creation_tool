@@ -1,7 +1,13 @@
 package dao;
 
-public class Machine extends OrderComponentDecorator{
+import java.io.Serializable;
 
+public class Machine extends OrderComponentDecorator implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4733144904243777813L;
 	private String description;
 	private int hours;
 	private double pricePerHour;

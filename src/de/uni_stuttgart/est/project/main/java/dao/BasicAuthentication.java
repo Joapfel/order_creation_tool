@@ -1,7 +1,5 @@
 package dao;
 
-import java.util.Base64;
-
 import main.Main;
 
 public class BasicAuthentication implements Authentication{
