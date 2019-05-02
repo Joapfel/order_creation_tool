@@ -27,7 +27,6 @@ public class StorageController {
 		}
 	}
 	
-
 	public static Serializer loadDB(){
 		Serializer storage = new Serializer();
 
@@ -46,5 +45,8 @@ public class StorageController {
 			return storage;
 		}
 	}
- 
+	
+	public static boolean fileCheck() {
+		return new File(filename).exists();
+	}
 }

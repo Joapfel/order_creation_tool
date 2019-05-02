@@ -57,7 +57,14 @@ public class Main {
     	 * All in a file stored information are loaded into a Serializer-Object for future interaction.
     	 */
     	Serializer sers = new Serializer();
-    	sers = StorageController.loadDB();
+    	if(StorageController.fileCheck()) {
+    		sers = StorageController.loadDB();	//if the database-file is lost this would not find a file and throw an error
+    	}
+    	else {
+    		StorageController.saveDB(sers); //therefor an empty file is created if database.ser is not found
+    		System.out.println("A new database-file had to be created!");
+    	}
+    	
     	
     	/*
     	 * If the Testuser exists in the database he should not be recreated. 
