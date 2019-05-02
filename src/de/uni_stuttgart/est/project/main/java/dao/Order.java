@@ -24,16 +24,6 @@ public class Order implements Serializable{
 	}
 	
 	/**
-	 * For Testing only
-	 */
-	public Order(String name, OrderComponent component, String text, int ID) {
-		this.ordername = name;
-		this.orderComponent = component;
-		this.orderAsText = text;
-		orderID = ID;
-	}
-	
-	/**
 	 * @return the ordername
 	 */
 	public String getOrdername() {

@@ -15,7 +15,7 @@ class TestOrder {
 		orderComp = new Material(orderComp, "Eisenstangen", 5, 15);
 		orderComp = new Machine(orderComp, "Lastenkran", 2, 150);
 		orderComp = new WorkingHours(orderComp, "Junior", 8, 80);
-		Order order = new Order("Bestellung", orderComp, "Order",1);
+		Order order = new Order("Bestellung", orderComp, "Order");
 		
 		assertEquals("Bestellung", order.getOrdername());
 	}
@@ -27,7 +27,7 @@ class TestOrder {
 		orderComp = new Material(orderComp, "Eisenstangen", 5, 15);
 		orderComp = new Machine(orderComp, "Lastenkran", 2, 150);
 		orderComp = new WorkingHours(orderComp, "Junior", 8, 80);
-		Order order = new Order("Bestellung", orderComp, "Order",1);
+		Order order = new Order("Bestellung", orderComp, "Order");
 		
 		assertTrue(orderComp.equals(order.getOrderComponent()));
 	}
@@ -40,7 +40,7 @@ class TestOrder {
 		orderComp = new Material(orderComp, "Eisenstangen", 5, 15);
 		orderComp = new Machine(orderComp, "Lastenkran", 2, 150);
 		orderComp = new WorkingHours(orderComp, "Junior", 8, 80);
-		Order order = new Order("Bestellung", orderComp, text,1);
+		Order order = new Order("Bestellung", orderComp, text);
 		
 		assertTrue(text.equals(order.getOrderAsText()));
 	}
