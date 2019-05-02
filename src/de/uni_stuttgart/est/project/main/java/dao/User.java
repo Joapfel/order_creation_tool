@@ -55,4 +55,23 @@ public class User implements Serializable {
 	public String getUsername() {
 		return username;
 	}
+	
+	
+	/**
+	 * For development only!
+	 * @return
+	 */
+	private String getPassword() {
+		return this.password;
+	}
+	
+	/**
+	 * Method is only to be used for development. 
+	 * @param user
+	 * @return
+	 */
+	public String[] testGetUser(User user) {
+		String[] data = {user.getUsername(), user.getPassword()};		
+		return data;
+	}
 }

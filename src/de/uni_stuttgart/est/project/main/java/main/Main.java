@@ -44,21 +44,37 @@ public class Main {
      *
      */
     private static Serializer initialize() {
+    	/*
+    	 * Testuser and his pw are meant to be implemented for first-time-login.
+    	 * There should be a way to get rid of the password / to disable access with this account; that should be a future project and be done before shipping. 
+    	 */
     	String name = "Testuser";
     	String pw = "est";
-    	
     	User user = new User(name, pw);
     	
+    	/*
+    	 * The Serializer and the loading of it should be moved to the interacting part of the program / the object should be pushed to that place.
+    	 * All in a file stored information are loaded into a Serializer-Object for future interaction.
+    	 */
     	Serializer sers = new Serializer();
     	sers = StorageController.loadDB();
     	
+    	/*
+    	 * If the Testuser exists in the database he should not be recreated. 
+    	 */
     	if(sers.userExists(user)) {
-    		
+    		User uuser = sers.findUserByUsername(name);
+    		String[] data = uuser.testGetUser(uuser);	// For Testing
+    		System.out.println("Username: "+data[0]);	// For Testing
+    		System.out.println("Password: "+data[1]);	// For Testing
     	}
     	else {
     		sers.saveUser(user);
     	}
     	
+    	/*
+    	 * After initializing this method returns the loaded Serializer-Object.
+    	 */
     	return sers;
     }
 }
