@@ -31,6 +31,7 @@ Since the GitLab upload does not allow to upload files of bigger sizes (like the
 
 - to include these dependencies into the *lib* folder of the project
 - to add the dependencies to the classpath
+- the dependencies should be still available from the last submission (prototype)
  
 
 In order for the tests to work please to the following (description based on Eclipse):
@@ -43,10 +44,10 @@ Usecases:
     + password: est
 - in order to create a new Order, first a new Customer needs to be created
     + the Customer will not be saved in the background (since this was not the task), but the customer will be added visually
-    + then click on *Neuer Auftrag* in the Customers row -> the Order view will be loaded
+    + then click on **Neuer Auftrag** in the Customers row -> the Order view will be loaded
     + here you can add new Materials, Machines, Working Hours and their respective costs.
-    + if you click on *Speichern* the Order will be saved in the background
-    + if you click on *Angebot ausformuliert* the costs will be inserted into a template
+    + if you click on **Speichern** the Order will be saved in the background
+    + if you click on **Angebot ausformuliert** the costs will be inserted into a template
         - if you go back from here the saved Oder will not be loaded back into the Order view (since this was not the task)
 ## Notes
 
