@@ -102,20 +102,35 @@ public class Address implements Serializable{
 		this.country = country;
 	}
 
-	
-	public boolean equals(Address address_1, Address address_2) {
-		if(	
-				address_1.streetname.equals(address_2.streetname)&&
-				address_1.housenumber==address_2.housenumber&&
-				address_1.zipcode==address_2.zipcode&&
-				address_1.city.equals(address_2.city)&&
-				address_1.country.equals(address_2.country)) 
-		{
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
 			return true;
-		}	
-		else {
+		if (obj == null)
 			return false;
-		}
+		if (getClass() != obj.getClass())
+			return false;
+		Address other = (Address) obj;
+		if (city == null) {
+			if (other.city != null)
+				return false;
+		} else if (!city.equals(other.city))
+			return false;
+		if (country == null) {
+			if (other.country != null)
+				return false;
+		} else if (!country.equals(other.country))
+			return false;
+		if (housenumber != other.housenumber)
+			return false;
+		if (streetname == null) {
+			if (other.streetname != null)
+				return false;
+		} else if (!streetname.equals(other.streetname))
+			return false;
+		if (zipcode != other.zipcode)
+			return false;
+		return true;
 	}
 	
 }
