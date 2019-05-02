@@ -51,7 +51,7 @@ class MainTest {
 
 		Order order1 = storageObject.findOrderByID(0);
 		// should fail
-		assertTrue(order.equals(order1));
+		assertFalse(order.equals(order1));
 	}
 
 	@Test

@@ -14,7 +14,7 @@ public class Customer implements Serializable {
 	private String companyName;
 	private Address address;
 	private LinkedList<Order> order= new LinkedList<Order>();
-	private IDHelper seq;
+	private IDHelper seq = new IDHelper();
 	
 	
 	public Customer(String companyName, Address address, Order order) {

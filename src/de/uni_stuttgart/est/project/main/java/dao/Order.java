@@ -13,7 +13,7 @@ public class Order implements Serializable{
 	private String ordername;
 	private OrderComponent orderComponent;
 	private String orderAsText;
-	private IDHelper seq;
+	private IDHelper seq = new IDHelper();
 	
 	public Order(String name, OrderComponent component, String text) {
 		this.orderID = seq.getNextOrder();
