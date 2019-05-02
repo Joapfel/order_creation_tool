@@ -33,8 +33,7 @@ public class Main {
 
         System.out.println(browser.toString());
         
-        mainSerializer = initialize(); 	//loading the db; not sure how to implement this into the larger frame; we should use one instance of Serializer to keep everything consitent
-        				// alternatively we could create a Serializer Constructor and load the Database there whenever a Serializer Object is created; Your call -PT
+        mainSerializer = initialize();
 
         // testFunction(); //for testing only
         
@@ -67,10 +66,6 @@ public class Main {
     	String pw = "est";
     	User user = new User(name, pw);
     	
-    	/*
-    	 * The Serializer and the loading of it should be moved to the interacting part of the program / the object should be pushed to that place.
-    	 * All in a file stored information are loaded into a Serializer-Object for future interaction.
-    	 */
     	Serializer sers = new Serializer();
     	if(StorageController.fileCheck()) {
     		sers = StorageController.loadDB();	//if the database-file is lost this would not find a file and throw an error
@@ -85,7 +80,7 @@ public class Main {
     	 * If the Testuser exists in the database he should not be recreated. 
     	 */
     	if(sers.userExists(user)) {
-    		// do nothing; everything is fine
+    		// do nothing here; everything is fine
     		
     		/* For testing purposes
     		*User uuser = sers.findUserByUsername(name);
