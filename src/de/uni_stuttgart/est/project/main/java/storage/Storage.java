@@ -1,4 +1,8 @@
-package dao;
+package storage;
+
+import dao.Customer;
+import dao.Order;
+import dao.User;
 
 /**
  * This class provides the methods needed for data storage.

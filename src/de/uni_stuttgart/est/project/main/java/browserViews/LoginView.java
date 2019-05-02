@@ -7,11 +7,11 @@ import com.teamdev.jxbrowser.chromium.dom.DOMElement;
 import com.teamdev.jxbrowser.chromium.dom.DOMInputElement;
 import com.teamdev.jxbrowser.chromium.dom.events.DOMEventType;
 
+import authentication.BasicAuthentication;
 import browserActions.*;
-import dao.BasicAuthentication;
-import dao.Serializer;
 import dao.User;
 import main.Main;
+import storage.Serializer;
 import utils.*;
 
 public class LoginView implements View{

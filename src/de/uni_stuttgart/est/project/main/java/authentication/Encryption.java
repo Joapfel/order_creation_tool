@@ -1,4 +1,4 @@
-package dao;
+package authentication;
 
 /**
  * This class is ought to be composed with the advanced Authentication implementation

@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import dao.*;
 import main.Main;
+import storage.Serializer;
 
 class MainTest {
 	

@@ -1,6 +1,8 @@
-package dao;
+package authentication;
 
+import dao.User;
 import main.Main;
+import storage.Serializer;
 
 public class BasicAuthentication implements Authentication{
 

@@ -11,10 +11,10 @@ import dao.Machine;
 import dao.Material;
 import dao.Order;
 import dao.OrderComponent;
-import dao.Serializer;
-import dao.StorageController;
 import dao.User;
 import dao.WorkingHours;
+import storage.Serializer;
+import storage.StorageController;
 
 import java.awt.*;
 
@@ -115,7 +115,7 @@ public class Main {
 		
 		System.out.println(summary);
 		
-		Order order = new Order("Test_2", orderComp,"Order für Datenbanktest" );
+		Order order = new Order("Test_2", orderComp,"Order fï¿½r Datenbanktest" );
 		int pos = mainSerializer.saveOrder(order);
 		
 		Order norder= mainSerializer.findOrderByID(pos);

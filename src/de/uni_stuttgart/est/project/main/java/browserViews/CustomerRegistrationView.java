@@ -11,8 +11,8 @@ import dao.Customer;
 import dao.FixRate;
 import dao.Order;
 import dao.OrderComponentDecorator;
-import dao.Serializer;
-import dao.Storage;
+import storage.Serializer;
+import storage.Storage;
 import utils.*;
 
 import com.teamdev.jxbrowser.chromium.dom.DOMElement;

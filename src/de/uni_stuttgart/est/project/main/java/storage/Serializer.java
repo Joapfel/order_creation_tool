@@ -1,7 +1,11 @@
-package dao;
+package storage;
 
 import java.io.*;
 import java.util.*;
+
+import dao.Customer;
+import dao.Order;
+import dao.User;
 
 /**
  * This class handles the data-saving operations for the program.

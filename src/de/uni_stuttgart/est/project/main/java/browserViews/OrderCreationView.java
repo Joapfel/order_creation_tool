@@ -20,9 +20,9 @@ import dao.Machine;
 import dao.Material;
 import dao.Order;
 import dao.OrderComponent;
-import dao.Storage;
 import dao.WorkingHours;
 import main.Main;
+import storage.Storage;
 import utils.HTMLFiles;
 
 public class OrderCreationView implements View {
