@@ -5,7 +5,7 @@ public class Material extends OrderComponentDecorator{
 	private String description;
 	private int quantity;
 	private double pricePerUnit;
-	private String outcome;
+	private String outcome = new String();
 
 	public Material (OrderComponent orderComponent, String description, int quantity, double pricePerUnit) {
 		super(orderComponent);
@@ -23,7 +23,7 @@ public class Material extends OrderComponentDecorator{
 				.concat(this.description.toString()+": ")
 				.concat(String.valueOf(quantity)+" Stück, ")
 				.concat(String.valueOf(pricePerUnit)+" Euro/Stück, ")
-				.concat("Gesamt: "+String.valueOf(adding(quantity,pricePerUnit))+" Euro");
+				.concat("Gesamt: "+String.valueOf(quantity*pricePerUnit)+" Euro");
 	}
 	
 	@Override

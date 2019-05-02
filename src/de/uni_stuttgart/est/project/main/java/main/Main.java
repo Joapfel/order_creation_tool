@@ -102,11 +102,11 @@ public class Main {
 		orderComp = new WorkingHours(orderComp, "Junior", 8, 80);
 
 		double price = orderComp.price();
-		//String summary = orderComp.summary();
+		String summary = orderComp.summary();
 		
 		System.out.println(price);
 		
-		//System.out.println(summary);
+		System.out.println(summary);
 		
     }
 }

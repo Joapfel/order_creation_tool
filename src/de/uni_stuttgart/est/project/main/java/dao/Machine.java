@@ -5,7 +5,7 @@ public class Machine extends OrderComponentDecorator{
 	private String description;
 	private int hours;
 	private double pricePerHour;
-	private String outcome;
+	private String outcome = new String();
 	
 	public Machine(OrderComponent orderComponent, String description, int hours, double pricePerHour) {
 		super(orderComponent);
@@ -23,7 +23,7 @@ public class Machine extends OrderComponentDecorator{
 				.concat(this.description.toString()+": ")
 				.concat(String.valueOf(hours)+" Stunde(n), ")
 				.concat(String.valueOf(pricePerHour)+" Euro/Stunde, ")
-				.concat("Gesamt: "+String.valueOf(adding(hours,pricePerHour))+" Euro");
+				.concat("Gesamt: "+String.valueOf(hours*pricePerHour)+" Euro");
 	}
 		
 
