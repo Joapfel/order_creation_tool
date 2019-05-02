@@ -1,5 +1,7 @@
 package browserViews;
 
+import java.util.List;
+
 import com.teamdev.jxbrowser.chromium.Browser;
 
 import browserActions.*;
@@ -33,10 +35,15 @@ public class CustomerRegistrationView implements View{
     public void loadView() {
 
         PageLoader.loadHTMLFileComplete(this.browser, HTMLFiles.KUNDENERFASSUNG.getHtmlFile());
-        ButtonInitializer.initNewOrderButtons(this.browser);
-        
+        initNewOrderButtons();
+        initNewCustomerButton(); 
+       
+    }
+    
+    
+    private void initNewCustomerButton() {
         // save the customer
-        DOMElement saveButton = browser.getDocument().findElement(By.id("save-customer"));
+        DOMElement saveButton = this.browser.getDocument().findElement(By.id("save-customer"));
         saveButton.addEventListener(DOMEventType.OnClick, new DOMEventListener() {
             @Override
             public void handleEvent(DOMEvent domEvent) {
@@ -102,9 +109,28 @@ public class CustomerRegistrationView implements View{
 					String inner = document.findElement(By.id("accordionExample")).getInnerHTML();
 					document.findElement(By.id("accordionExample")).setInnerHTML(inner + html);
 
-					ButtonInitializer.initNewOrderButtons(browser);
+					initNewOrderButtons();
 	                fieldEmpty.setAttribute("class", "alert alert-danger invisible");
 				}
             }
-        }, false); }
+        }, false); 
+ 	
+    }
+    
+    /**
+     * initializes the buttons of the customer registration view in order to create a new order for a specific customer
+     * @param browser
+     */
+    private void initNewOrderButtons(){
+        List<DOMElement> newOrderButtons = this.browser.getDocument().findElements(By.xpath("//button[contains(@class, 'new-order')]"));
+        for (DOMElement newOrderButton : newOrderButtons) {
+            newOrderButton.addEventListener(DOMEventType.OnClick, domEvent -> { 
+               /*PageLoader.loadHTMLFile(browser, HTMLFiles.AUFTRAGSERSTELLUNG.getHtmlFile()), false);*/
+            	PageLoader.loadGoogle(this.browser);
+            	OrderCreationView orderCreationView = new OrderCreationView(this.browser);
+            	orderCreationView.loadView();
+            	
+            }, false);
+        }
+    }
 }
