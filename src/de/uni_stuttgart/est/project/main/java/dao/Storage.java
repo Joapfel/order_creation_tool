@@ -23,6 +23,6 @@ public interface Storage {
 	void saveCustomer(Customer customer);
 	Customer findCustomersByCompanyName(String companyName);
 	Customer findCustomerById(int companyID);	
-	void saveOrder(Order order);
+	int saveOrder(Order order);
 	Order findOrderByID(int orderID);
 }

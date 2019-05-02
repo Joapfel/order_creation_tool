@@ -81,9 +81,11 @@ public class Serializer implements Serializable, Storage {
 
 
 	@Override
-	public void saveOrder(Order order) {
-		orderIDMap.put(order.getOrderID(), order);
+	public int saveOrder(Order order) {
+		int pos = order.getOrderID();
+		orderIDMap.put(pos, order);
 		StorageController.saveDB(this);
+		return pos;
 	}
 
 

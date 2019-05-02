@@ -116,8 +116,10 @@ public class Main {
 		System.out.println(summary);
 		
 		Order order = new Order("Test", orderComp,"Order für Testzwecke" );
-		mainSerializer.saveOrder(order);
+		int pos = mainSerializer.saveOrder(order);
 		
+		Order norder= mainSerializer.findOrderByID(pos);
+		System.out.println(pos+" - "+norder.getOrdername()+" - "+norder.getOrderAsText());
 		
     }
 }
