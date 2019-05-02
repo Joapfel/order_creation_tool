@@ -115,11 +115,14 @@ public class Main {
 		
 		System.out.println(summary);
 		
-		Order order = new Order("Test", orderComp,"Order fï¿½r Testzwecke" );
+		Order order = new Order("Test", orderComp,"Order für Testzwecke" );
 		int pos = mainSerializer.saveOrder(order);
 		
 		Order norder= mainSerializer.findOrderByID(pos);
 		System.out.println(pos+" - "+norder.getOrdername()+" - "+norder.getOrderAsText());
 		
+		mainSerializer.printAllUsers();
+		mainSerializer.printAllCustomers();
+		mainSerializer.printAllOrders();
     }
 }

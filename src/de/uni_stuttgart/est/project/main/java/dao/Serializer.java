@@ -98,4 +98,37 @@ public class Serializer implements Serializable, Storage {
 			return null;
 		}
 	}
+	
+	public void printAllUsers() {
+		
+		for (String key: userMap.keySet()) {
+			System.out.println();
+			System.out.println("Users: ");
+			System.out.println();
+		    System.out.println("key : " + key);
+		    System.out.println("value : " + userMap.get(key));
+		}
+	}
+	
+	public void printAllCustomers() {
+			
+			for (String key: customerNameMap.keySet()) {
+				System.out.println();
+				System.out.println("Customers: ");
+				System.out.println();
+			    System.out.println("key : " + key);
+			    System.out.println("value : " + customerNameMap.get(key).getCompanyName());
+			}
+		}
+
+	public void printAllOrders() {
+		
+		for (int key: orderIDMap.keySet()) {
+			System.out.println();
+			System.out.println("Orders: ");
+			System.out.println();
+		    System.out.println("key : " + key);
+		    System.out.println("value : " + orderIDMap.get(key).getOrdername());
+		}
+	}
 }
