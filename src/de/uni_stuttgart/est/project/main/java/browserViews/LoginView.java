@@ -9,9 +9,6 @@ import com.teamdev.jxbrowser.chromium.dom.events.DOMEventType;
 
 import authentication.BasicAuthentication;
 import browserActions.*;
-import dao.User;
-import main.Main;
-import storage.Serializer;
 import utils.*;
 
 /**

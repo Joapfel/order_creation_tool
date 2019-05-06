@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import authentication.BasicAuthentication;
 import dao.*;
-import main.Main;
+import main.Initialize;
 
 /**
  * This class contains tests for the BasicAuthentication class.
@@ -25,16 +25,16 @@ class TestBasicAuthentication {
 
 	@Test
 	void testLogIn() {
-		Main.mainDummy();
-		User anton = new User("Testuser", "est");
+		Initialize.getSerializer();
+		//User anton = new User("Testuser", "est");
 		BasicAuthentication aut = new BasicAuthentication();
 		assertTrue(aut.login("Testuser", "est"));
 	}
 
 	@Test
 	void testFailLogIn() {
-		Main.mainDummy();
-		User anton = new User("Testuser", "est");
+		Initialize.getSerializer();
+		//User anton = new User("Testuser", "est");
 		BasicAuthentication aut = new BasicAuthentication();
 		assertFalse(aut.login("Testuser", "passwort"));
 	}

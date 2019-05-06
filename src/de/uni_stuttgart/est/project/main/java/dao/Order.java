@@ -2,7 +2,7 @@ package dao;
 
 import java.io.Serializable;
 
-import main.Main;
+import main.Initialize;
 
 /**
  * Class to store all informations regarding an Order.
@@ -35,7 +35,7 @@ public class Order implements Serializable{
 		this.ordername = name;
 		this.orderComponent = component;
 		this.orderAsText = text;
-		orderID = Main.getSerializer().getNextOrder();
+		orderID = Initialize.getSerializer().getNextOrder();
 	}
 	
 	/**

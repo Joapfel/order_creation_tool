@@ -1,7 +1,7 @@
 package authentication;
 
 import dao.User;
-import main.Main;
+import main.Initialize;
 import storage.Serializer;
 
 public class BasicAuthentication implements Authentication{
@@ -19,7 +19,7 @@ public class BasicAuthentication implements Authentication{
 	 * would have to get rid of the interface, but it is not needed anyway -PT
 	 */
 	public BasicAuthentication() {
-		sto = Main.getSerializer();
+		sto = Initialize.getSerializer();
 	}
 	
 

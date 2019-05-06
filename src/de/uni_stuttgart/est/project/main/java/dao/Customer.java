@@ -3,7 +3,7 @@ package dao;
 import java.io.Serializable;
 import java.util.LinkedList;
 
-import main.Main;
+import main.Initialize;
 
 /**
  * Class to store Customer-Data.
@@ -34,7 +34,7 @@ public class Customer implements Serializable {
 		this.setCompanyName(companyName);
 		this.setAddress(address);
 		this.order.add(order);
-		customerID = Main.getSerializer().getNextCustomer();
+		customerID = Initialize.getSerializer().getNextCustomer();
 	}
 
 	/**

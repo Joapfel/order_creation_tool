@@ -21,7 +21,7 @@ import dao.Material;
 import dao.Order;
 import dao.OrderComponent;
 import dao.WorkingHours;
-import main.Main;
+import main.Initialize;
 import storage.Storage;
 import utils.HTMLFiles;
 
@@ -261,7 +261,7 @@ public class OrderCreationView implements View {
 				for (int i = 0; i < hoursCounts.size(); i++) {
 					order = new WorkingHours(order, "Arbeitszeit", hoursCounts.get(i), hoursPricesPerHour.get(i));
 				}
-				Storage storage = Main.getSerializer();
+				Storage storage = Initialize.getSerializer();
 				Order saveOrder = new Order(orderName, order, order.summary());
 				storage.saveOrder(saveOrder);
 				savedOrder = saveOrder;

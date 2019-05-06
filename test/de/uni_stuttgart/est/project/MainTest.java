@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import dao.*;
-import main.Main;
+import main.Initialize;
 import storage.Serializer;
 
 /**
@@ -31,7 +31,7 @@ class MainTest {
 
 	@Test
 	public void testOrderStorage() {
-		Serializer storageObject = Main.initialize();
+		Serializer storageObject = Initialize.getSerializer();
 		OrderComponent orderComp = new BasicOrderComponent();
 		orderComp = new FixRate(orderComp);
 		orderComp = new Material(orderComp, "Eisenstangen", 5, 15);
@@ -47,7 +47,6 @@ class MainTest {
 
 	@Test
 	public void testOrderStorageWrongID() {
-		Main.mainDummy();
 		Serializer storageObject = new Serializer();
 		OrderComponent orderComp = new BasicOrderComponent();
 		orderComp = new FixRate(orderComp);
@@ -58,14 +57,14 @@ class MainTest {
 
 		storageObject.saveOrder(order);
 
-		Order order1 = storageObject.findOrderByID(1);
+		Order order1 = storageObject.findOrderByID(2);
 		// should fail
 		assertFalse(order.equals(order1));
 	}
 
 	@Test
 	public void testCustomerStorage() {
-		Serializer storageObject = new Serializer();
+		Serializer storageObject = Initialize.getSerializer();
 		OrderComponent orderComp = new BasicOrderComponent();
 		orderComp = new FixRate(orderComp);
 		orderComp = new Material(orderComp, "Eisenstangen", 3, 20);
