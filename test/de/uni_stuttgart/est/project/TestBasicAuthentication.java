@@ -17,13 +17,6 @@ import main.Initialize;
 class TestBasicAuthentication {
 
 	@Test
-	void testUserName() {
-		User anton = new User("Anton", "sftx2");
-		String name = anton.getUsername();
-		assertEquals("Anton", name);
-	}
-
-	@Test
 	void testLogIn() {
 		Initialize.getSerializer();
 		//User anton = new User("Testuser", "est");
@@ -37,5 +30,12 @@ class TestBasicAuthentication {
 		//User anton = new User("Testuser", "est");
 		BasicAuthentication aut = new BasicAuthentication();
 		assertFalse(aut.login("Testuser", "passwort"));
+	}
+	
+	@Test
+	void testNotExistingUser() {
+		Initialize.getSerializer();
+		BasicAuthentication aut = new BasicAuthentication();
+		assertFalse(aut.login("Bert", "qwert"));
 	}
 }
