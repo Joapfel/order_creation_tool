@@ -26,7 +26,12 @@ public class Initialize {
     	 */
     	String name = "Testuser";
     	String pw = "est";
-    	User user = new User(name, pw);
+    	String role = "normal";
+    	String hr_name = "TestuserHR";
+    	String hr_pw = "est";
+    	String hr_role ="HR user";
+    	User user = new User(name, pw, role);
+    	User hr_user = new User (hr_name, hr_pw, hr_role);
     	
     	Serializer sers = new Serializer();
     	if(StorageController.fileCheck()) {
@@ -45,6 +50,16 @@ public class Initialize {
     	}
     	else {
     		sers.saveUser(user);
+    	}
+    	
+    	/*
+    	 * If the Testuser for HR exists in the database he should not be recreated. 
+    	 */
+    	if(sers.userExists(hr_user)) {
+    		// do nothing here; everything is fine
+    	}
+    	else {
+    		sers.saveUser(hr_user);
     	}
     	
     	/*

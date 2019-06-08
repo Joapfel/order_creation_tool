@@ -2,6 +2,7 @@ package storage;
 
 import java.io.*;
 import java.util.*;
+import java.util.Map.Entry;
 
 import dao.Customer;
 import dao.Order;
@@ -145,5 +146,20 @@ public class Serializer implements Serializable, Storage {
 		    System.out.println("key : " + key);
 		    System.out.println("value : " + orderIDMap.get(key).getOrdername());
 		}
+	}
+
+	@Override
+	public boolean deleteUserByUsername(String userName) {
+		userMap.remove(userName);
+		return false;
+	}
+
+	@Override
+	public LinkedList<User> getAllUsers() {
+		LinkedList<User> userList = new LinkedList<User>();
+		for(Entry<String, User> entry: userMap.entrySet()) {
+			userList.add(entry.getValue());
+		}
+		return userList;
 	}
 }

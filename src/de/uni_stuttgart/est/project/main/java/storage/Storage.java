@@ -1,5 +1,6 @@
 package storage;
 
+import java.util.LinkedList;
 import dao.Customer;
 import dao.Order;
 import dao.User;
@@ -24,4 +25,6 @@ public interface Storage {
 	Customer findCustomerById(int companyID);	
 	int saveOrder(Order order);
 	Order findOrderByID(int orderID);
+	boolean deleteUserByUsername(String username);
+	LinkedList<User> getAllUsers();
 }

@@ -18,6 +18,7 @@ public class User implements Serializable {
 	
 	private String username;
 	private String password;
+	private String role;
 	
 	/**
 	 * Constructor for Users.
@@ -28,6 +29,19 @@ public class User implements Serializable {
 	public User(String username, String password){
 		this.username = username;
 		this.password = password;
+		this.role = "normal";
+	}
+	
+	
+	/**
+	 * Alternative Constructor with role-assignment.
+	 * 
+	 * 
+	 */
+	public User(String username, String password, String role) {
+		this.username = username;
+		this.password = password;
+		this.role = role;
 	}
 	
 	/**
@@ -53,7 +67,7 @@ public class User implements Serializable {
 	 * @return username of this user
 	 */
 	public String getUsername() {
-		return username;
+		return this.username;
 	}
 	
 	
@@ -73,5 +87,19 @@ public class User implements Serializable {
 	public String[] testGetUser(User user) {
 		String[] data = {user.getUsername(), user.getPassword()};		
 		return data;
+	}
+
+	/**
+	 * @return the role
+	 */
+	public String getRole() {
+		return this.role;
+	}
+
+	/**
+	 * @param role the role to set
+	 */
+	public void setRole(String role) {
+		this.role = role;
 	}
 }
