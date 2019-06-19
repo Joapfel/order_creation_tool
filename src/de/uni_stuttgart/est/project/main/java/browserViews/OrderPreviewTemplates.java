@@ -19,14 +19,14 @@ public class OrderPreviewTemplates {
 				+ "Sehr geehrter Kunde," + sep
 				+ "vielen Dank für Ihre Anfrage." + sep
 				+ sep
-				+ "Sehr gerne würden wir mit Ihnen zusammenarbeiten." + sep
+				+ "Sehr gerne wuerden wir mit Ihnen zusammenarbeiten." + sep
 				+ "Aus dem herausgearbeiteten Angebot enstehen folgende Kosten:" + sep
 				+ order.getOrderAsText() + sep
 				+ sep
 				+ "Summe des Gesamtangebots: " + order.getOrderComponent().price() + " Euro" + sep
 				+ sep
 				+ "Wir freuen uns auf Ihre Rückmeldung." + sep
-				+ "Mit freundlichen Grüßen" + sep
+				+ "Mit freundlichen Grueßen" + sep
 				+ "Ihre Metallschreinerei";
 	}
 }

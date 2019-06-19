@@ -34,8 +34,8 @@ public class Material extends OrderComponentDecorator implements Serializable{
 	public String toString() {
 		return outcome
 				.concat(this.description.toString()+": ")
-				.concat(String.valueOf(quantity)+" St\\u00FCck, ")
-				.concat(String.valueOf(pricePerUnit)+" Euro/St\\u00FCck, ")
+				.concat(String.valueOf(quantity)+" Einheiten, ")
+				.concat(String.valueOf(pricePerUnit)+" Euro/Einheit, ")
 				.concat("Gesamt: "+String.valueOf(quantity*pricePerUnit)+" Euro");
 	}
 	
