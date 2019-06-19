@@ -1,5 +1,7 @@
 package browserActions;
 
+import java.util.concurrent.Executors;
+
 import com.teamdev.jxbrowser.chromium.Browser;
 import com.teamdev.jxbrowser.chromium.dom.By;
 import com.teamdev.jxbrowser.chromium.dom.DOMDocument;
@@ -20,16 +22,12 @@ public class NavbarInitializer {
     public static void initNavbar(Browser browser) {
     	DOMDocument doc = browser.getDocument();
     	DOMElement customerRegistrationNavbarButton = doc.findElement(By.id("customer-registration"));
-    	customerRegistrationNavbarButton.addEventListener(DOMEventType.OnClick, new DOMEventListener() {
+    	customerRegistrationNavbarButton.addEventListener(DOMEventType.OnClick, domEvent -> {
 			
-			@Override
-			public void handleEvent(DOMEvent arg0) {
-				// TODO Auto-generated method stub
-				PageLoader.loadGoogle(browser);
-				CustomerRegistrationView customerRegistrationView = new CustomerRegistrationView(browser);
-				customerRegistrationView.loadView();
+			CustomerRegistrationView customerRegistrationView = new CustomerRegistrationView(browser);
+			Executors.newCachedThreadPool().execute(customerRegistrationView::loadView);;
 				
-			}
+			
 		}, false);
     }
 

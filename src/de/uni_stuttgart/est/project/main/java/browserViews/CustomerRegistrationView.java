@@ -1,6 +1,8 @@
 package browserViews;
 
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import com.teamdev.jxbrowser.chromium.Browser;
 
@@ -31,9 +33,11 @@ import com.teamdev.jxbrowser.chromium.dom.DOMInputElement;
 public class CustomerRegistrationView implements View{
 
     private Browser browser;
+    private final ExecutorService executorService;
 
     public CustomerRegistrationView(Browser browser){
         this.browser = browser;
+        this.executorService = Executors.newCachedThreadPool();
     }
 
     @Override
@@ -130,10 +134,8 @@ public class CustomerRegistrationView implements View{
         List<DOMElement> newOrderButtons = this.browser.getDocument().findElements(By.xpath("//button[contains(@class, 'new-order')]"));
         for (DOMElement newOrderButton : newOrderButtons) {
             newOrderButton.addEventListener(DOMEventType.OnClick, domEvent -> { 
-               /*PageLoader.loadHTMLFile(browser, HTMLFiles.AUFTRAGSERSTELLUNG.getHtmlFile()), false);*/
-            	PageLoader.loadGoogle(this.browser);
             	OrderCreationView orderCreationView = new OrderCreationView(this.browser);
-            	orderCreationView.loadView();
+            	this.executorService.execute(orderCreationView::loadView);
             	
             }, false);
         }

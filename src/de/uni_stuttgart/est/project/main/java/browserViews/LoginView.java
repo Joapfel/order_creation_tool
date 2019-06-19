@@ -1,5 +1,8 @@
 package browserViews;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 import com.teamdev.jxbrowser.chromium.Browser;
 import com.teamdev.jxbrowser.chromium.dom.By;
 import com.teamdev.jxbrowser.chromium.dom.DOMDocument;
@@ -19,9 +22,11 @@ import utils.*;
 public class LoginView implements View{
 
     private final Browser browser;
+    private final ExecutorService executorService;
 
     public LoginView(final Browser browser){
         this.browser = browser;
+        this.executorService = Executors.newCachedThreadPool();
     }
 
     @Override
@@ -49,11 +54,9 @@ public class LoginView implements View{
             BasicAuthentication auth = new BasicAuthentication();
             
             if (auth.login(username, pw)){
-                // little hack -> without this in-between-load the program times out
-                PageLoader.loadGoogle(this.browser);
                 // load the actual view
                 CustomerRegistrationView customerRegistrationView = new CustomerRegistrationView(this.browser);
-                customerRegistrationView.loadView();
+                this.executorService.execute(customerRegistrationView::loadView);
 
             } else {
                 //prompt an failed message

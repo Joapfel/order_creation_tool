@@ -1,5 +1,8 @@
 package browserViews;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 import com.teamdev.jxbrowser.chromium.Browser;
 import com.teamdev.jxbrowser.chromium.dom.By;
 import com.teamdev.jxbrowser.chromium.dom.DOMDocument;
@@ -23,11 +26,13 @@ public class OrderCreationViewPreview implements View{
 	
 	private Browser browser;
 	private Order order;
+	private final ExecutorService executorService;
 	
 	public OrderCreationViewPreview(Browser browser, Order order) {
 		// TODO Auto-generated constructor stub
 		this.browser = browser;
 		this.order = order;
+		this.executorService = Executors.newCachedThreadPool();
 	}
 
 	@Override
@@ -54,15 +59,11 @@ public class OrderCreationViewPreview implements View{
 	private void initOrderTabButton() {
 		DOMDocument doc = browser.getDocument();
 		DOMElement orderLink = doc.findElement(By.id("order-list-link"));
-		orderLink.addEventListener(DOMEventType.OnClick, new DOMEventListener() {
+		orderLink.addEventListener(DOMEventType.OnClick, domEvent -> {
+			// TODO Auto-generated method stub
+			OrderCreationView orderCreationView = new OrderCreationView(browser);
+			this.executorService.execute(orderCreationView::loadView);
 			
-			@Override
-			public void handleEvent(DOMEvent arg0) {
-				// TODO Auto-generated method stub
-				PageLoader.loadGoogle(browser);
-				OrderCreationView orderCreationView = new OrderCreationView(browser);
-				orderCreationView.loadView();
-			}
 		}, false);
 	}
 

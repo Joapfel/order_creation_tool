@@ -24,15 +24,4 @@ public class PageLoader {
             }
         });
     }
-
-    public static void loadGoogle(Browser browser){
-        // Blocks current thread execution and waits until http://www.google.com web page is loaded completely
-        Browser.invokeAndWaitFinishLoadingMainFrame(browser, new Callback<Browser>() {
-            @Override
-            public void invoke(Browser value) {
-            	value.loadURL("http://www.google.com");
-            	
-            }
-        });
-    }
 }

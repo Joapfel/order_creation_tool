@@ -2,6 +2,8 @@ package browserViews;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import com.teamdev.jxbrowser.chromium.Browser;
 import com.teamdev.jxbrowser.chromium.dom.By;
@@ -34,6 +36,7 @@ public class OrderCreationView implements View {
 	
 	private Browser browser;
 	private Order savedOrder;
+	private final ExecutorService executorService;
 	
 	/**
 	 * this constructor is used for creating a new order
@@ -43,6 +46,7 @@ public class OrderCreationView implements View {
 		// TODO Auto-generated constructor stub
 		this.browser = browser;
 		this.savedOrder = null;
+		this.executorService = Executors.newCachedThreadPool();
 	}
 	
 	/**
@@ -53,11 +57,13 @@ public class OrderCreationView implements View {
 		// TODO Auto-generated constructor stub
 		this.browser = browser;
 		this.savedOrder = order;
+		this.executorService = Executors.newCachedThreadPool();
 	}
 
 	@Override
 	public void loadView() {
 		// TODO Auto-generated method stub
+		// this.executorService.execute(PageLoader.loadHTMLFileComplete(browser, HTMLFiles.AUFTRAGSERSTELLUNG.getHtmlFile()));
 		PageLoader.loadHTMLFileComplete(browser, HTMLFiles.AUFTRAGSERSTELLUNG.getHtmlFile());
 		NavbarInitializer.initNavbar(browser);
 		initAddOrderComponentButton(browser);
@@ -296,21 +302,18 @@ public class OrderCreationView implements View {
 	private void initPreviewTabButton() {
 		DOMDocument doc = browser.getDocument();
 		DOMElement orderPreviewLink = doc.findElement(By.id("order-preview-link"));
-		orderPreviewLink.addEventListener(DOMEventType.OnClick, new DOMEventListener() {
-			
-			@Override
-			public void handleEvent(DOMEvent arg0) {
-				// TODO Auto-generated method stub
-				if (savedOrder != null) {
-					PageLoader.loadGoogle(browser);
-					OrderCreationViewPreview preview = new OrderCreationViewPreview(browser, savedOrder);
-					preview.loadView();
-				} else {
-					DOMElement warningPanel = doc.findElement(By.id("orderNotSaved"));
-					warningPanel.setAttribute("class", "alert alert-danger");
-				}
+		orderPreviewLink.addEventListener(DOMEventType.OnClick, domEvent -> {
+
+			// TODO Auto-generated method stub
+			if (savedOrder != null) {
+				OrderCreationViewPreview preview = new OrderCreationViewPreview(browser, savedOrder);
+				this.executorService.execute(preview::loadView);
+			} else {
+				DOMElement warningPanel = doc.findElement(By.id("orderNotSaved"));
+				warningPanel.setAttribute("class", "alert alert-danger");
 			}
 		}, false);
+
 	}
 
 }
