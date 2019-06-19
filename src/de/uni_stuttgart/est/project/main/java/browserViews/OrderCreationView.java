@@ -98,7 +98,7 @@ public class OrderCreationView implements View {
 						" <span class=\"material\">" + material + "</span>\n" + 
 						" <span class=\"units-count\">" + unitsCount + "</span>\n" + 
 						" <span class=\"price-per-unit\">" + pricePerUnit + " Euro</span>\n" + 
-						" <button class=\"deleteButton btn btn-outline-danger my-2 my-sm-0 float-right\" type=\"button\">Löschen</button>\n" + 
+						" <button class=\"deleteButton btn btn-outline-danger my-2 my-sm-0 float-right\" type=\"button\">Loeschen</button>\n" + 
 						"</li>";
 					String inner = doc.findElement(By.id("materials-list")).getInnerHTML();
 					doc.findElement(By.id("materials-list")).setInnerHTML(inner + html);
@@ -142,10 +142,11 @@ public class OrderCreationView implements View {
 						" <span class=\"machine\">" + machine + "</span>\n" + 
 						" <span class=\"machine-hours\">" + hoursCount + "</span>\n" + 
 						" <span class=\"machine-per-hour\">" + pricePerHour + " Euro</span>\n" + 
-						" <button class=\"deleteButton btn btn-outline-danger my-2 my-sm-0 float-right\" type=\"button\">Löschen</button>\n" + 
+						" <button class=\"deleteButton btn btn-outline-danger my-2 my-sm-0 float-right\" type=\"button\">Loeschen</button>\n" + 
 						"</li>";
 					String inner = doc.findElement(By.id("machines-list")).getInnerHTML();
 					doc.findElement(By.id("machines-list")).setInnerHTML(inner + html);
+					initDeleteOrderButton(browser);
 	                fieldEmpty.setAttribute("class", "alert alert-danger invisible");
 				}
 			}
@@ -177,10 +178,11 @@ public class OrderCreationView implements View {
 						"<li class=\"list-group-item\">\n" + 
 						" <span class=\"human-hours\">" + hours + " Stunden</span>\n" + 
 						" <span class=\"human-hour-price\">" + pricePerHour + " Euro</span>\n" + 
-						" <button class=\"deleteButton btn btn-outline-danger my-2 my-sm-0 float-right\" type=\"button\">Löschen</button>\n" + 
+						" <button class=\"deleteButton btn btn-outline-danger my-2 my-sm-0 float-right\" type=\"button\">Loeschen</button>\n" + 
 						"</li>";
 					String inner = doc.findElement(By.id("hours-list")).getInnerHTML();
 					doc.findElement(By.id("hours-list")).setInnerHTML(inner + html);
+					initDeleteOrderButton(browser);
 	                fieldEmpty.setAttribute("class", "alert alert-danger invisible");
 				}
 
