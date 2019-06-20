@@ -28,4 +28,5 @@ public interface Storage {
 	boolean deleteUserByUsername(String username);
 	LinkedList<User> getAllUsers();
 	LinkedList<Order> getAllOrders();
+	LinkedList<Customer> getAllCustomers();
 }

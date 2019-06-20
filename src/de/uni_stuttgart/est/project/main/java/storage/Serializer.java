@@ -148,12 +148,18 @@ public class Serializer implements Serializable, Storage {
 		}
 	}
 
+	/*
+	 * removes a given username from the name-map and therefore makes it impossible to get access to the user-object
+	 */
 	@Override
 	public boolean deleteUserByUsername(String userName) {
 		userMap.remove(userName);
 		return false;
 	}
 
+	/*
+	 * returns a Linkedlist of all Users
+	 */
 	@Override
 	public LinkedList<User> getAllUsers() {
 		LinkedList<User> userList = new LinkedList<User>();
@@ -163,6 +169,9 @@ public class Serializer implements Serializable, Storage {
 		return userList;
 	}
 	
+	/*
+	 * returns a Linkedlist of all Orders
+	 */
 	@Override
 	public LinkedList<Order> getAllOrders() {
 		LinkedList<Order> orderList = new LinkedList<Order>();
@@ -170,6 +179,18 @@ public class Serializer implements Serializable, Storage {
 			orderList.add(entry.getValue());
 		}
 		return orderList;
+	}
+
+	/*
+	 * returns a Linkedlist of all Customers
+	 */
+	@Override
+	public LinkedList<Customer> getAllCustomers() {
+		LinkedList<Customer> customerList = new LinkedList<Customer>();
+		for(Entry<Integer, Customer> entry: customerIDMap.entrySet()) {
+			customerList.add(entry.getValue());
+		}
+		return customerList;
 	}
 	
 }
