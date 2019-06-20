@@ -162,4 +162,14 @@ public class Serializer implements Serializable, Storage {
 		}
 		return userList;
 	}
+	
+	@Override
+	public LinkedList<Order> getAllOrders() {
+		LinkedList<Order> orderList = new LinkedList<Order>();
+		for(Entry<Integer, Order> entry: orderIDMap.entrySet()) {
+			orderList.add(entry.getValue());
+		}
+		return orderList;
+	}
+	
 }

@@ -27,4 +27,5 @@ public interface Storage {
 	Order findOrderByID(int orderID);
 	boolean deleteUserByUsername(String username);
 	LinkedList<User> getAllUsers();
+	LinkedList<Order> getAllOrders();
 }
