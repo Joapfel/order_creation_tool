@@ -39,9 +39,9 @@ class TestWorkingHours {
 		orderComp = new WorkingHours(orderComp, "Junior", 8, 80);
 
 		String sep = System.lineSeparator();
-
+		
 		assertEquals("Order setzt sich zusammen aus: " + sep + sep
-				+ "Eisenstangen: 5 St\\u00FCck, 15.0 Euro/St\\u00FCck, Gesamt: 75.0 Euro" + sep
+				+ "Eisenstangen: 5 Einheiten, 15.0 Euro/Einheit, Gesamt: 75.0 Euro" + sep
 				+ "Lastenkran: 2 Stunde(n), 150.0 Euro/Stunde, Gesamt: 300.0 Euro" + sep
 				+ "Junior: 8 Stunde(n), 80.0 Euro/Stunde, Gesamt: 640.0 Euro", orderComp.summary());
 	}

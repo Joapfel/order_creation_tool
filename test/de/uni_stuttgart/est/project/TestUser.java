@@ -40,4 +40,5 @@ class TestUser {
 		assertEquals("HR user", roleB);
 		assertEquals("management user", roleC);
 	}
+	
 }
