@@ -62,7 +62,12 @@ public class HRView implements View {
 			User saveUser = new User(username, pw);
 			storage.saveUser(saveUser);
     }
-        
-   
-    
+  
+}
+	private void initUserList() {
+		DOMElement hrUserList = document.findElement(By.id("hr-user-list"));
+		Storage storage = Initialize.getSerializer();
+		storage.getAllUsers();
+	}
+	
 }
