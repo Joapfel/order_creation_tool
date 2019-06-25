@@ -1,5 +1,6 @@
 package browserViews;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -13,6 +14,7 @@ import dao.Customer;
 import dao.FixRate;
 import dao.Order;
 import dao.OrderComponentDecorator;
+import main.Initialize;
 import storage.Serializer;
 import storage.Storage;
 import utils.*;
@@ -95,12 +97,32 @@ public class CustomerRegistrationView implements View{
 					cityIn.setValue("");
 					countryIn.setValue("");
                 
-					System.out.println(companyName + " " + streetname + " " + houseNumber + " " + zipcode + " " + city + " " + country);
+					
+					//System.out.println(companyName + " " + streetname + " " + houseNumber + " " + zipcode + " " + city + " " + country);
 					
 					Address address = new Address(streetname, houseNumber, zipcode, city, country);
 					Customer customer = new Customer(companyName, address, new Order("Placeholder", new FixRate(new BasicOrderComponent()), "Some text"));
-					Storage storage = new Serializer();
+					Serializer storage = Initialize.getSerializer();
 					storage.saveCustomer(customer);
+				
+					//For Testing-Only!!!
+					LinkedList<Customer> cust_list = storage.getAllCustomers();
+					
+					for(int i = 0;i<cust_list.size();i++) {
+						Customer cust = cust_list.get(i);
+						System.out.println(cust.getCompanyName()+ " " +cust.getCustomerID());
+					}
+					
+					storage.printAllCustomers();
+					
+					System.out.println();
+					System.out.println();
+					System.out.println("-------new entry-------");
+					System.out.println();
+					System.out.println();
+					//until here
+					
+					
 					
 					String html =
                         "<div class='card'>\n" +
