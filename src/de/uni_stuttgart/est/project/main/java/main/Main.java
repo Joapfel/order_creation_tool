@@ -20,7 +20,7 @@ public class Main {
 		
     public static void main(String[] args) {
     	
-    	if(args[0].equals("report")) {
+    	if(args.length > 0 && args[0].equals("report")) {
     		
     		String path = "Report.txt";
     		if (args.length > 1 && !args[1].isEmpty() && !args[1].equals(null)) {
