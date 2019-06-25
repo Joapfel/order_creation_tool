@@ -113,10 +113,14 @@ public class CustomerRegistrationView implements View{
 						System.out.println(cust.getCompanyName()+ " " +cust.getCustomerID());
 					}
 					
+					System.out.println("-------all Customers-------");
 					storage.printAllCustomers();
-					
 					System.out.println();
 					System.out.println();
+					System.out.println("-------all Orders-------");
+					System.out.println();
+					System.out.println();					
+					storage.printAllOrders();
 					System.out.println("-------new entry-------");
 					System.out.println();
 					System.out.println();
