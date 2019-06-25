@@ -97,11 +97,10 @@ public class CustomerRegistrationView implements View{
                 
 					System.out.println(companyName + " " + streetname + " " + houseNumber + " " + zipcode + " " + city + " " + country);
 					
-					// TODO: crashes with a NullPointer
-					/*Address address = new Address(streetname, houseNumber, zipcode, city, country);
+					Address address = new Address(streetname, houseNumber, zipcode, city, country);
 					Customer customer = new Customer(companyName, address, new Order("Placeholder", new FixRate(new BasicOrderComponent()), "Some text"));
 					Storage storage = new Serializer();
-					storage.saveCustomer(customer);*/
+					storage.saveCustomer(customer);
 					
 					String html =
                         "<div class='card'>\n" +
