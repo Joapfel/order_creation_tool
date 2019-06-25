@@ -115,6 +115,9 @@ public class Serializer implements Serializable, Storage {
 		}
 	}
 	
+	/*
+	 * For testing only!!!
+	 */
 	public void printAllUsers() {
 		
 		for (String key: userMap.keySet()) {
@@ -126,6 +129,9 @@ public class Serializer implements Serializable, Storage {
 		}
 	}
 	
+	/*
+	 * For testing only!!!
+	 */
 	public void printAllCustomers() {
 			
 			for (String key: customerNameMap.keySet()) {
@@ -137,6 +143,9 @@ public class Serializer implements Serializable, Storage {
 			}
 		}
 
+	/*
+	 * For testing only!!!
+	 */
 	public void printAllOrders() {
 		
 		for (int key: orderIDMap.keySet()) {

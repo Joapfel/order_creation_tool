@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.LinkedList;
 
 import main.Initialize;
+import storage.Storage;
 
 /**
  * Class to store Customer-Data.
@@ -18,9 +19,10 @@ public class Customer implements Serializable {
 	 */
 	private static final long serialVersionUID = 8904797428130831720L;
 	
+	private Storage storage = Initialize.getSerializer();
 	private String companyName;
 	private Address address;
-	private LinkedList<Order> order= new LinkedList<Order>();
+	private LinkedList<Integer> order_id= new LinkedList<Integer>();
 	private int customerID;
 	
 	/**
@@ -33,7 +35,7 @@ public class Customer implements Serializable {
 	public Customer(String companyName, Address address, Order order) {
 		this.setCompanyName(companyName);
 		this.setAddress(address);
-		this.order.add(order);
+		this.order_id.add(order.getOrderID());
 		customerID = Initialize.getSerializer().getNextCustomer();
 	}
 
@@ -79,8 +81,13 @@ public class Customer implements Serializable {
 	 * 
 	 * @return list of orders by this customer
 	 */
-	public LinkedList<Order> getOrder(){
-		return order;
+	public LinkedList<Integer> getOrder_id(){
+		return order_id;
+	}
+	
+	public void addOrder (Order order) {
+		int pos = storage.saveOrder(order);
+		order_id.add(pos);
 	}
 	
 	
