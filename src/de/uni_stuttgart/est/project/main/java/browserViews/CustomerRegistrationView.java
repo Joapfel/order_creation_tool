@@ -98,7 +98,12 @@ public class CustomerRegistrationView implements View{
 					countryIn.setValue("");
                 
 					
+					//Testing
+					System.out.println("-------------");
+					System.out.println(Initialize.getSerializer().findCustomerById(3).getAddress().getStreetname());
+					System.out.println("-------------");
 					//System.out.println(companyName + " " + streetname + " " + houseNumber + " " + zipcode + " " + city + " " + country);
+					//'till here
 					
 					Address address = new Address(streetname, houseNumber, zipcode, city, country);
 					Customer customer = new Customer(companyName, address, new Order("Placeholder", new FixRate(new BasicOrderComponent()), "Some text"));
@@ -110,9 +115,10 @@ public class CustomerRegistrationView implements View{
 					
 					for(int i = 0;i<cust_list.size();i++) {
 						Customer cust = cust_list.get(i);
-						System.out.println(cust.getCompanyName()+ " " +cust.getCustomerID());
+						System.out.println(cust.getCompanyName()+ " " +cust.getCustomerID()+ " " +cust.getAddress().getStreetname()+ " ");
 					}
 					
+					/*
 					System.out.println("-------all Customers-------");
 					storage.printAllCustomers();
 					System.out.println();
@@ -125,7 +131,7 @@ public class CustomerRegistrationView implements View{
 					System.out.println();
 					System.out.println();
 					//until here
-					
+					*/
 					
 					
 					String html =
