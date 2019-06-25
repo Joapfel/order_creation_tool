@@ -12,6 +12,10 @@ import com.teamdev.jxbrowser.chromium.dom.events.DOMEventType;
 
 import authentication.BasicAuthentication;
 import browserActions.*;
+import dao.User;
+import main.Initialize;
+import storage.Serializer;
+import storage.Storage;
 import utils.*;
 
 /**
@@ -23,6 +27,7 @@ public class LoginView implements View{
 
     private final Browser browser;
     private final ExecutorService executorService;
+    private Storage storage = Initialize.getSerializer();
 
     public LoginView(final Browser browser){
         this.browser = browser;
@@ -54,10 +59,20 @@ public class LoginView implements View{
             BasicAuthentication auth = new BasicAuthentication();
             
             if (auth.login(username, pw)){
-                // load the actual view
-                CustomerRegistrationView customerRegistrationView = new CustomerRegistrationView(this.browser);
-                this.executorService.execute(customerRegistrationView::loadView);
-
+            	
+            	User user = storage.findUserByUsername(username);
+            	String role = user.getRole();
+            	
+            	if (role.equals("normal")){
+        			// load the actual view
+        			CustomerRegistrationView customerRegistrationView = new CustomerRegistrationView(this.browser);
+        			this.executorService.execute(customerRegistrationView::loadView);
+        			
+        		} else if (role.equals("HR user")) {
+        			HRView hrView = new HRView(this.browser);
+                	this.executorService.execute(hrView::loadView);
+        		}
+                
             } else {
                 //prompt an failed message
                 DOMElement loginFail = doc.findElement(By.id("loginFail"));

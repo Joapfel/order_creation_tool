@@ -13,6 +13,8 @@ import dao.Customer;
 import dao.FixRate;
 import dao.Order;
 import dao.OrderComponentDecorator;
+import dao.User;
+import main.Initialize;
 import storage.Serializer;
 import storage.Storage;
 import utils.*;
@@ -49,9 +51,11 @@ public class HRView implements View {
 	}
 
 	private void initAddButton() {
+		
     	DOMDocument doc = this.browser.getDocument();
         DOMElement addButton = doc.findElement(By.id("button-addon-user"));
         addButton.addEventListener(DOMEventType.OnClick, domEvent -> {
+        	
             // get the entered usercredentials
             DOMInputElement userIn = (DOMInputElement) doc.findElement(By.id("user-input"));
             DOMInputElement pwIn = (DOMInputElement) doc.findElement(By.id("password-input"));
@@ -61,10 +65,12 @@ public class HRView implements View {
             Storage storage = Initialize.getSerializer();
 			User saveUser = new User(username, pw);
 			storage.saveUser(saveUser);
-    }
+			
+        }, false);
+	}
   
-}
 	private void initUserList() {
+		DOMDocument document = this.browser.getDocument();
 		DOMElement hrUserList = document.findElement(By.id("hr-user-list"));
 		Storage storage = Initialize.getSerializer();
 		storage.getAllUsers();
