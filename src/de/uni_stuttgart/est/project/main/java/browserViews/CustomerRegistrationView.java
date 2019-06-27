@@ -36,19 +36,57 @@ public class CustomerRegistrationView implements View{
 
     private Browser browser;
     private final ExecutorService executorService;
+    private Storage storage;
 
     public CustomerRegistrationView(Browser browser){
         this.browser = browser;
         this.executorService = Executors.newCachedThreadPool();
+        this.storage = Initialize.getSerializer();
     }
 
     @Override
     public void loadView() {
 
         PageLoader.loadHTMLFileComplete(this.browser, HTMLFiles.KUNDENERFASSUNG.getHtmlFile());
+        loadExistingCustomers();
         initNewOrderButtons();
         initNewCustomerButton(); 
        
+    }
+    
+    private void addCustomerHTML(String companyName) {
+    	
+    	DOMDocument document = this.browser.getDocument();
+    	
+		String html =
+                "<div class='card'>\n" +
+                "  <div class='card-header' id='headingFour'>\n" +
+                "    <h2 class='mb-0'>\n" +
+                "      <button class='btn btn-link collapsed' type='button' data-toggle='collapse' data-target='#collapseFour' aria-expanded='false' aria-controls='collapseFour'>\n" +
+                "        <span class='oi oi-caret-bottom'></span>\n" +
+                "      </button>\n" +
+                        companyName +
+                "      <button class='btn btn-primary my-2 my-sm-0 float-right new-order' type='submit'>Neuer Auftrag</button>\n" +
+                "    </h2>\n" +
+                "  </div>\n" +
+                "</div>\n";
+			String inner = document.findElement(By.id("accordionExample")).getInnerHTML();
+			document.findElement(By.id("accordionExample")).setInnerHTML(inner + html);
+
+			initNewOrderButtons();
+    }
+    
+    
+    private void loadExistingCustomers() {
+    	
+		LinkedList<Customer> cust_list = storage.getAllCustomers();
+		
+		for(int i = 0;i<cust_list.size();i++) {
+			Customer cust = cust_list.get(i);
+			addCustomerHTML(cust.getCompanyName());
+			//TODO: delete me
+			System.out.println(cust.getCompanyName()+ " " +cust.getCustomerID()+ " " +cust.getAddress().getStreetname()+ " ");
+		}
     }
     
     
@@ -96,60 +134,12 @@ public class CustomerRegistrationView implements View{
 					zipcodeIn.setValue("");
 					cityIn.setValue("");
 					countryIn.setValue("");
-                
-					
-					//Testing
-					System.out.println("-------------");
-					System.out.println(Initialize.getSerializer().findCustomerById(3).getAddress().getStreetname());
-					System.out.println("-------------");
-					//System.out.println(companyName + " " + streetname + " " + houseNumber + " " + zipcode + " " + city + " " + country);
-					//'till here
 					
 					Address address = new Address(streetname, houseNumber, zipcode, city, country);
 					Customer customer = new Customer(companyName, address, new Order("Placeholder", new FixRate(new BasicOrderComponent()), "Some text"));
-					Serializer storage = Initialize.getSerializer();
 					storage.saveCustomer(customer);
-				
-					//For Testing-Only!!!
-					LinkedList<Customer> cust_list = storage.getAllCustomers();
 					
-					for(int i = 0;i<cust_list.size();i++) {
-						Customer cust = cust_list.get(i);
-						System.out.println(cust.getCompanyName()+ " " +cust.getCustomerID()+ " " +cust.getAddress().getStreetname()+ " ");
-					}
-					
-					/*
-					System.out.println("-------all Customers-------");
-					storage.printAllCustomers();
-					System.out.println();
-					System.out.println();
-					System.out.println("-------all Orders-------");
-					System.out.println();
-					System.out.println();					
-					storage.printAllOrders();
-					System.out.println("-------new entry-------");
-					System.out.println();
-					System.out.println();
-					//until here
-					*/
-					
-					
-					String html =
-                        "<div class='card'>\n" +
-                        "  <div class='card-header' id='headingFour'>\n" +
-                        "    <h2 class='mb-0'>\n" +
-                        "      <button class='btn btn-link collapsed' type='button' data-toggle='collapse' data-target='#collapseFour' aria-expanded='false' aria-controls='collapseFour'>\n" +
-                        "        <span class='oi oi-caret-bottom'></span>\n" +
-                        "      </button>\n" +
-                                companyName +
-                        "      <button class='btn btn-primary my-2 my-sm-0 float-right new-order' type='submit'>Neuer Auftrag</button>\n" +
-                        "    </h2>\n" +
-                        "  </div>\n" +
-                        "</div>\n";
-					String inner = document.findElement(By.id("accordionExample")).getInnerHTML();
-					document.findElement(By.id("accordionExample")).setInnerHTML(inner + html);
-
-					initNewOrderButtons();
+					addCustomerHTML(companyName);
 	                fieldEmpty.setAttribute("class", "alert alert-danger invisible");
 				}
             }
