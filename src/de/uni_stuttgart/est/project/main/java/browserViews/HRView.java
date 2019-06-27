@@ -8,12 +8,6 @@ import java.util.concurrent.Executors;
 import com.teamdev.jxbrowser.chromium.Browser;
 
 import browserActions.*;
-import dao.Address;
-import dao.BasicOrderComponent;
-import dao.Customer;
-import dao.FixRate;
-import dao.Order;
-import dao.OrderComponentDecorator;
 import dao.User;
 import main.Initialize;
 import storage.Serializer;

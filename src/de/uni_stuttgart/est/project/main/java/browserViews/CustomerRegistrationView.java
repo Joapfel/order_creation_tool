@@ -14,10 +14,7 @@ import dao.BasicOrderComponent;
 import dao.Customer;
 import dao.FixRate;
 import dao.Order;
-import dao.OrderComponentDecorator;
-import jdk.nashorn.internal.runtime.arrays.ArrayLikeIterator;
 import main.Initialize;
-import storage.Serializer;
 import storage.Storage;
 import utils.*;
 

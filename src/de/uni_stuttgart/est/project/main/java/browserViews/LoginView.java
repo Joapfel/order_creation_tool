@@ -14,7 +14,6 @@ import authentication.BasicAuthentication;
 import browserActions.*;
 import dao.User;
 import main.Initialize;
-import storage.Serializer;
 import storage.Storage;
 import utils.*;
 
