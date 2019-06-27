@@ -87,7 +87,7 @@ Usecases:
  	- to leave the HR view close the program
 
 - to edit an order click 'Bearbeiten'; then same process as you would create a new order
-	- 'Loeschen' button is working now as well in the process of creating a new order by clicking 'Neuer Auftrag' or 'Bearbeiten' (if an order has already been created)
+	- 'Loeschen' button is working now after access by clicking on 'Neuer Auftrag' button or 'Bearbeiten' button ('Bearbeiten' only is there if an order has already been created)
 
 
 
