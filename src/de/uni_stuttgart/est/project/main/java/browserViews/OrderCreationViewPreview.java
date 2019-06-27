@@ -61,8 +61,8 @@ public class OrderCreationViewPreview implements View{
 		DOMElement orderLink = doc.findElement(By.id("order-list-link"));
 		orderLink.addEventListener(DOMEventType.OnClick, domEvent -> {
 			// TODO Auto-generated method stub
-			OrderCreationView orderCreationView = new OrderCreationView(browser);
-			this.executorService.execute(orderCreationView::loadView);
+			//OrderCreationView orderCreationView = new OrderCreationView(browser);
+			//this.executorService.execute(orderCreationView::loadView);
 			
 		}, false);
 	}

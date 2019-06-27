@@ -1,5 +1,6 @@
 package browserViews;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -14,6 +15,7 @@ import dao.Customer;
 import dao.FixRate;
 import dao.Order;
 import dao.OrderComponentDecorator;
+import jdk.nashorn.internal.runtime.arrays.ArrayLikeIterator;
 import main.Initialize;
 import storage.Serializer;
 import storage.Storage;
@@ -57,9 +59,22 @@ public class CustomerRegistrationView implements View{
     private void addCustomerHTML(String companyName) {
     	
     	DOMDocument document = this.browser.getDocument();
+    	Customer customer = storage.findCustomersByCompanyName(companyName);
+   
+    	ArrayList<Order> orders = new ArrayList<Order>();
+    	List<Integer> orderIds = customer.getOrder_id();
+    	if (orderIds != null && orderIds.size() > 0) {
+        	for (int j : orderIds) {
+        		Order order = storage.findOrderByID(j);
+        		if (order != null) {
+        			orders.add(order);
+            		System.out.println(customer.getCompanyName() + " " + order.getOrdername());
+        		}	
+        	}
+    	}
     	
 		String html =
-                "<div class='card'>\n" +
+                "<div id="+companyName+" class='card'>\n" +
                 "  <div class='card-header' id='headingFour'>\n" +
                 "    <h2 class='mb-0'>\n" +
                 "      <button class='btn btn-link collapsed' type='button' data-toggle='collapse' data-target='#collapseFour' aria-expanded='false' aria-controls='collapseFour'>\n" +
@@ -69,11 +84,61 @@ public class CustomerRegistrationView implements View{
                 "      <button class='btn btn-primary my-2 my-sm-0 float-right new-order' type='submit'>Neuer Auftrag</button>\n" +
                 "    </h2>\n" +
                 "  </div>\n" +
+                //
                 "</div>\n";
-			String inner = document.findElement(By.id("accordionExample")).getInnerHTML();
-			document.findElement(By.id("accordionExample")).setInnerHTML(inner + html);
-
-			initNewOrderButtons();
+		
+		
+		DOMElement accordion = document.findElement(By.id("accordionExample"));
+		String inner = accordion.getInnerHTML();
+		document.findElement(By.id("accordionExample")).setInnerHTML(inner + html);
+		
+		if (orders != null && orders.size() > 0) {
+			String ordersHTML = addOrderToCustomerHTML(orders);
+			if (ordersHTML != null && !ordersHTML.equals("")) {
+				DOMElement divCard = document.findElement(By.id(companyName));
+				
+				if (divCard != null) {
+					String divCardInner = divCard.getInnerHTML();
+					divCard.setInnerHTML(divCardInner + ordersHTML);
+				}
+			}
+		}		
+		
+    }
+    
+    private String addOrderToCustomerHTML(List<Order> orders) {
+    	
+    	String openDivCard = "<div class=\"card\">";
+    	String closedDivCard = "</div>";
+    	String openUl = " <ul class=\"list-group list-group-flush\">";
+    	String closedUl = "</ul>";
+    	
+    	StringBuilder ul = new StringBuilder();
+    	ul.append(openUl);
+    	
+    	int added = 0;
+    	for (Order order : orders) {
+    		if (order == null) { continue; }
+        	String li = " <li class=\"list-group-item\">\n" + 
+        			"     	<span>" + order.getOrdername() + "</span>\n" + 
+        			"     	<div class=\"float-right\">\n" +  
+        			"       	<button class=\"btn btn-outline-primary my-2 my-sm-0 float-right\" type=\"submit\">Bearbeiten</button>\n" + 
+        			"       </div>\n" + 
+        			"     </li>";
+        	ul.append(li);
+        	added += 1;
+    	}
+    	ul.append(closedUl);
+    	
+    	StringBuilder divCard = new StringBuilder();
+    	divCard.append(openDivCard);
+    	divCard.append(ul);
+    	divCard.append(closedDivCard);
+    	
+    	if (added > 0) {
+    		return divCard.toString();
+    	}
+    	return "";
     }
     
     
@@ -84,8 +149,7 @@ public class CustomerRegistrationView implements View{
 		for(int i = 0;i<cust_list.size();i++) {
 			Customer cust = cust_list.get(i);
 			addCustomerHTML(cust.getCompanyName());
-			//TODO: delete me
-			System.out.println(cust.getCompanyName()+ " " +cust.getCustomerID()+ " " +cust.getAddress().getStreetname()+ " ");
+
 		}
     }
     
@@ -141,6 +205,9 @@ public class CustomerRegistrationView implements View{
 					
 					addCustomerHTML(companyName);
 	                fieldEmpty.setAttribute("class", "alert alert-danger invisible");
+	                
+	        		CustomerRegistrationView customerRegistrationView = new CustomerRegistrationView(browser);
+	        		executorService.execute(customerRegistrationView::loadView);
 				}
             }
         }, false); 
@@ -154,11 +221,22 @@ public class CustomerRegistrationView implements View{
     private void initNewOrderButtons(){
         List<DOMElement> newOrderButtons = this.browser.getDocument().findElements(By.xpath("//button[contains(@class, 'new-order')]"));
         for (DOMElement newOrderButton : newOrderButtons) {
-            newOrderButton.addEventListener(DOMEventType.OnClick, domEvent -> { 
-            	OrderCreationView orderCreationView = new OrderCreationView(this.browser);
+            newOrderButton.addEventListener(DOMEventType.OnClick, domEvent -> {
+            	String companyName = newOrderButton.getParent().getTextContent();
+            	companyName = companyName.replace("Neuer Auftrag", "");
+            	companyName = companyName.trim();
+            	//TODO: remove me
+            	System.out.println("Company Name: " + companyName);
+            	Customer customer = storage.findCustomersByCompanyName(companyName);
+            	OrderCreationView orderCreationView = new OrderCreationView(this.browser, customer);
+
             	this.executorService.execute(orderCreationView::loadView);
             	
             }, false);
         }
+    }
+    
+    private void initEditOrderButtons() {
+    	
     }
 }

@@ -1,10 +1,12 @@
 package browserViews;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
 import com.teamdev.jxbrowser.chromium.Browser;
 import com.teamdev.jxbrowser.chromium.dom.By;
 import com.teamdev.jxbrowser.chromium.dom.DOMDocument;
@@ -18,6 +20,7 @@ import com.teamdev.jxbrowser.chromium.dom.events.DOMEventType;
 import browserActions.NavbarInitializer;
 import browserActions.PageLoader;
 import dao.BasicOrderComponent;
+import dao.Customer;
 import dao.Machine;
 import dao.Material;
 import dao.Order;
@@ -36,16 +39,18 @@ public class OrderCreationView implements View {
 	
 	private Browser browser;
 	private Order savedOrder;
+	private Customer customer;
 	private final ExecutorService executorService;
 	
 	/**
 	 * this constructor is used for creating a new order
 	 * @param browser
 	 */
-	public OrderCreationView(Browser browser) {
+	public OrderCreationView(Browser browser, Customer customer) {
 		// TODO Auto-generated constructor stub
 		this.browser = browser;
 		this.savedOrder = null;
+		this.customer = customer;
 		this.executorService = Executors.newCachedThreadPool();
 	}
 	
@@ -63,13 +68,84 @@ public class OrderCreationView implements View {
 	@Override
 	public void loadView() {
 		// TODO Auto-generated method stub
-		// this.executorService.execute(PageLoader.loadHTMLFileComplete(browser, HTMLFiles.AUFTRAGSERSTELLUNG.getHtmlFile()));
 		PageLoader.loadHTMLFileComplete(browser, HTMLFiles.AUFTRAGSERSTELLUNG.getHtmlFile());
 		NavbarInitializer.initNavbar(browser);
+		if (savedOrder != null) {
+			loadExistingOrder();
+		}
 		initAddOrderComponentButton(browser);
 		initSaveOrderButton(browser);
 		initDeleteOrderButton(browser);
 		initPreviewTabButton();
+	}
+	
+	private void addMaterialHTML(String material, String unitsCount, String pricePerUnit) {
+		DOMDocument doc = this.browser.getDocument();
+		String html = 
+				"<li class=\"list-group-item item-used\">\n" + 
+				" <span class=\"material\">" + material + "</span>\n" + 
+				" <span class=\"units-count\">" + unitsCount + "</span>\n" + 
+				" <span class=\"price-per-unit\">" + pricePerUnit + " Euro</span>\n" + 
+				" <button class=\"deleteButton btn btn-outline-danger my-2 my-sm-0 float-right\" type=\"button\">Loeschen</button>\n" + 
+				"</li>";
+			String inner = doc.findElement(By.id("materials-list")).getInnerHTML();
+			doc.findElement(By.id("materials-list")).setInnerHTML(inner + html);
+	}
+	
+	private void addMachineHTML(String machine, String hoursCount, String pricePerHour) {
+		DOMDocument doc = this.browser.getDocument();
+		String html = 
+				"<li class=\"list-group-item\">\n" + 
+				" <span class=\"machine\">" + machine + "</span>\n" + 
+				" <span class=\"machine-hours\">" + hoursCount + "</span>\n" + 
+				" <span class=\"machine-per-hour\">" + pricePerHour + " Euro</span>\n" + 
+				" <button class=\"deleteButton btn btn-outline-danger my-2 my-sm-0 float-right\" type=\"button\">Loeschen</button>\n" + 
+				"</li>";
+			String inner = doc.findElement(By.id("machines-list")).getInnerHTML();
+			doc.findElement(By.id("machines-list")).setInnerHTML(inner + html);
+	}
+	
+	private void addHoursHTML(String hours, String pricePerHour) {
+		DOMDocument doc = this.browser.getDocument();
+		String html = 
+				"<li class=\"list-group-item\">\n" + 
+				" <span class=\"human-hours\">" + hours + " Stunden</span>\n" + 
+				" <span class=\"human-hour-price\">" + pricePerHour + " Euro</span>\n" + 
+				" <button class=\"deleteButton btn btn-outline-danger my-2 my-sm-0 float-right\" type=\"button\">Loeschen</button>\n" + 
+				"</li>";
+			String inner = doc.findElement(By.id("hours-list")).getInnerHTML();
+			doc.findElement(By.id("hours-list")).setInnerHTML(inner + html);
+	}
+	
+	private void loadExistingOrder() {
+		OrderComponent orderComponent = this.savedOrder.getOrderComponent();
+		while (!(orderComponent instanceof BasicOrderComponent)) {
+			if (orderComponent instanceof Material) {
+				Material material = (Material) orderComponent;
+				System.out.println(material.getDescription() + " " + material.getQuantity() + " " + material.getPricePerUnit());
+				Double pricePerUnitDouble = (Double) material.getPricePerUnit();
+				String pricePerUnit = Integer.toString(pricePerUnitDouble.intValue());
+				addMaterialHTML(material.getDescription(), Integer.toString(material.getQuantity()), pricePerUnit);
+				orderComponent = material.getOrderComponent();
+				
+			} else if (orderComponent instanceof Machine) {
+				Machine machine = (Machine) orderComponent;
+				System.out.println(machine.getDescription() + " " + machine.getHours() + " " + machine.getPricePerHour());
+				Double pricePerHourDouble = (Double) machine.getPricePerHour();
+				String pricePerHour = Integer.toString(pricePerHourDouble.intValue());
+				addMachineHTML(machine.getDescription(), Integer.toString(machine.getHours()), pricePerHour);
+				orderComponent = machine.getOrderComponent();
+				
+			} else if (orderComponent instanceof WorkingHours) {
+				WorkingHours workingHours = (WorkingHours) orderComponent;
+				System.out.println(workingHours.getDescription() + " " + workingHours.getHours() + " " + workingHours.getRatePerHour());
+				Double ratePerHourDouble = (Double) workingHours.getRatePerHour();
+				String ratePerHour = Integer.toString(ratePerHourDouble.intValue());
+				addHoursHTML(Integer.toString(workingHours.getHours()), ratePerHour);
+				orderComponent = workingHours.getOrderComponent();
+			}
+		}
+		
 	}
 	
     private void initAddOrderComponentButton(Browser browser) {
@@ -99,15 +175,7 @@ public class OrderCreationView implements View {
 					materialUnitsCount.setValue("");
 					materialPricePerUnit.setValue("");
 				
-					String html = 
-						"<li class=\"list-group-item item-used\">\n" + 
-						" <span class=\"material\">" + material + "</span>\n" + 
-						" <span class=\"units-count\">" + unitsCount + "</span>\n" + 
-						" <span class=\"price-per-unit\">" + pricePerUnit + " Euro</span>\n" + 
-						" <button class=\"deleteButton btn btn-outline-danger my-2 my-sm-0 float-right\" type=\"button\">Loeschen</button>\n" + 
-						"</li>";
-					String inner = doc.findElement(By.id("materials-list")).getInnerHTML();
-					doc.findElement(By.id("materials-list")).setInnerHTML(inner + html);
+					addMaterialHTML(material, unitsCount, pricePerUnit);
 					
 					// activate the delete function for the added row
 					initDeleteOrderButton(browser);
@@ -143,15 +211,8 @@ public class OrderCreationView implements View {
 					machineHours.setValue("");
 					machinePricePerHour.setValue("150");
 					
-					String html = 
-						"<li class=\"list-group-item\">\n" + 
-						" <span class=\"machine\">" + machine + "</span>\n" + 
-						" <span class=\"machine-hours\">" + hoursCount + "</span>\n" + 
-						" <span class=\"machine-per-hour\">" + pricePerHour + " Euro</span>\n" + 
-						" <button class=\"deleteButton btn btn-outline-danger my-2 my-sm-0 float-right\" type=\"button\">Loeschen</button>\n" + 
-						"</li>";
-					String inner = doc.findElement(By.id("machines-list")).getInnerHTML();
-					doc.findElement(By.id("machines-list")).setInnerHTML(inner + html);
+					addMachineHTML(machine, hoursCount, pricePerHour);
+
 					initDeleteOrderButton(browser);
 	                fieldEmpty.setAttribute("class", "alert alert-danger invisible");
 				}
@@ -180,14 +241,8 @@ public class OrderCreationView implements View {
 					hoursInput.setValue("");
 					hoursPricePerHour.setValue("80");
 					
-					String html = 
-						"<li class=\"list-group-item\">\n" + 
-						" <span class=\"human-hours\">" + hours + " Stunden</span>\n" + 
-						" <span class=\"human-hour-price\">" + pricePerHour + " Euro</span>\n" + 
-						" <button class=\"deleteButton btn btn-outline-danger my-2 my-sm-0 float-right\" type=\"button\">Loeschen</button>\n" + 
-						"</li>";
-					String inner = doc.findElement(By.id("hours-list")).getInnerHTML();
-					doc.findElement(By.id("hours-list")).setInnerHTML(inner + html);
+					addHoursHTML(hours, pricePerHour);
+
 					initDeleteOrderButton(browser);
 	                fieldEmpty.setAttribute("class", "alert alert-danger invisible");
 				}
@@ -271,7 +326,16 @@ public class OrderCreationView implements View {
 				}
 				Storage storage = Initialize.getSerializer();
 				Order saveOrder = new Order(orderName, order, order.summary());
-				storage.saveOrder(saveOrder);
+				if (customer != null) {
+					customer.addOrder(saveOrder);
+					storage.saveCustomer(customer);
+					
+				} else if (savedOrder != null) {
+					int orderId = savedOrder.getOrderID();
+					saveOrder.setOrderID(orderId);
+					storage.saveOrder(saveOrder);
+				}
+
 				savedOrder = saveOrder;
 				
 				DOMElement warningPanel = doc.findElement(By.id("orderNotSaved"));

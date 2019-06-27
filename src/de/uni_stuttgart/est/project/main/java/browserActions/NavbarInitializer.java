@@ -25,7 +25,7 @@ public class NavbarInitializer {
     	customerRegistrationNavbarButton.addEventListener(DOMEventType.OnClick, domEvent -> {
 			
 			CustomerRegistrationView customerRegistrationView = new CustomerRegistrationView(browser);
-			Executors.newCachedThreadPool().execute(customerRegistrationView::loadView);;
+			Executors.newCachedThreadPool().execute(customerRegistrationView::loadView);
 				
 			
 		}, false);

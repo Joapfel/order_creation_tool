@@ -27,6 +27,8 @@ public abstract class OrderComponentDecorator implements OrderComponent, Seriali
 		return orderComp.summary();
 	}
 	
-	// https://www.tutorialspoint.com/design_pattern/decorator_pattern.htm
-	// Das bleibt mal hier für den Fall, dass ich nochmal darauf zurück greifen muss.
+	public OrderComponent getOrderComponent() {
+		return this.orderComp;
+	}
+
 }
