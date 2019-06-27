@@ -72,7 +72,7 @@ Usecases:
 - create a report: click the dropdown of the runMain-button -> Run configuration -> choose tab Arguments
 			-> type in "report" in the field below Program arguments -> click Run
 			-> close application -> refresh the project in Eclipse -> Report.txt is created in the top project folder
-			-> Reports can have a filename by typing in the field below Program arguments "report *filname*"
+			-> Reports can have a filename by typing in the field below Program arguments "report *filename*"
 			-> there is a report in the program by default with the filename Report.txt
 
 - to login HR users use following credentials:
