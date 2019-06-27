@@ -27,6 +27,7 @@ import com.teamdev.jxbrowser.chromium.dom.events.DOMEvent;
 import com.teamdev.jxbrowser.chromium.dom.DOMDocument;
 import com.teamdev.jxbrowser.chromium.dom.events.DOMEventListener;
 import com.teamdev.jxbrowser.chromium.dom.DOMInputElement;
+import com.teamdev.jxbrowser.chromium.dom.DOMNode;
 
 /**
  * 
@@ -49,7 +50,7 @@ public class HRView implements View {
 		PageLoader.loadHTMLFileComplete(this.browser, HTMLFiles.HR_INTERFACE_VIEW.getHtmlFile());
 		initAddButton();
 		initUserList();
-		// deleteUserButton();
+		deleteUserButton();
 
 	}
 
@@ -57,6 +58,7 @@ public class HRView implements View {
 
 		DOMDocument doc = this.browser.getDocument();
 		DOMElement addButton = doc.findElement(By.id("button-addon-user"));
+		
 		addButton.addEventListener(DOMEventType.OnClick, domEvent -> {
 
 			// get the entered user credentials
@@ -74,7 +76,9 @@ public class HRView implements View {
 					+ "</li>";
 			String inner = doc.findElement(By.id("hr-user-list")).getInnerHTML();
 			doc.findElement(By.id("hr-user-list")).setInnerHTML(inner + html);
+
 		}, false);
+		this.executorService.execute(this::this.loadView(););
 	}
 
 	private void initUserList() {
@@ -90,31 +94,32 @@ public class HRView implements View {
 
 			String username = thisUser.getUsername();
 
-			String html = "<li class=\"list-group-item item-used\">\n" + " <span class=\"user\">" + username
-					+ " <button class=\"deleteButton btn btn-outline-danger my-2 my-sm-0 float-right\" type=\"button\">Loeschen</button>\n"
+			String html = "<li class=\"list-group-item item-used\">\n" + " <span class=\"user\">" + username + "</span>"
+					+ "<button class=\"deleteButton btn btn-outline-danger my-2 my-sm-0 float-right\" type=\"button\">Loeschen</button>\n"
 					+ "</li>";
 			String inner = doc.findElement(By.id("hr-user-list")).getInnerHTML();
 			doc.findElement(By.id("hr-user-list")).setInnerHTML(inner + html);
 		}
 	}
-	/*
 
 	private void deleteUserButton() {
 		DOMDocument doc = browser.getDocument();
+		Serializer storage = Initialize.getSerializer();
 		List<DOMElement> deleteButtons = doc.findElements(By.xpath("//li/button[contains(@class, 'deleteButton')]"));
 		for (DOMElement deleteButton : deleteButtons) {
 			deleteButton.addEventListener(DOMEventType.OnClick, new DOMEventListener() {
 
 				@Override
 				public void handleEvent(DOMEvent arg0) {
-					// TODO Auto-generated method stub
-					DOMNode li = deleteButton.getParent();
-					li.getParent().removeChild(li);
 
+					DOMNode li = deleteButton.getParent();
+					DOMNode span = li.findElement(By.xpath("span"));
+					String DelUser = span.getTextContent().trim();
+					storage.deleteUserByUsername(DelUser);
+					li.getParent().removeChild(li);
 				}
 			}, false);
 		}
 	}
-	*/
 
 }
