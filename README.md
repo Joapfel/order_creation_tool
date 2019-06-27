@@ -65,7 +65,7 @@ For more details of this problem see here: https://stackoverflow.com/questions/5
 ## Update: 27.06.2019
 
 - for the jxbrowser it was necessary to get a licence renewal
-
+- every jxbrowser file and the licence is in the lib folder now 
 
 Usecases:
 
@@ -78,16 +78,16 @@ Usecases:
 - to login HR users use following credentials:
 	+ username: TestuserHR
 	+ password: est
-	-> click 'Submit'	
-	-> HR View is opening 
+	- click 'Submit'	
+	- HR View is opening 
 
 - in order to create a new user type a 'username' and 'password' in the line 'Add user:', then click 'Add'
-	-> user is going to appear in the list below
-	-> user can be deleted by clicking on the 'Loeschen' button (DON´T delete Testuser and TestuserHR otherwise login is going to be impossible)
- 	-> to leave the HR view close the program
+	- user is going to appear in the list below
+	- user can be deleted by clicking on the 'Loeschen' button (DON´T delete Testuser and TestuserHR otherwise login is going to be impossible)
+ 	- to leave the HR view close the program
 
 - to edit an order click 'Bearbeiten'; then same process as you would create a new order
-	-> 'Loeschen' button is working now as well in the process of creating a new order by clicking 'Neuer Auftrag' or 'Bearbeiten' (if an order has already been created)
+	- 'Loeschen' button is working now as well in the process of creating a new order by clicking 'Neuer Auftrag' or 'Bearbeiten' (if an order has already been created)
 
 
 
