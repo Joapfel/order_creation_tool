@@ -1,5 +1,6 @@
 package browserViews;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -47,6 +48,8 @@ public class HRView implements View {
 
 		PageLoader.loadHTMLFileComplete(this.browser, HTMLFiles.HR_INTERFACE_VIEW.getHtmlFile());
 		initAddButton();
+		initUserList();
+		// deleteUserButton();
 
 	}
 
@@ -56,7 +59,7 @@ public class HRView implements View {
 		DOMElement addButton = doc.findElement(By.id("button-addon-user"));
 		addButton.addEventListener(DOMEventType.OnClick, domEvent -> {
 
-			// get the entered usercredentials
+			// get the entered user credentials
 			DOMInputElement userIn = (DOMInputElement) doc.findElement(By.id("user-input"));
 			DOMInputElement pwIn = (DOMInputElement) doc.findElement(By.id("password-input"));
 			String username = userIn.getValue();
@@ -65,43 +68,53 @@ public class HRView implements View {
 			Storage storage = Initialize.getSerializer();
 			User saveUser = new User(username, pw);
 			storage.saveUser(saveUser);
-
+			// print User
+			String html = "<li class=\"list-group-item item-used\">\n" + " <span class=\"user\">" + username
+					+ " <button class=\"deleteButton btn btn-outline-danger my-2 my-sm-0 float-right\" type=\"button\">Loeschen</button>\n"
+					+ "</li>";
+			String inner = doc.findElement(By.id("hr-user-list")).getInnerHTML();
+			doc.findElement(By.id("hr-user-list")).setInnerHTML(inner + html);
 		}, false);
 	}
 
 	private void initUserList() {
 
-		User user = new User(username);
+		DOMDocument doc = this.browser.getDocument();
 		Serializer storage = Initialize.getSerializer();
 
 		LinkedList<User> user_list = storage.getAllUsers();
 
 		for (int i = 0; i < user_list.size(); i++) {
+
 			User thisUser = user_list.get(i);
 
-			String html = "<li class=\"list-group-item item-used\">\n" + " <span class=\"user\">" + user
+			String username = thisUser.getUsername();
+
+			String html = "<li class=\"list-group-item item-used\">\n" + " <span class=\"user\">" + username
 					+ " <button class=\"deleteButton btn btn-outline-danger my-2 my-sm-0 float-right\" type=\"button\">Loeschen</button>\n"
 					+ "</li>";
 			String inner = doc.findElement(By.id("hr-user-list")).getInnerHTML();
 			doc.findElement(By.id("hr-user-list")).setInnerHTML(inner + html);
 		}
 	}
+	/*
 
 	private void deleteUserButton() {
 		DOMDocument doc = browser.getDocument();
-    	List<DOMElement> deleteButtons = doc.findElements(By.xpath("//li/button[contains(@class, 'deleteButton')]"));
-    	for (DOMElement deleteButton : deleteButtons) {
-    		deleteButton.addEventListener(DOMEventType.OnClick, new DOMEventListener() {
-				
+		List<DOMElement> deleteButtons = doc.findElements(By.xpath("//li/button[contains(@class, 'deleteButton')]"));
+		for (DOMElement deleteButton : deleteButtons) {
+			deleteButton.addEventListener(DOMEventType.OnClick, new DOMEventListener() {
+
 				@Override
 				public void handleEvent(DOMEvent arg0) {
 					// TODO Auto-generated method stub
 					DOMNode li = deleteButton.getParent();
 					li.getParent().removeChild(li);
-					
+
 				}
 			}, false);
-    	}
+		}
 	}
+	*/
 
 }
