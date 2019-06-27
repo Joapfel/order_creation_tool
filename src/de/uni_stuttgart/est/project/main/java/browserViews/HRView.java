@@ -48,15 +48,15 @@ public class HRView implements View {
 	public void loadView() {
 
 		PageLoader.loadHTMLFileComplete(this.browser, HTMLFiles.HR_INTERFACE_VIEW.getHtmlFile());
-		initAddButton();
-		initUserList();
-		deleteUserButton();
+		initAddButton(browser);
+		initUserList(browser);
+		deleteUserButton(browser);
 
 	}
 
-	private void initAddButton() {
+	private void initAddButton(Browser browser) {
 
-		DOMDocument doc = this.browser.getDocument();
+		DOMDocument doc = browser.getDocument();
 		DOMElement addButton = doc.findElement(By.id("button-addon-user"));
 		
 		addButton.addEventListener(DOMEventType.OnClick, domEvent -> {
@@ -76,14 +76,17 @@ public class HRView implements View {
 					+ "</li>";
 			String inner = doc.findElement(By.id("hr-user-list")).getInnerHTML();
 			doc.findElement(By.id("hr-user-list")).setInnerHTML(inner + html);
+			
+			HRView hrView = new HRView(this.browser);
+	    	this.executorService.execute(hrView::loadView);
 
 		}, false);
-		this.executorService.execute(this::this.loadView(););
+
 	}
 
-	private void initUserList() {
+	private void initUserList(Browser browser) {
 
-		DOMDocument doc = this.browser.getDocument();
+		DOMDocument doc = browser.getDocument();
 		Serializer storage = Initialize.getSerializer();
 
 		LinkedList<User> user_list = storage.getAllUsers();
@@ -102,7 +105,7 @@ public class HRView implements View {
 		}
 	}
 
-	private void deleteUserButton() {
+	private void deleteUserButton(Browser browser) {
 		DOMDocument doc = browser.getDocument();
 		Serializer storage = Initialize.getSerializer();
 		List<DOMElement> deleteButtons = doc.findElements(By.xpath("//li/button[contains(@class, 'deleteButton')]"));
