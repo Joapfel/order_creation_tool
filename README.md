@@ -70,14 +70,18 @@ For more details of this problem see here: https://stackoverflow.com/questions/5
 Usecases:
 
 - create a report: click the dropdown of the runMain-button -> Run configuration -> choose tab Arguments
-			-> type in the "report" in the field under Program arguments -> click Run
+			-> type in "report" in the field below Program arguments -> click Run
 			-> close application -> refresh the project in Eclipse -> Report.txt is created in the src folder
+			-> Reports can have a filename by typing in the field below Program arguments "report <filname>"
+			-> there is a report in the program by default with the filename Report.txt
 
 - to login HR users use following credentials:
 	+ username: TestuserHR
 	+ password: est
-			-> HR View is opening 
-- in order to create a new HR user type a 'username' and 'password' in the line 'Add user:', then click 'Add'
+	-> click 'Submit'	
+	-> HR View is opening 
+
+- in order to create a new user type a 'username' and 'password' in the line 'Add user:', then click 'Add'
 	-> user is going to appear in the list below
 	-> user can be deleted by clicking on the 'Loeschen' button (DON´T delete Testuser and TestuserHR otherwise login is going to be impossible)
  	-> to leave the HR view close the program
