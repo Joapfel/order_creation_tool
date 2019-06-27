@@ -69,7 +69,6 @@ public class CustomerRegistrationView implements View{
         		Order order = storage.findOrderByID(j);
         		if (order != null) {
         			orders.add(order);
-            		System.out.println(customer.getCompanyName() + " " + order.getOrdername());
         		}	
         	}
     	}

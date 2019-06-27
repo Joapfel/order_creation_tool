@@ -127,7 +127,6 @@ public class OrderCreationView implements View {
 		while (!(orderComponent instanceof BasicOrderComponent)) {
 			if (orderComponent instanceof Material) {
 				Material material = (Material) orderComponent;
-				System.out.println(material.getDescription() + " " + material.getQuantity() + " " + material.getPricePerUnit());
 				Double pricePerUnitDouble = (Double) material.getPricePerUnit();
 				String pricePerUnit = Integer.toString(pricePerUnitDouble.intValue());
 				addMaterialHTML(material.getDescription(), Integer.toString(material.getQuantity()), pricePerUnit);
@@ -135,7 +134,6 @@ public class OrderCreationView implements View {
 				
 			} else if (orderComponent instanceof Machine) {
 				Machine machine = (Machine) orderComponent;
-				System.out.println(machine.getDescription() + " " + machine.getHours() + " " + machine.getPricePerHour());
 				Double pricePerHourDouble = (Double) machine.getPricePerHour();
 				String pricePerHour = Integer.toString(pricePerHourDouble.intValue());
 				addMachineHTML(machine.getDescription(), Integer.toString(machine.getHours()), pricePerHour);
@@ -143,7 +141,6 @@ public class OrderCreationView implements View {
 				
 			} else if (orderComponent instanceof WorkingHours) {
 				WorkingHours workingHours = (WorkingHours) orderComponent;
-				System.out.println(workingHours.getDescription() + " " + workingHours.getHours() + " " + workingHours.getRatePerHour());
 				Double ratePerHourDouble = (Double) workingHours.getRatePerHour();
 				String ratePerHour = Integer.toString(ratePerHourDouble.intValue());
 				addHoursHTML(Integer.toString(workingHours.getHours()), ratePerHour);
