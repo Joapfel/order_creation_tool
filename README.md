@@ -62,7 +62,7 @@ For more details of this problem see here: https://stackoverflow.com/questions/5
 - The PDF with the tests is included in the codebase as Abgabe_Übungsblatt3.pdf
 - additionally it is also uploaded on Ilias
 
-## Update Abgabe zum 27.06.2019
+## Update: 27.06.2019
 
 - for the jxbrowser it was necessary to get a licence renewal
 - Following implementations are done:
