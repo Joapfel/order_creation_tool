@@ -65,156 +65,25 @@ For more details of this problem see here: https://stackoverflow.com/questions/5
 ## Update: 27.06.2019
 
 - for the jxbrowser it was necessary to get a licence renewal
-- Following implementations are done:
-	+ HR user front end (view)
-	+ user storage
-	+ order storage
-	+ customer storage
-	+ user class extension (role)
-	+ login adjustment (role)
-	+ report ouput
-	+ saving the customer
-	+ user storage tests
 
 
-## Commit ID´s
+Usecases:
 
-27 Jun, 2019 2 commits
+- create a report: click the dropdown of the runMain-button -> Run configuration -> choose tab Arguments
+			-> type in the "report" in the field under Program arguments -> click Run
+			-> close application -> refresh the project in Eclipse -> Report.txt is created in the src folder
 
-Marco Streich's avatar
-Update HRView.java
-Marco Streich authored 1 hour ago
-43d3951c
+- to login HR users use following credentials:
+	+ username: TestuserHR
+	+ password: est
+			-> HR View is opening 
+- in order to create a new HR user type a 'username' and 'password' in the line 'Add user:', then click 'Add'
+	-> user is going to appear in the list below
+	-> user can be deleted by clicking on the 'Loeschen' button (DON´T delete Testuser and TestuserHR otherwise login is going to be impossible)
+ 	-> to leave the HR view close the program
 
-Joapfel's avatar
-existing customers are loaded into the interface
-Joapfel authored 2 hours ago
-6daf5132
+- to edit an order click 'Bearbeiten'; then same process as you would create a new order
+	-> 'Loeschen' button is working now as well in the process of creating a new order by clicking 'Neuer Auftrag' or 'Bearbeiten' (if an order has already been created)
 
-26 Jun, 2019 1 commit
 
-Marco Streich's avatar
-Updates
-Marco Streich authored 22 hours ago
-0addb6f6
 
-25 Jun, 2019 9 commits
-
-PhilippTeichert's avatar
-console-testing update
-PhilippTeichert authored 1 day ago
-af878805
-
-PhilippTeichert's avatar
-printing all orders
-PhilippTeichert authored 1 day ago
-236aef31
-
-PhilippTeichert's avatar
-saving Orders reworked 
-PhilippTeichert authored 1 day ago
-e1a4cdbb
-
-PhilippTeichert's avatar
-showcasing getCustomer
-PhilippTeichert authored 1 day ago
-079bd7d2
-
-Joapfel's avatar
-added (uncommented) save user
-Joapfel authored 2 days ago
-da59185a
-
-Joapfel's avatar
-hr login working; add user working
-Joapfel authored 2 days ago
-ca397b38
-
-Joapfel's avatar
-fix for no argument
-Joapfel authored 2 days ago
-6c1213a0
-
-Joapfel's avatar
-implemented management report (commandline tool)
-Joapfel authored 2 days ago
-eb1d1561
-
-Marco Streich's avatar
-Update HTMLFiles.java
-Marco Streich authored 2 days ago
-db57648d
-
-24 Jun, 2019 1 commit
-
-Marco Streich's avatar
-Update HRView.java
-Marco Streich authored 2 days ago
-a10385a3
-
-23 Jun, 2019 1 commit
-
-Marco Streich's avatar
-Create HRView.java
-Marco Streich authored 3 days ago
-8ebc7529
-
-20 Jun, 2019 3 commits
-
-PhilippTeichert's avatar
-added getAllCustomers and a few lines of comments
-PhilippTeichert authored 6 days ago
-8bf2769b
-
-PhilippTeichert's avatar
-added getAllOrders()
-PhilippTeichert authored 6 days ago
-92be643e
-
-vogelmae's avatar
-modified test
-vogelmae authored 1 week ago
-a7fb663e
-
-19 Jun, 2019 3 commits
-
-Joapfel's avatar
-fixed browser loading -> google in-between-loading not needed anymore
-Joapfel authored 1 week ago
-d9831a39
-
-Joapfel's avatar
-bug fix (delete machine and delete working hours was not possible); more Umlaute fixed
-Joapfel authored 1 week ago
-88f51aa9
-
-Joapfel's avatar
-Umlaute angepasst
-Joapfel authored 1 week ago
-9516b397
-
-14 Jun, 2019 1 commit
-
-Benjamin Weiß's avatar
-HR Interface view hinzugefügt
-Benjamin Weiß authored 1 week ago
-ed25e78e
-
-08 Jun, 2019 2 commits
-
-vogelmae's avatar
-Added some Tests.
-vogelmae authored 2 weeks ago
-b6db3eab
-
-PhilippTeichert's avatar
-Update user-structure and user-storage
-PhilippTeichert authored 2 weeks ago
-03efa13a
-
-06 May, 2019 1 commit
-
-PhilippTeichert's avatar
-moving initialize() for singleton-pattern
-PhilippTeichert authored 1 month ago
-65af2af1
