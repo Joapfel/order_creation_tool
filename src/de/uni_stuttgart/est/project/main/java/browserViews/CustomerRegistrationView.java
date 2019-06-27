@@ -52,7 +52,8 @@ public class CustomerRegistrationView implements View{
         PageLoader.loadHTMLFileComplete(this.browser, HTMLFiles.KUNDENERFASSUNG.getHtmlFile());
         loadExistingCustomers();
         initNewOrderButtons();
-        initNewCustomerButton(); 
+        initNewCustomerButton();
+        initEditOrderButtons();
        
     }
     
@@ -120,9 +121,9 @@ public class CustomerRegistrationView implements View{
     	for (Order order : orders) {
     		if (order == null) { continue; }
         	String li = " <li class=\"list-group-item\">\n" + 
-        			"     	<span>" + order.getOrdername() + "</span>\n" + 
+        			"     	<span>" + order.getOrdername() + " <span class=\"orderId\"> (" + order.getOrderID() + ")</span> </span>\n" + 
         			"     	<div class=\"float-right\">\n" +  
-        			"       	<button class=\"btn btn-outline-primary my-2 my-sm-0 float-right\" type=\"submit\">Bearbeiten</button>\n" + 
+        			"       	<button class=\"btn btn-outline-primary my-2 my-sm-0 float-right edit \" type=\"submit\">Bearbeiten</button>\n" + 
         			"       </div>\n" + 
         			"     </li>";
         	ul.append(li);
@@ -225,8 +226,6 @@ public class CustomerRegistrationView implements View{
             	String companyName = newOrderButton.getParent().getTextContent();
             	companyName = companyName.replace("Neuer Auftrag", "");
             	companyName = companyName.trim();
-            	//TODO: remove me
-            	System.out.println("Company Name: " + companyName);
             	Customer customer = storage.findCustomersByCompanyName(companyName);
             	OrderCreationView orderCreationView = new OrderCreationView(this.browser, customer);
 
@@ -237,6 +236,19 @@ public class CustomerRegistrationView implements View{
     }
     
     private void initEditOrderButtons() {
-    	
+    	List<DOMElement> editButtons = this.browser.getDocument().findElements(By.xpath("//button[contains(@class, 'edit')]"));
+    	for (DOMElement editButton : editButtons) {
+    		editButton.addEventListener(DOMEventType.OnClick, domEvent -> {
+    			
+    			DOMElement li = (DOMElement) editButton.getParent().getParent();
+        		String orderIdStr = li.findElement(By.xpath("span/span")).getTextContent().replace("(", "").replace(")", "");
+        		int orderId = Integer.parseInt(orderIdStr.trim());
+        		Order order = storage.findOrderByID(orderId);
+        		
+        		OrderCreationView orderCreationView = new OrderCreationView(this.browser, order);
+        		this.executorService.execute(orderCreationView::loadView);
+        		
+    		}, false);
+    	}
     }
 }

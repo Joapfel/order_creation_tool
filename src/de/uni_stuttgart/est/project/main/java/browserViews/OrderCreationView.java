@@ -118,6 +118,11 @@ public class OrderCreationView implements View {
 	}
 	
 	private void loadExistingOrder() {
+		DOMDocument doc = this.browser.getDocument();
+		String orderName = savedOrder.getOrdername();
+		DOMInputElement orderNameInput = (DOMInputElement) doc.findElement(By.id("order-name"));
+		orderNameInput.setValue(orderName);
+		
 		OrderComponent orderComponent = this.savedOrder.getOrderComponent();
 		while (!(orderComponent instanceof BasicOrderComponent)) {
 			if (orderComponent instanceof Material) {
