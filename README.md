@@ -1,4 +1,4 @@
-# Project Name
+﻿# Project Name
 
 
 ## Build
@@ -18,7 +18,7 @@
 ### Manual Dependencies
 
 The following Projects/Libraries are included in this project:
-- JxBrowser for Java based HTML Frontend handling:
+- JxBrowser for Java based HTML Frontend handling: 
     https://www.teamdev.com/jxbrowser
 - Console Launcher for JUnit tests:
 	https://junit.org/junit5/docs/current/user-guide/#running-tests-console-launcher 
@@ -61,3 +61,33 @@ For more details of this problem see here: https://stackoverflow.com/questions/5
 ## Tests
 - The PDF with the tests is included in the codebase as Abgabe_Übungsblatt3.pdf
 - additionally it is also uploaded on Ilias
+
+## Update: 27.06.2019
+
+- for the jxbrowser it was necessary to get a licence renewal
+- every jxbrowser file and the licence is in the lib folder now 
+
+Usecases:
+
+- create a report: click the dropdown of the runMain-button -> Run configuration -> choose tab Arguments
+			-> type in "report" in the field below Program arguments -> click Run
+			-> close application -> refresh the project in Eclipse -> Report.txt is created in the top project folder
+			-> Reports can have a filename by typing in the field below Program arguments "report *filename*"
+			-> there is a report in the program by default with the filename Report.txt
+
+- to login HR users use following credentials:
+	+ username: TestuserHR
+	+ password: est
+	- click 'Submit'	
+	- HR View is opening 
+
+- in order to create a new user type a 'username' and 'password' in the line 'Add user:', then click 'Add'
+	- user is going to appear in the list below
+	- user can be deleted by clicking on the 'Loeschen' button (DON´T delete Testuser and TestuserHR otherwise login is going to be impossible)
+ 	- to leave the HR view close the program
+
+- to edit an order click 'Bearbeiten'; then same process as you would create a new order
+	- 'Loeschen' button is working now after access by clicking on 'Neuer Auftrag' button or 'Bearbeiten' button ('Bearbeiten' button is only there if an order has already been created)
+
+
+

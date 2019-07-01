@@ -52,5 +52,31 @@ public class Machine extends OrderComponentDecorator implements Serializable{
 		String ownSummary = toString();
 		return summary.concat(System.lineSeparator()+ownSummary);
 	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public int getHours() {
+		return hours;
+	}
+
+	public void setHours(int hours) {
+		this.hours = hours;
+	}
+
+	public double getPricePerHour() {
+		return pricePerHour;
+	}
+
+	public void setPricePerHour(double pricePerHour) {
+		this.pricePerHour = pricePerHour;
+	}
+	
+	
 	
 }

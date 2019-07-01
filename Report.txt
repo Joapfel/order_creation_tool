@@ -1,0 +1,109 @@
+Auftrag	Preis
+===============
+
+Auftrag 1	3950.0
+Order setzt sich zusammen aus: 
+
+Material X: 3 Einheiten, 100.0 Euro/Einheit, Gesamt: 300.0 Euro
+Material Y: 20 Einheiten, 5.0 Euro/Einheit, Gesamt: 100.0 Euro
+Material Z: 1 Einheiten, 150.0 Euro/Einheit, Gesamt: 150.0 Euro
+Maschine X: 4 Stunde(n), 150.0 Euro/Stunde, Gesamt: 600.0 Euro
+Arbeitszeit: 35 Stunde(n), 80.0 Euro/Stunde, Gesamt: 2800.0 Euro
+
+Auftrag 1	3950.0
+Order setzt sich zusammen aus: 
+
+Material X: 3 Einheiten, 100.0 Euro/Einheit, Gesamt: 300.0 Euro
+Material Y: 20 Einheiten, 5.0 Euro/Einheit, Gesamt: 100.0 Euro
+Material Z: 1 Einheiten, 150.0 Euro/Einheit, Gesamt: 150.0 Euro
+Maschine X: 4 Stunde(n), 150.0 Euro/Stunde, Gesamt: 600.0 Euro
+Arbeitszeit: 35 Stunde(n), 80.0 Euro/Stunde, Gesamt: 2800.0 Euro
+
+Auftrag 1	3950.0
+Order setzt sich zusammen aus: 
+
+Material X: 3 Einheiten, 100.0 Euro/Einheit, Gesamt: 300.0 Euro
+Material Y: 20 Einheiten, 5.0 Euro/Einheit, Gesamt: 100.0 Euro
+Material Z: 1 Einheiten, 150.0 Euro/Einheit, Gesamt: 150.0 Euro
+Maschine X: 4 Stunde(n), 150.0 Euro/Stunde, Gesamt: 600.0 Euro
+Arbeitszeit: 35 Stunde(n), 80.0 Euro/Stunde, Gesamt: 2800.0 Euro
+
+Auftrag 1	3950.0
+Order setzt sich zusammen aus: 
+
+Material X: 3 Einheiten, 100.0 Euro/Einheit, Gesamt: 300.0 Euro
+Material Y: 20 Einheiten, 5.0 Euro/Einheit, Gesamt: 100.0 Euro
+Material Z: 1 Einheiten, 150.0 Euro/Einheit, Gesamt: 150.0 Euro
+Maschine X: 4 Stunde(n), 150.0 Euro/Stunde, Gesamt: 600.0 Euro
+Arbeitszeit: 35 Stunde(n), 80.0 Euro/Stunde, Gesamt: 2800.0 Euro
+
+Auftrag 1	3960.0
+Order setzt sich zusammen aus: 
+
+Material X: 3 Einheiten, 100.0 Euro/Einheit, Gesamt: 300.0 Euro
+Material Y: 20 Einheiten, 5.0 Euro/Einheit, Gesamt: 100.0 Euro
+Material Z: 1 Einheiten, 150.0 Euro/Einheit, Gesamt: 150.0 Euro
+e: 2 Einheiten, 5.0 Euro/Einheit, Gesamt: 10.0 Euro
+Maschine X: 4 Stunde(n), 150.0 Euro/Stunde, Gesamt: 600.0 Euro
+Arbeitszeit: 35 Stunde(n), 80.0 Euro/Stunde, Gesamt: 2800.0 Euro
+
+Auftrag 1	3960.0
+Order setzt sich zusammen aus: 
+
+Material X: 3 Einheiten, 100.0 Euro/Einheit, Gesamt: 300.0 Euro
+Material Y: 20 Einheiten, 5.0 Euro/Einheit, Gesamt: 100.0 Euro
+Material Z: 1 Einheiten, 150.0 Euro/Einheit, Gesamt: 150.0 Euro
+e: 2 Einheiten, 5.0 Euro/Einheit, Gesamt: 10.0 Euro
+Maschine X: 4 Stunde(n), 150.0 Euro/Stunde, Gesamt: 600.0 Euro
+Arbeitszeit: 35 Stunde(n), 80.0 Euro/Stunde, Gesamt: 2800.0 Euro
+
+Auftrag 1	3950.0
+Order setzt sich zusammen aus: 
+
+Material X: 3 Einheiten, 100.0 Euro/Einheit, Gesamt: 300.0 Euro
+Material Y: 20 Einheiten, 5.0 Euro/Einheit, Gesamt: 100.0 Euro
+Material Z: 1 Einheiten, 150.0 Euro/Einheit, Gesamt: 150.0 Euro
+Maschine X: 4 Stunde(n), 150.0 Euro/Stunde, Gesamt: 600.0 Euro
+Arbeitszeit: 35 Stunde(n), 80.0 Euro/Stunde, Gesamt: 2800.0 Euro
+
+Auftrag 1	3800.0
+Order setzt sich zusammen aus: 
+
+Material X: 3 Einheiten, 100.0 Euro/Einheit, Gesamt: 300.0 Euro
+Material Y: 20 Einheiten, 5.0 Euro/Einheit, Gesamt: 100.0 Euro
+Maschine X: 4 Stunde(n), 150.0 Euro/Stunde, Gesamt: 600.0 Euro
+Arbeitszeit: 35 Stunde(n), 80.0 Euro/Stunde, Gesamt: 2800.0 Euro
+
+Auftrag 1	3800.0
+Order setzt sich zusammen aus: 
+
+Material X: 3 Einheiten, 100.0 Euro/Einheit, Gesamt: 300.0 Euro
+Material Y: 20 Einheiten, 5.0 Euro/Einheit, Gesamt: 100.0 Euro
+Maschine X: 4 Stunde(n), 150.0 Euro/Stunde, Gesamt: 600.0 Euro
+Arbeitszeit: 35 Stunde(n), 80.0 Euro/Stunde, Gesamt: 2800.0 Euro
+
+Auftrag 1	3800.0
+Order setzt sich zusammen aus: 
+
+Material X: 3 Einheiten, 100.0 Euro/Einheit, Gesamt: 300.0 Euro
+Material Y: 20 Einheiten, 5.0 Euro/Einheit, Gesamt: 100.0 Euro
+Maschine X: 4 Stunde(n), 150.0 Euro/Stunde, Gesamt: 600.0 Euro
+Arbeitszeit: 35 Stunde(n), 80.0 Euro/Stunde, Gesamt: 2800.0 Euro
+
+Auftrag 1	3800.0
+Order setzt sich zusammen aus: 
+
+Material X: 3 Einheiten, 100.0 Euro/Einheit, Gesamt: 300.0 Euro
+Material Y: 20 Einheiten, 5.0 Euro/Einheit, Gesamt: 100.0 Euro
+Maschine X: 4 Stunde(n), 150.0 Euro/Stunde, Gesamt: 600.0 Euro
+Arbeitszeit: 35 Stunde(n), 80.0 Euro/Stunde, Gesamt: 2800.0 Euro
+
+Auftrag 1	1950.0
+Order setzt sich zusammen aus: 
+
+Material X: 3 Einheiten, 100.0 Euro/Einheit, Gesamt: 300.0 Euro
+Material Y: 20 Einheiten, 5.0 Euro/Einheit, Gesamt: 100.0 Euro
+Material Z: 1 Einheiten, 150.0 Euro/Einheit, Gesamt: 150.0 Euro
+Maschine X: 4 Stunde(n), 150.0 Euro/Stunde, Gesamt: 600.0 Euro
+Arbeitszeit: 8 Stunde(n), 100.0 Euro/Stunde, Gesamt: 800.0 Euro
+

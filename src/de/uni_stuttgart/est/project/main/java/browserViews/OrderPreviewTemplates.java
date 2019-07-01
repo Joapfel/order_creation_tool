@@ -25,7 +25,7 @@ public class OrderPreviewTemplates {
 				+ sep
 				+ "Summe des Gesamtangebots: " + order.getOrderComponent().price() + " Euro" + sep
 				+ sep
-				+ "Wir freuen uns auf Ihre Rückmeldung." + sep
+				+ "Wir freuen uns auf Ihre Rueckmeldung." + sep
 				+ "Mit freundlichen Grueßen" + sep
 				+ "Ihre Metallschreinerei";
 	}

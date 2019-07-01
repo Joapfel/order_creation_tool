@@ -163,6 +163,7 @@ public class Serializer implements Serializable, Storage {
 	@Override
 	public boolean deleteUserByUsername(String userName) {
 		userMap.remove(userName);
+		StorageController.saveDB(this);
 		return false;
 	}
 

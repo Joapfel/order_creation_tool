@@ -51,4 +51,32 @@ public class Material extends OrderComponentDecorator implements Serializable{
 		String ownSummary = toString();
 		return summary.concat(System.lineSeparator()+ownSummary);
 	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public double getPricePerUnit() {
+		return pricePerUnit;
+	}
+
+	public void setPricePerUnit(double pricePerUnit) {
+		this.pricePerUnit = pricePerUnit;
+	}
+	
+	
+	
+	
 }

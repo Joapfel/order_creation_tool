@@ -8,8 +8,6 @@ import com.teamdev.jxbrowser.chromium.dom.By;
 import com.teamdev.jxbrowser.chromium.dom.DOMDocument;
 import com.teamdev.jxbrowser.chromium.dom.DOMElement;
 import com.teamdev.jxbrowser.chromium.dom.DOMInputElement;
-import com.teamdev.jxbrowser.chromium.dom.events.DOMEvent;
-import com.teamdev.jxbrowser.chromium.dom.events.DOMEventListener;
 import com.teamdev.jxbrowser.chromium.dom.events.DOMEventType;
 
 import browserActions.NavbarInitializer;
@@ -61,7 +59,7 @@ public class OrderCreationViewPreview implements View{
 		DOMElement orderLink = doc.findElement(By.id("order-list-link"));
 		orderLink.addEventListener(DOMEventType.OnClick, domEvent -> {
 			// TODO Auto-generated method stub
-			OrderCreationView orderCreationView = new OrderCreationView(browser);
+			OrderCreationView orderCreationView = new OrderCreationView(browser, order);
 			this.executorService.execute(orderCreationView::loadView);
 			
 		}, false);

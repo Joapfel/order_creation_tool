@@ -2,6 +2,9 @@ package de.uni_stuttgart.est.project;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.LinkedList;
+import java.util.Scanner;
+
 import org.junit.jupiter.api.Test;
 
 import dao.*;
@@ -118,5 +121,92 @@ class TestSerializer {
 		
 	}
 	
-
+	@Test 
+	void testGetAllUsers() {
+		Serializer storage = Initialize.getSerializer();
+		//storage.printAllUsers();
+		System.out.println("User nach getAll" + storage.getAllUsers());
+		
+		LinkedList<User> userList = new LinkedList<>();
+		userList.add(storage.findUserByUsername(""));
+		userList.add(storage.findUserByUsername("Balduin"));
+		userList.add(storage.findUserByUsername("Anton"));
+		userList.add(storage.findUserByUsername("Testuser"));
+		userList.add(storage.findUserByUsername("Carl"));
+		userList.add(storage.findUserByUsername("TestuserHR"));
+		userList.add(storage.findUserByUsername("Test3"));
+		userList.add(storage.findUserByUsername("Test2"));
+		
+		System.out.println("Users nach userList" + userList);
+		
+		assertEquals(userList, storage.getAllUsers());
+	}
+	
+	@Test 
+	void testGetAllCostumers() {
+		Serializer storage = Initialize.getSerializer();
+		//storage.printAllCustomers();
+		System.out.println("Customers nach getAll:" + storage.getAllCustomers());
+		
+		LinkedList<Customer> customerList = new LinkedList<>();
+		customerList.add(storage.findCustomersByCompanyName("bluib"));
+		customerList.add(storage.findCustomersByCompanyName("ddddd"));
+		customerList.add(storage.findCustomersByCompanyName("ghesgzgbiuzdfv"));
+		customerList.add(storage.findCustomersByCompanyName("testtest"));
+		customerList.add(storage.findCustomersByCompanyName("fefwefwf"));
+		customerList.add(storage.findCustomersByCompanyName("Kunstfirma"));
+		customerList.add(storage.findCustomersByCompanyName("dewdwdwedw"));
+		customerList.add(storage.findCustomersByCompanyName("3wdd"));
+		customerList.add(storage.findCustomersByCompanyName("rrrrr"));
+		customerList.add(storage.findCustomersByCompanyName("eeee"));
+		customerList.add(storage.findCustomersByCompanyName("ffff"));
+		
+		System.out.println("Customers nach customerList" + customerList);
+		
+		assertEquals(customerList, storage.getAllCustomers());
+	}
+	
+	@Test
+	void testGetAllOrders() {
+		Serializer storage = Initialize.getSerializer();
+		//storage.printAllOrders();
+		LinkedList<Order> orderList = new LinkedList<>();
+		orderList.add(storage.findOrderByID(1));
+		orderList.add(storage.findOrderByID(33));
+		orderList.add(storage.findOrderByID(65));
+		orderList.add(storage.findOrderByID(2));
+		orderList.add(storage.findOrderByID(5));
+		orderList.add(storage.findOrderByID(37));
+		orderList.add(storage.findOrderByID(69));
+		orderList.add(storage.findOrderByID(41));
+		orderList.add(storage.findOrderByID(73));
+		orderList.add(storage.findOrderByID(11));
+		orderList.add(storage.findOrderByID(12));
+		orderList.add(storage.findOrderByID(13));
+		orderList.add(storage.findOrderByID(45));
+		orderList.add(storage.findOrderByID(77));
+		orderList.add(storage.findOrderByID(15));
+		orderList.add(storage.findOrderByID(49));
+		orderList.add(storage.findOrderByID(53));
+		orderList.add(storage.findOrderByID(57));
+		orderList.add(storage.findOrderByID(61));
+		
+		System.out.println("Orders nach getAll" + storage.getAllOrders());
+		System.out.println("Orders nach printAll" + orderList);
+		
+		assertEquals(orderList, storage.getAllOrders());
+		
+	}
+	
+//	@Test
+//	void testGetOrders() {
+//		Serializer storage = Initialize.getSerializer();
+//		Scanner scan = new Scanner(System.in);
+//		String input = scan.nextLine();
+//		storage.printAllOrders();
+//		scan.close();
+//		System.out.println("Gescannt:" + input);
+//		
+//	}
+	
 }

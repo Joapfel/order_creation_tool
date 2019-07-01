@@ -5,14 +5,7 @@ import com.teamdev.jxbrowser.chromium.swing.*;
 
 import javax.swing.*;
 import browserViews.*;
-import dao.BasicOrderComponent;
-import dao.FixRate;
-import dao.Machine;
-import dao.Order;
-import dao.OrderComponentDecorator;
-import dao.WorkingHours;
 import output.ReportOutput;
-import storage.Serializer;
 
 import java.awt.*;
 
