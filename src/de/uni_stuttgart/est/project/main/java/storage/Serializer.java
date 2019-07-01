@@ -201,5 +201,16 @@ public class Serializer implements Serializable, Storage {
 		}
 		return customerList;
 	}
+
+	@Override
+	public void delete_Username(User user) {
+		user.change_Username("Deleted");
+	}
+
+	@Override
+	public void delete_Customername(Customer customer) {
+		customer.change_companyname("Deleted");
+		customerNameMap.remove(customer.getCompanyName(), customer);
+	}
 	
 }

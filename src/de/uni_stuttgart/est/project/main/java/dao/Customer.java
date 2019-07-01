@@ -90,5 +90,8 @@ public class Customer implements Serializable {
 		order_id.add(pos);
 	}
 	
+	public void change_companyname(String name) {
+		this.companyName = name;
+	}
 	
 }

@@ -29,4 +29,6 @@ public interface Storage {
 	LinkedList<User> getAllUsers();
 	LinkedList<Order> getAllOrders();
 	LinkedList<Customer> getAllCustomers();
+	void delete_Username(User user);
+	void delete_Customername(Customer customer);
 }
