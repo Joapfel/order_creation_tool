@@ -2,6 +2,8 @@ package de.uni_stuttgart.est.project;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -18,7 +20,7 @@ import storage.Serializer;
  *
  */
 class TestSerializer {
-	
+
 	@Test
 	void testSaveUser() {
 		Serializer storageObject = Initialize.getSerializer();
@@ -43,7 +45,7 @@ class TestSerializer {
 		storageObject.deleteUserByUsername("Anton");
 		assertFalse(storageObject.userExists(anton));
 	}
-	
+
 	@Test
 	void testUserStorageWithId() {
 		Serializer storageObject = Initialize.getSerializer();
@@ -51,7 +53,7 @@ class TestSerializer {
 		storageObject.saveUser(carl);
 		assertTrue(carl.equals(storageObject.findUserByUsername("Carl")));
 	}
-	
+
 	@Test
 	public void testOrderStorage() {
 		Serializer storageObject = Initialize.getSerializer();
@@ -101,8 +103,7 @@ class TestSerializer {
 
 		assertTrue(kunde.equals(storageObject.findCustomersByCompanyName("Kunstfirma")));
 	}
-	
-	
+
 	@Test
 	void testCustomerStorageWithId() {
 		Serializer storageObject = Initialize.getSerializer();
@@ -118,95 +119,122 @@ class TestSerializer {
 		storageObject.saveCustomer(kunde);
 
 		assertTrue(kunde.equals(storageObject.findCustomerById(kunde.getCustomerID())));
-		
+
 	}
-	
-	@Test 
+
+	@Test
 	void testGetAllUsers() {
 		Serializer storage = Initialize.getSerializer();
-		//storage.printAllUsers();
-		System.out.println("User nach getAll" + storage.getAllUsers());
-		
+		ByteArrayOutputStream baoStream = new ByteArrayOutputStream();
+		PrintStream printStream = new PrintStream(baoStream);
+		PrintStream oldStream = System.out;
+		System.setOut(printStream);
+		storage.printAllUsers();
+
+		System.out.flush();
+		System.setOut(oldStream);
+
+		String fullUsers = baoStream.toString();
+
+		fullUsers = fullUsers.replaceAll("Users", "");
+		fullUsers = fullUsers.replaceAll("key :", "");
+		fullUsers = fullUsers.replaceAll("value", "");
+		fullUsers = fullUsers.replaceAll("[/\\s/]", "");
+		String[] splittedUsers = fullUsers.split(":");
+
 		LinkedList<User> userList = new LinkedList<>();
-		userList.add(storage.findUserByUsername(""));
-		userList.add(storage.findUserByUsername("Balduin"));
-		userList.add(storage.findUserByUsername("Anton"));
-		userList.add(storage.findUserByUsername("Testuser"));
-		userList.add(storage.findUserByUsername("Carl"));
-		userList.add(storage.findUserByUsername("TestuserHR"));
-		userList.add(storage.findUserByUsername("Test3"));
-		userList.add(storage.findUserByUsername("Test2"));
-		
-		System.out.println("Users nach userList" + userList);
-		
+		for (int i = 1; i < splittedUsers.length; i = i + 2) {
+			userList.add(storage.findUserByUsername(splittedUsers[i]));
+		}
+
 		assertEquals(userList, storage.getAllUsers());
 	}
-	
-	@Test 
-	void testGetAllCostumers() {
+
+	@Test
+	void testGetAllCustomers() {
 		Serializer storage = Initialize.getSerializer();
-		//storage.printAllCustomers();
-		System.out.println("Customers nach getAll:" + storage.getAllCustomers());
-		
+		ByteArrayOutputStream baoStream = new ByteArrayOutputStream();
+		PrintStream printStream = new PrintStream(baoStream);
+		PrintStream oldStream = System.out;
+		System.setOut(printStream);
+		storage.printAllCustomers();
+
+		System.out.flush();
+		System.setOut(oldStream);
+
+		String fullCustomers = baoStream.toString();
+
+		fullCustomers = fullCustomers.replaceAll("Customers", "");
+		fullCustomers = fullCustomers.replaceAll("key :", "");
+		fullCustomers = fullCustomers.replaceAll("value", "");
+		fullCustomers = fullCustomers.replaceAll("[/\\s/]", "");
+		String[] splittedCustomers = fullCustomers.split(":");
+
 		LinkedList<Customer> customerList = new LinkedList<>();
-		customerList.add(storage.findCustomersByCompanyName("bluib"));
-		customerList.add(storage.findCustomersByCompanyName("ddddd"));
-		customerList.add(storage.findCustomersByCompanyName("ghesgzgbiuzdfv"));
-		customerList.add(storage.findCustomersByCompanyName("testtest"));
-		customerList.add(storage.findCustomersByCompanyName("fefwefwf"));
-		customerList.add(storage.findCustomersByCompanyName("Kunstfirma"));
-		customerList.add(storage.findCustomersByCompanyName("dewdwdwedw"));
-		customerList.add(storage.findCustomersByCompanyName("3wdd"));
-		customerList.add(storage.findCustomersByCompanyName("rrrrr"));
-		customerList.add(storage.findCustomersByCompanyName("eeee"));
-		customerList.add(storage.findCustomersByCompanyName("ffff"));
-		
-		System.out.println("Customers nach customerList" + customerList);
-		
+		for (int i = 1; i < splittedCustomers.length; i = i + 2) {
+			customerList.add(storage.findCustomersByCompanyName(splittedCustomers[i]));
+		}
+
 		assertEquals(customerList, storage.getAllCustomers());
 	}
-	
+
 	@Test
 	void testGetAllOrders() {
 		Serializer storage = Initialize.getSerializer();
-		//storage.printAllOrders();
+		ByteArrayOutputStream baoStream = new ByteArrayOutputStream();
+		PrintStream printStream = new PrintStream(baoStream);
+		PrintStream oldStream = System.out;
+		System.setOut(printStream);
+		storage.printAllOrders();
+
+		System.out.flush();
+		System.setOut(oldStream);
+
+		String fullOrders = baoStream.toString();
+		fullOrders = fullOrders.replaceAll("Orders:", "");
+		fullOrders = fullOrders.replaceAll("key :", "");
+		fullOrders = fullOrders.replaceAll("value", "");
+		fullOrders = fullOrders.replaceAll("Auftrag 1", "");
+		fullOrders = fullOrders.replaceAll("[\nA-Za-z]", "");
+		fullOrders = fullOrders.replaceAll("[/\\s]", "");
+		String[] fullOrders2 = fullOrders.split(":");
+
 		LinkedList<Order> orderList = new LinkedList<>();
-		orderList.add(storage.findOrderByID(1));
-		orderList.add(storage.findOrderByID(33));
-		orderList.add(storage.findOrderByID(65));
-		orderList.add(storage.findOrderByID(2));
-		orderList.add(storage.findOrderByID(5));
-		orderList.add(storage.findOrderByID(37));
-		orderList.add(storage.findOrderByID(69));
-		orderList.add(storage.findOrderByID(41));
-		orderList.add(storage.findOrderByID(73));
-		orderList.add(storage.findOrderByID(11));
-		orderList.add(storage.findOrderByID(12));
-		orderList.add(storage.findOrderByID(13));
-		orderList.add(storage.findOrderByID(45));
-		orderList.add(storage.findOrderByID(77));
-		orderList.add(storage.findOrderByID(15));
-		orderList.add(storage.findOrderByID(49));
-		orderList.add(storage.findOrderByID(53));
-		orderList.add(storage.findOrderByID(57));
-		orderList.add(storage.findOrderByID(61));
-		
-		System.out.println("Orders nach getAll" + storage.getAllOrders());
-		System.out.println("Orders nach printAll" + orderList);
-		
+		for (int i = 0; i < fullOrders2.length; i++) {
+			int a = Integer.parseInt(fullOrders2[i]);
+			orderList.add(storage.findOrderByID(a));
+		}
+
 		assertEquals(orderList, storage.getAllOrders());
-		
 	}
-	
-//	@Test
-//	void testGetOrders() {
-//		Serializer storage = Initialize.getSerializer();
-//		Scanner scan = new Scanner(System.in);
-//		String input = scan.nextLine();
-//		storage.printAllOrders();
-//		scan.close();
-//		System.out.println("Gescannt:" + input);
-//		
-//	}
-	
+
+	@Test
+	void testDeleteUsername() {
+		Serializer storage = Initialize.getSerializer();
+		User anton = new User("Anton", "1234");
+		storage.saveUser(anton);
+		storage.delete_Username(anton);
+
+		assertEquals(anton.getUsername(), "Deleted");
+
+	}
+
+	@Test
+	void testDeleteCustomername() {
+		Serializer storage = Initialize.getSerializer();
+		OrderComponent orderComp = new BasicOrderComponent();
+		orderComp = new FixRate(orderComp);
+		orderComp = new Material(orderComp, "Eisenstangen", 3, 20);
+		orderComp = new Machine(orderComp, "Lastenkran", 1, 150);
+		orderComp = new WorkingHours(orderComp, "Junior", 4, 80);
+		Order order = new Order("Herstellung von Eisenkunst", orderComp, "text");
+		Address address = new Address("Kunstweg", 1, 12345, "Kunststadt", "Deutschland");
+		Customer kunde = new Customer("Kunstfirma", address, order);
+
+		storage.saveCustomer(kunde);
+		storage.delete_Customername(kunde);
+
+		assertEquals(kunde.getCompanyName(), "Deleted");
+		assertEquals(storage.findCustomersByCompanyName(kunde.getCompanyName()), null);
+	}
 }
