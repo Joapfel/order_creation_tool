@@ -15,6 +15,7 @@ public class BasicOrderComponent implements OrderComponent, Serializable{
 	 */
 	private static final long serialVersionUID = -1808056003371099993L;
 	String summary = "Order setzt sich zusammen aus: ";
+	Address shippingAddress;
 
 	@Override
 	public double price() {
@@ -26,4 +27,8 @@ public class BasicOrderComponent implements OrderComponent, Serializable{
 		return summary.concat(System.lineSeparator());
 	}
 
+	@Override
+	public Address addressToShipTo() {
+		return shippingAddress;
+	}
 }

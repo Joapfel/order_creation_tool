@@ -30,5 +30,8 @@ public abstract class OrderComponentDecorator implements OrderComponent, Seriali
 	public OrderComponent getOrderComponent() {
 		return this.orderComp;
 	}
-
+	
+	public Address addressToShipTo() {
+		return null;
+	}
 }

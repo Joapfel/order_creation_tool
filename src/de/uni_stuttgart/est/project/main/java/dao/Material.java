@@ -75,8 +75,11 @@ public class Material extends OrderComponentDecorator implements Serializable{
 	public void setPricePerUnit(double pricePerUnit) {
 		this.pricePerUnit = pricePerUnit;
 	}
-	
-	
-	
+
+	@Override
+	public Address addressToShipTo() {
+		
+		return null;
+	}
 	
 }

@@ -23,4 +23,5 @@ public class FixRate extends OrderComponentDecorator implements Serializable{
 	public double price() {
 		return super.price()+0;
 	}
+
 }
