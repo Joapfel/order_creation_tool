@@ -9,6 +9,7 @@ public class ShippingAddress  extends OrderComponentDecorator implements Seriali
 	 */
 	private static final long serialVersionUID = 7453904746917677711L;
 	private Address address;
+	private String shippingAddress = new String();
 	
 	
 	public ShippingAddress(OrderComponent orderComp, Address shippingAddress) {
@@ -16,9 +17,12 @@ public class ShippingAddress  extends OrderComponentDecorator implements Seriali
 		this.address = shippingAddress;
 	}
 
-	public Address addressToShipTo() {
-		return address;
+	public String addressToShipTo() {
+		shippingAddress = super.addressToShipTo();
+		
+		return shippingAddress
+				.concat(address.getStreetname()+" "+address.getHousenumber()+System.lineSeparator())
+				.concat(address.getZipcode()+" "+address.getCity()+System.lineSeparator())
+				.concat(address.getCountry()+System.lineSeparator());
 	}
-	
-
 }
