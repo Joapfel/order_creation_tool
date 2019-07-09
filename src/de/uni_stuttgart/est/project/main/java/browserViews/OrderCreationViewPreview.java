@@ -13,11 +13,16 @@ import com.teamdev.jxbrowser.chromium.dom.events.DOMEventType;
 import browserActions.NavbarInitializer;
 import browserActions.PageLoader;
 import dao.Order;
+import dao.User;
+import main.Initialize;
+import storage.Serializer;
+import storage.Storage;
+import utils.FileWriter;
 import utils.HTMLFiles;
 
 /**
  * 
- * @author johannes
+ * @author johannes, marco
  *
  */
 public class OrderCreationViewPreview implements View{
@@ -40,6 +45,7 @@ public class OrderCreationViewPreview implements View{
 		NavbarInitializer.initNavbar(browser);
 		fillInOrderAsText(order);
 		initOrderTabButton();
+		initPrintButton(browser);
 	}
 	
 	private void fillInOrderAsText(Order order) {
@@ -52,6 +58,23 @@ public class OrderCreationViewPreview implements View{
 		DOMElement p = doc.findElement(By.id("order-as-text"));
 		String orderAsText = OrderPreviewTemplates.getGermanTemplate(order);
 		p.setInnerText(orderAsText);
+		
+	}
+	
+	private void initPrintButton(Browser browser) {
+
+		DOMDocument doc = browser.getDocument();
+		DOMElement addButton = doc.findElement(By.id("buttonSaveOrder"));
+		
+		addButton.addEventListener(DOMEventType.OnClick, domEvent -> {
+
+			// print and save the order
+			String path = "Order.txt";
+			String orderAsText = OrderPreviewTemplates.getGermanTemplate(order);
+	    	FileWriter.writeToFile(path, orderAsText);
+
+		}, false);
+
 	}
 	
 	private void initOrderTabButton() {
