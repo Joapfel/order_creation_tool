@@ -92,8 +92,10 @@ Usecases:
 
 ## Update zum  11.07.2019
 
+offer and order are using the same interface
+
 Usecases:
 
-- save and edit an order
-- print out an order
-- add an optional delivery address
+- save and edit an order: offer interface is opening
+- print out an order after saving it by clicking on "Ausdrucken" Button
+- add an optional delivery address where the input data of an offer is located 
