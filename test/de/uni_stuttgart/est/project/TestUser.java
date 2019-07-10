@@ -41,4 +41,12 @@ class TestUser {
 		assertEquals("management user", roleC);
 	}
 	
+	@Test
+	void testSetRole() {
+		User anton = new User("Anton", "sftx2");
+		anton.setRole("HR user");
+		String role = anton.getRole();
+		assertEquals("HR user", role);
+	}
+	
 }
