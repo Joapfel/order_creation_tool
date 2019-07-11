@@ -17,12 +17,14 @@ import com.teamdev.jxbrowser.chromium.dom.events.DOMEventType;
 
 import browserActions.NavbarInitializer;
 import browserActions.PageLoader;
+import dao.Address;
 import dao.BasicOrderComponent;
 import dao.Customer;
 import dao.Machine;
 import dao.Material;
 import dao.Order;
 import dao.OrderComponent;
+import dao.ShippingAddress;
 import dao.WorkingHours;
 import main.Initialize;
 import storage.Storage;
@@ -264,6 +266,22 @@ public class OrderCreationView implements View {
 				DOMInputElement orderNameInput = (DOMInputElement) doc.findElement(By.id("order-name"));
 				String orderName = orderNameInput.getValue();
 				
+				// get the optional delivery address
+                DOMInputElement streetnameIn = (DOMInputElement) doc.findElement(By.id("streetname"));
+                DOMInputElement houseNumberIn = (DOMInputElement) doc.findElement(By.id("housenumber"));
+                DOMInputElement zipcodeIn = (DOMInputElement) doc.findElement(By.id("zipcode"));
+                DOMInputElement cityIn = (DOMInputElement) doc.findElement(By.id("city"));
+                DOMInputElement countryIn = (DOMInputElement) doc.findElement(By.id("country"));
+				
+                // get the values
+                String streetName = streetnameIn.getValue();
+                int houseNumber = Integer.parseInt(houseNumberIn.getValue());
+                int zipCode = Integer.parseInt(zipcodeIn.getValue());
+                String city = cityIn.getValue();
+                String country = countryIn.getValue();
+				
+				Address deliverAddress = new Address(streetName, houseNumber, zipCode, city, country);
+				
 		    	// get all the materials
 		    	List<String> materials = new ArrayList<String>();
 		    	List<Integer> materialUnitsCounts = new ArrayList<Integer>();
@@ -324,6 +342,8 @@ public class OrderCreationView implements View {
 				for (int i = 0; i < hoursCounts.size(); i++) {
 					order = new WorkingHours(order, "Arbeitszeit", hoursCounts.get(i), hoursPricesPerHour.get(i));
 				}
+				order = new ShippingAddress(order, deliverAddress);
+
 				Storage storage = Initialize.getSerializer();
 				Order saveOrder = new Order(orderName, order, order.summary());
 				if (customer != null) {

@@ -25,4 +25,16 @@ public class ShippingAddress  extends OrderComponentDecorator implements Seriali
 				.concat(address.getZipcode()+" "+address.getCity()+System.lineSeparator())
 				.concat(address.getCountry()+System.lineSeparator());
 	}
+	
+	@Override
+	public String summary() {
+		// TODO Auto-generated method stub
+		String sep = System.lineSeparator();
+		return sep
+				+ "Lieferadresse:"
+				+ sep  
+				+ addressToShipTo() 
+				+ sep
+				+ super.summary();
+	}
 }

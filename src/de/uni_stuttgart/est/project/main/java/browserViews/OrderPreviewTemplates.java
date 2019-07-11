@@ -20,7 +20,7 @@ public class OrderPreviewTemplates {
 				+ "vielen Dank für Ihre Anfrage." + sep
 				+ sep
 				+ "Sehr gerne wuerden wir mit Ihnen zusammenarbeiten." + sep
-				+ "Aus dem herausgearbeiteten Angebot enstehen folgende Kosten:" + sep
+				+ "Im folgenden unser Angebot an Sie:" + sep
 				+ order.getOrderAsText() + sep
 				+ sep
 				+ "Summe des Gesamtangebots: " + order.getOrderComponent().price() + " Euro" + sep
