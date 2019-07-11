@@ -37,4 +37,14 @@ public class ShippingAddress  extends OrderComponentDecorator implements Seriali
 				+ sep
 				+ super.summary();
 	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	
+	
 }

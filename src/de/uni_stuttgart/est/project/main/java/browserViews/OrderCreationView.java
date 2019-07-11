@@ -145,6 +145,31 @@ public class OrderCreationView implements View {
 				String ratePerHour = Integer.toString(ratePerHourDouble.intValue());
 				addHoursHTML(Integer.toString(workingHours.getHours()), ratePerHour);
 				orderComponent = workingHours.getOrderComponent();
+			
+			} else if (orderComponent instanceof ShippingAddress) {
+				ShippingAddress shippingAddress = (ShippingAddress) orderComponent;
+				Address deliveryAddress = shippingAddress.getAddress();
+				
+                // get the values
+                String streetName = deliveryAddress.getStreetname();
+                String houseNumber = Integer.toString(deliveryAddress.getHousenumber());
+                String zipCode = Integer.toString(deliveryAddress.getZipcode());
+                String city = deliveryAddress.getCity();
+                String country = deliveryAddress.getCountry();
+				
+                DOMInputElement streetnameIn = (DOMInputElement) doc.findElement(By.id("streetname"));
+                DOMInputElement houseNumberIn = (DOMInputElement) doc.findElement(By.id("housenumber"));
+                DOMInputElement zipcodeIn = (DOMInputElement) doc.findElement(By.id("zipcode"));
+                DOMInputElement cityIn = (DOMInputElement) doc.findElement(By.id("city"));
+                DOMInputElement countryIn = (DOMInputElement) doc.findElement(By.id("country"));
+                
+                streetnameIn.setValue(streetName);
+                houseNumberIn.setValue(houseNumber);
+                zipcodeIn.setValue(zipCode);
+                cityIn.setValue(city);
+                countryIn.setValue(country);
+				
+                orderComponent = shippingAddress.getOrderComponent();
 			}
 		}
 		
@@ -263,6 +288,8 @@ public class OrderCreationView implements View {
 			@Override
 			public void handleEvent(DOMEvent arg0) {
 				// get the order name
+				DOMElement warningPanelAddress = doc.findElement(By.id("addressInvalid"));
+				
 				DOMInputElement orderNameInput = (DOMInputElement) doc.findElement(By.id("order-name"));
 				String orderName = orderNameInput.getValue();
 				
@@ -275,12 +302,35 @@ public class OrderCreationView implements View {
 				
                 // get the values
                 String streetName = streetnameIn.getValue();
-                int houseNumber = Integer.parseInt(houseNumberIn.getValue());
-                int zipCode = Integer.parseInt(zipcodeIn.getValue());
+                String houseNumberStr = houseNumberIn.getValue();
+                String zipCodeStr = zipcodeIn.getValue();
                 String city = cityIn.getValue();
                 String country = countryIn.getValue();
+                
+                Address deliverAddress = null;
+				if (!streetName.equals("") && !city.equals("") && !country.equals("")
+						&& !houseNumberStr.equals("") && !zipCodeStr.equals("")) {
+					
+					int houseNumber = Integer.parseInt(houseNumberStr);
+					int zipCode = Integer.parseInt(zipCodeStr);
+					
+					deliverAddress = new Address(streetName, houseNumber, zipCode, city, country);
+					
+					warningPanelAddress.setAttribute("class", "alert alert-danger invisible");
+					
+				} else {
+					
+					if (streetName.equals("") && city.equals("") && country.equals("")
+							&& houseNumberStr.equals("") && zipCodeStr.equals("")) {
+						
+						warningPanelAddress.setAttribute("class", "alert alert-danger invisible");
+						
+					} else {
+						warningPanelAddress.setAttribute("class", "alert alert-danger");	
+					}
+				}
 				
-				Address deliverAddress = new Address(streetName, houseNumber, zipCode, city, country);
+				
 				
 		    	// get all the materials
 		    	List<String> materials = new ArrayList<String>();
@@ -342,7 +392,10 @@ public class OrderCreationView implements View {
 				for (int i = 0; i < hoursCounts.size(); i++) {
 					order = new WorkingHours(order, "Arbeitszeit", hoursCounts.get(i), hoursPricesPerHour.get(i));
 				}
-				order = new ShippingAddress(order, deliverAddress);
+				
+				if (deliverAddress != null) {
+					order = new ShippingAddress(order, deliverAddress);	
+				}
 
 				Storage storage = Initialize.getSerializer();
 				Order saveOrder = new Order(orderName, order, order.summary());
