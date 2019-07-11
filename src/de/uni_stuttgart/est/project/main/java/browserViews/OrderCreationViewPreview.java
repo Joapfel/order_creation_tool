@@ -67,9 +67,8 @@ public class OrderCreationViewPreview implements View{
 		DOMElement addButton = doc.findElement(By.id("buttonSaveOrder"));
 		
 		addButton.addEventListener(DOMEventType.OnClick, domEvent -> {
-
 			// print and save the order
-			String path = "Order.txt";
+			String path = this.order.getOrdername() + ".txt";
 			String orderAsText = OrderPreviewTemplates.getGermanTemplate(order);
 	    	FileWriter.writeToFile(path, orderAsText);
 
