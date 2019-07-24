@@ -1,4 +1,22 @@
-﻿# Project Name
+### Login as normal user
+![App](https://github.com/Joapfel/order_creation_tool/blob/master/GSE1.png)
+
+### create new customer
+![App](https://github.com/Joapfel/order_creation_tool/blob/master/GSE2.png)
+
+### create new order for a customer 
+![App](https://github.com/Joapfel/order_creation_tool/blob/master/GSE3.png)
+
+### order formulated as text
+![App](https://github.com/Joapfel/order_creation_tool/blob/master/GSE4.png)
+
+### login as HR user
+![App](https://github.com/Joapfel/order_creation_tool/blob/master/GSE5.png)
+
+### create new normal users
+![App](https://github.com/Joapfel/order_creation_tool/blob/master/GSE6.png)
+
+# Project Name
 
 
 ## Build
